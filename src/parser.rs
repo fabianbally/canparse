@@ -9,14 +9,14 @@ use encoding::{DecoderTrap, Encoding};
 use nom;
 use std::collections::HashMap;
 use std::error::Error;
-use std::fmt::{format, Display, Formatter};
+use std::fmt::{Display, Formatter};
 use std::fs::File;
 use std::io;
 use std::io::prelude::*;
 use std::marker::Sized;
 use std::path::Path;
 use std::str::FromStr;
-use std::{fmt, result};
+use std::fmt;
 
 #[cfg(feature = "use-socketcan")]
 use socketcan::CANFrame;
@@ -474,25 +474,22 @@ fn parse_array(
 
 /// Internal function for parsing CAN message slices given the definition parameters.  This is where
 /// the real calculations happen.
-fn parse_message(
+fn decode_message(
     bit_len: usize,
     start_bit: usize,
     little_endian: bool,
     scale: f32,
     offset: f32,
-    msg: &Vec<u8>,
+    msg: &[u8],
 ) -> Option<f32> {
-    let mut msg = msg.clone();
+    let mut msg = msg.to_owned();
 
-    if msg.len() == 0 {
+    if msg.is_empty() {
         return None;
     }
 
     if msg.len() < 8 {
-        let padding_width = 8 - msg.len();
-        for _ in 0..padding_width {
-            msg.push(0x00);
-        }
+        msg.resize(8, 0x00);
     }
 
     let msg64: u64 = if little_endian {
@@ -527,14 +524,14 @@ fn encode_signal(
         false => byte_data.to_be_bytes(),
     };
 
-    return Ok(result);
+    Ok(result)
 }
 
 /// The collection of functions for parsing CAN messages `N` into their defined signal values.
 pub trait DecodeMessage<N> {
     /// Parses CAN message type `N` into generic `f32` signal value on success, or `None`
     /// on failure.
-    fn parse_message(&self, msg: N) -> Option<f32>;
+    fn decode_message(&self, msg: N) -> Option<f32>;
 
     /// Returns a closure which parses CAN message type `N` into generic `f32` signal value on
     /// success, or `None` on failure.
@@ -581,7 +578,7 @@ impl SignalDefinition {
 }
 
 impl<'a> DecodeMessage<&'a [u8; 8]> for SignalDefinition {
-    fn parse_message(&self, msg: &[u8; 8]) -> Option<f32> {
+    fn decode_message(&self, msg: &[u8; 8]) -> Option<f32> {
         parse_array(
             self.bit_len,
             self.start_bit,
@@ -606,9 +603,9 @@ impl<'a> DecodeMessage<&'a [u8; 8]> for SignalDefinition {
     }
 }
 
-impl<'a> DecodeMessage<Vec<u8>> for SignalDefinition {
-    fn parse_message(&self, msg: Vec<u8>) -> Option<f32> {
-        parse_message(
+impl DecodeMessage<Vec<u8>> for SignalDefinition {
+    fn decode_message(&self, msg: Vec<u8>) -> Option<f32> {
+        decode_message(
             self.bit_len,
             self.start_bit,
             self.little_endian,
@@ -626,14 +623,14 @@ impl<'a> DecodeMessage<Vec<u8>> for SignalDefinition {
         let little_endian = self.little_endian;
 
         let fun = move |msg: Vec<u8>| {
-            parse_message(bit_len, start_bit, little_endian, scale, offset, &msg)
+            decode_message(bit_len, start_bit, little_endian, scale, offset, &msg)
         };
 
         Box::new(fun)
     }
 }
 
-impl<'a> EncodeMessage<Vec<u8>> for FrameDefinition {
+impl EncodeMessage<Vec<u8>> for FrameDefinition {
     fn encode_message(&self, signal_map: HashMap<String, f64>) -> Result<Vec<u8>, String> {
         let signals = self.get_signals();
 
@@ -650,7 +647,7 @@ impl<'a> EncodeMessage<Vec<u8>> for FrameDefinition {
                 signal.little_endian,
                 signal.scale,
                 signal.offset,
-                signal_map.get(&signal.name).unwrap().clone(),
+                *signal_map.get(&signal.name).unwrap(),
             );
 
             let byte_data = match byte_data {
@@ -663,11 +660,11 @@ impl<'a> EncodeMessage<Vec<u8>> for FrameDefinition {
             }
         }
 
-        return Ok(result.to_vec());
+        Ok(result.to_vec())
     }
 }
 
-impl<'a> EncodeMessage<[u8; 8]> for FrameDefinition {
+impl EncodeMessage<[u8; 8]> for FrameDefinition {
     fn encode_message(&self, signal_map: HashMap<String, f64>) -> Result<[u8; 8], String> {
         let signals = self.get_signals();
 
@@ -684,7 +681,7 @@ impl<'a> EncodeMessage<[u8; 8]> for FrameDefinition {
                 signal.little_endian,
                 signal.scale,
                 signal.offset,
-                signal_map.get(&signal.name).unwrap().clone(),
+                *signal_map.get(&signal.name).unwrap(),
             );
 
             let byte_data = match byte_data {
@@ -697,15 +694,15 @@ impl<'a> EncodeMessage<[u8; 8]> for FrameDefinition {
             }
         }
 
-        return Ok(result);
+        Ok(result)
     }
 }
 
 #[cfg(feature = "use-socketcan")]
 impl<'a> DecodeMessage<&'a CANFrame> for SignalDefinition {
-    fn parse_message(&self, frame: &CANFrame) -> Option<f32> {
+    fn decode_message(&self, frame: &CANFrame) -> Option<f32> {
         let msg = &frame.data().to_vec();
-        parse_message(
+        decode_message(
             self.bit_len,
             self.start_bit,
             self.little_endian,
@@ -724,7 +721,7 @@ impl<'a> DecodeMessage<&'a CANFrame> for SignalDefinition {
 
         let fun = move |frame: &CANFrame| {
             let msg = &frame.data();
-            parse_message(
+            decode_message(
                 bit_len,
                 start_bit,
                 little_endian,
@@ -988,27 +985,27 @@ mod tests {
 
     #[test]
     fn test_parse_array() {
-        assert_relative_eq!(SIGNAL_DEF.parse_message(MSG.clone()).unwrap(), 2728.5f32);
-        assert_relative_eq!(SIGNAL_DEF_BE.parse_message(MSG_BE.clone()).unwrap(), 2728.5);
+        assert_relative_eq!(SIGNAL_DEF.decode_message(MSG.clone()).unwrap(), 2728.5f32);
+        assert_relative_eq!(SIGNAL_DEF_BE.decode_message(MSG_BE.clone()).unwrap(), 2728.5);
     }
 
     #[test]
     fn test_parse_message() {
         assert_relative_eq!(
-            SIGNAL_DEF.parse_message(MSG.clone()[..7].to_vec()).unwrap(),
+            SIGNAL_DEF.decode_message(MSG.clone()[..7].to_vec()).unwrap(),
             2728.5
         );
         assert_relative_eq!(
             SIGNAL_DEF_BE
-                .parse_message(MSG_BE.clone()[..7].to_vec())
+                .decode_message(MSG_BE.clone()[..7].to_vec())
                 .unwrap(),
             2728.5
         );
         assert!(SIGNAL_DEF
-            .parse_message(MSG.clone()[..0].to_vec())
+            .decode_message(MSG.clone()[..0].to_vec())
             .is_none());
         assert!(SIGNAL_DEF_BE
-            .parse_message(MSG_BE.clone()[..0].to_vec())
+            .decode_message(MSG_BE.clone()[..0].to_vec())
             .is_none());
     }
 
@@ -1026,13 +1023,13 @@ mod tests {
 
         assert!(ret[3] == 0x44 && ret[4] == 0x55);
 
-        let sig = SIGNAL_DEF.parse_message(ret.clone());
+        let sig = SIGNAL_DEF.decode_message(ret.clone());
 
         assert!(sig.is_some());
 
         assert_eq!(sig.unwrap(), 2728.5);
 
-        let sig = SIGNAL_DEF_ALT.parse_message(ret.clone());
+        let sig = SIGNAL_DEF_ALT.decode_message(ret.clone());
 
         assert!(sig.is_some());
 

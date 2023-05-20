@@ -26,13 +26,13 @@ lazy_static! {
 
 fn bench_parse_array(b: &mut Bencher) {
     b.bench_function("bench_parse_array", move |b| {
-        b.iter(|| black_box(SPNDEF.parse_message(&MSG as &[u8; 8]).unwrap()))
+        b.iter(|| black_box(SPNDEF.decode_message(&MSG as &[u8; 8]).unwrap()))
     });
 }
 
 fn bench_parse_message(b: &mut Bencher) {
     b.bench_function("bench_parse_message", move |b| {
-        b.iter(|| black_box(SPNDEF.parse_message(MSG[..].to_vec()).unwrap()))
+        b.iter(|| black_box(SPNDEF.decode_message(MSG[..].to_vec()).unwrap()))
     });
 }
 

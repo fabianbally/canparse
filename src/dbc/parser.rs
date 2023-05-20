@@ -23,15 +23,15 @@ named! {
 }
 
 named!(pub entry<&str, Entry>, alt!(
-    version                => { |r| Entry::Version(r) } |
-    bus_configuration      => { |r| Entry::BusConfiguration(r) } |
-    message_definition     => { |r| Entry::MessageDefinition(r) } |
-    message_description    => { |r| Entry::MessageDescription(r) } |
-    message_attribute      => { |r| Entry::MessageAttribute(r) } |
-    signal_definition      => { |r| Entry::SignalDefinition(r) } |
-    signal_description     => { |r| Entry::SignalDescription(r) } |
-    signal_attribute       => { |r| Entry::SignalAttribute(r) } |
-    unknown                => { |r| Entry::Unknown(r) }
+    version                => { Entry::Version } |
+    bus_configuration      => { Entry::BusConfiguration } |
+    message_definition     => { Entry::MessageDefinition } |
+    message_description    => { Entry::MessageDescription } |
+    message_attribute      => { Entry::MessageAttribute } |
+    signal_definition      => { Entry::SignalDefinition } |
+    signal_description     => { Entry::SignalDescription } |
+    signal_attribute       => { Entry::SignalAttribute } |
+    unknown                => { Entry::Unknown }
 ));
 
 named!(pub unknown<&str, String>,

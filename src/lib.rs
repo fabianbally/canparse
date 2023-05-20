@@ -13,7 +13,7 @@
 //! implemented as folows:
 //!
 //! ```rust,no_run
-//! use canparse::parser::{DbcLibrary, SignalDefinition, ParseMessage};
+//! use canparse::parser::{DbcLibrary, SignalDefinition, DecodeMessage};
 //!
 //! // Parse dbc file into DbcLibrary
 //! let lib = DbcLibrary::from_dbc_file("./j1939.dbc").unwrap();
@@ -24,7 +24,7 @@
 //!
 //! // Parse frame containing engine speed
 //! let msg: [u8; 8] = [0x11, 0x22, 0x33, 0x44, 0x55, 0x66, 0x77, 0x88];
-//! let engine_speed: f32 = enginespeed_def.parse_message(&msg).unwrap();
+//! let engine_speed: f32 = enginespeed_def.decode_message(&msg).unwrap();
 //!
 //! println!("Engine speed: {}", engine_speed);
 //! ```
