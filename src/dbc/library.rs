@@ -376,7 +376,7 @@ impl DbcLibrary {
 mod tests {
 
     use super::DbcLibrary;
-    use crate::dbc::{Entry, DbcSignalDefinition, DbcVersion};
+    use crate::dbc::{DbcSignalDefinition, DbcVersion, Entry};
 
     lazy_static! {
         static ref DBCLIB_EMPTY: DbcLibrary = DbcLibrary::default();

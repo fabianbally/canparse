@@ -36,10 +36,6 @@ fn bench_parse_message(b: &mut Bencher) {
     });
 }
 
-criterion_group!(
-    benches,
-    bench_parse_array,
-    bench_parse_message,
-);
+criterion_group!(benches, bench_parse_array, bench_parse_message,);
 
 criterion_main!(benches);

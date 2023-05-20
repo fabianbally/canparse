@@ -1,6 +1,6 @@
 extern crate canparse;
 
-use canparse::parser::{DecodeMessage, DbcLibrary, SignalDefinition};
+use canparse::parser::{DbcLibrary, DecodeMessage, SignalDefinition};
 
 #[test]
 fn canlib_build_parse() {

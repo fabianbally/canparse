@@ -668,7 +668,7 @@ impl<'a> EncodeMessage<Vec<u8>> for FrameDefinition {
 }
 
 impl<'a> EncodeMessage<[u8; 8]> for FrameDefinition {
-    fn encode_message(&self, signal_map: HashMap<String, f64>) -> Result<[u8;8], String> {
+    fn encode_message(&self, signal_map: HashMap<String, f64>) -> Result<[u8; 8], String> {
         let signals = self.get_signals();
 
         let mut result: [u8; 8] = [0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00];
@@ -932,7 +932,6 @@ mod tests {
             _spndef.little_endian = false;
             _spndef
         };
-
         static ref SIGNAL_DEF_ALT: SignalDefinition = {
             let mut sig_alt_def = SIGNAL_DEF.clone();
             sig_alt_def.offset = 10.0;
@@ -1038,7 +1037,6 @@ mod tests {
         assert!(sig.is_some());
 
         assert_eq!(sig.unwrap(), 2728.5);
-
     }
 
     #[test]
@@ -1069,7 +1067,10 @@ mod tests {
         #[test]
         fn parse_canframe_closure() {
             assert_relative_eq!(SIGNAL_DEF.parser()(&FRAME as &CANFrame).unwrap(), 2728.5);
-            assert_relative_eq!(SIGNAL_DEF_BE.parser()(&FRAME_BE as &CANFrame).unwrap(), 2728.5);
+            assert_relative_eq!(
+                SIGNAL_DEF_BE.parser()(&FRAME_BE as &CANFrame).unwrap(),
+                2728.5
+            );
         }
 
         #[test]
