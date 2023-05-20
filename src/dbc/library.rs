@@ -280,7 +280,7 @@ impl DbcLibrary {
     /// # Example
     ///
     /// ```rust
-    /// use canparse::dbc::DbcLibrary;
+    /// use fastcan::dbc::DbcLibrary;
     ///
     /// let lib: DbcLibrary = DbcLibrary::from_dbc_file("./tests/data/sample.dbc").unwrap();
     ///

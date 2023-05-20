@@ -1,6 +1,6 @@
-extern crate canparse;
+extern crate fastcan;
 
-use canparse::parser::{DbcLibrary, DecodeMessage, SignalDefinition};
+use fastcan::parser::{DbcLibrary, DecodeMessage, SignalDefinition};
 
 #[test]
 fn canlib_build_parse() {

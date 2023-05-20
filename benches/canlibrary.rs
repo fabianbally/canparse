@@ -1,9 +1,9 @@
 #[macro_use]
 extern crate lazy_static;
-extern crate canparse;
+extern crate fastcan;
 
-use canparse::parser::*;
 use criterion::{black_box, criterion_group, criterion_main, Criterion as Bencher};
+use fastcan::parser::*;
 
 lazy_static! {
     static ref SPNDEF: SignalDefinition = SignalDefinition::new(

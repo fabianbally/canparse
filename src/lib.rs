@@ -13,7 +13,7 @@
 //! implemented as folows:
 //!
 //! ```rust,no_run
-//! use canparse::parser::{DbcLibrary, SignalDefinition, DecodeMessage};
+//! use fastcan::parser::{DbcLibrary, SignalDefinition, DecodeMessage};
 //!
 //! // Parse dbc file into DbcLibrary
 //! let lib = DbcLibrary::from_dbc_file("./j1939.dbc").unwrap();
@@ -33,7 +33,7 @@
     feature = "cargo-clippy",
     allow(clippy::redundant_field_names, clippy::unreadable_literal)
 )]
-#![crate_name = "canparse"]
+#![crate_name = "fastcan"]
 
 extern crate encoding;
 #[macro_use]

@@ -1,33 +1,14 @@
 # canparse
 
-[![crates.io](https://img.shields.io/crates/v/canparse.svg)](https://crates.io/crates/canparse)
-[![Build Status](https://img.shields.io/github/workflow/status/jmagnuson/canparse/Test/master)](https://github.com/jmagnuson/canparse/actions)
-[![codecov](https://codecov.io/gh/jmagnuson/canparse/branch/master/graph/badge.svg)](https://codecov.io/gh/jmagnuson/canparse)
-
-
-A CAN signal and definition parser, written in Rust.
-
-The goal of canparse is to provide a means of converting CAN frames into
-pre-defined signals, via CANdb definition input ([DBC](https://vector.com/vi_candblib_en.html)).
-One common application is the [J1939](https://en.wikipedia.org/wiki/SAE_J1939)
-spec, which defines a set of common parameters for heavy-duty trucks and other vehicles.
-`PgnLibrary` is also included as an application of DBC, to give first-class support for
-the PGN/SPN schema.
-
-[Documentation](https://docs.rs/canparse)
+A CAN signal encoding and decoding library with dynamic DBC loading
 
 ## Usage
 
 Add canparse to your `Cargo.toml` with:
 
-```toml
-[dependencies]
-canparse = "0.1"
-```
-
 ## Example
 
-For a predefined DBC file, a simple program which utilizes `PgnLibrary` can be
+For a predefined DBC file, a simple program which utilizes `DbcLibrary` can be
 implemented as folows:
 
 ```rust
@@ -38,10 +19,10 @@ use canparse::pgn::{PgnLibrary, SpnDefinition, ParseMessage};
 fn main() {
 
     // Parse dbc file into PgnLibrary
-    let lib = PgnLibrary::from_dbc_file("./j1939.dbc").unwrap();
+    let lib = DbcLibrary::from_dbc_file("./j1939.dbc").unwrap();
 
     // Pull signal definition for engine speed
-    let enginespeed_def: &SpnDefinition = lib
+    let enginespeed_def: &SignalDefinition = lib
         .get_spn("Engine_Speed").unwrap();
 
     // Parse frame containing engine speed

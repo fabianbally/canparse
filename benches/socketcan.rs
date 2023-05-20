@@ -1,16 +1,17 @@
 #[macro_use]
 extern crate lazy_static;
-extern crate canparse;
+extern crate fastcan;
 
 extern crate socketcan;
 
-use canparse::dbc::*;
 use criterion::{black_box, criterion_group, criterion_main, Criterion as Bencher};
+use fastcan::parser::DecodeMessage;
+use fastcan::parser::SignalDefinition;
 
 use socketcan::CANFrame;
 
 lazy_static! {
-    static ref SPNDEF: SignalDesignation = SignalDesignation::new(
+    static ref SPNDEF: SignalDefinition = SignalDefinition::new(
         "Engine_Speed".to_string(),
         190,
         2364539904,
@@ -36,7 +37,7 @@ fn bench_parse_canframe(b: &mut Bencher) {
     let frame = CANFrame::new(0, &MSG[..], false, false).unwrap();
 
     b.bench_function("bench_parse_canframe", move |b| {
-        b.iter(|| black_box(SPNDEF.parse_message(&frame).unwrap()))
+        b.iter(|| black_box(SPNDEF.decode_message(&frame).unwrap()))
     });
 }
 

@@ -9,6 +9,7 @@ use encoding::{DecoderTrap, Encoding};
 use nom;
 use std::collections::HashMap;
 use std::error::Error;
+use std::fmt;
 use std::fmt::{Display, Formatter};
 use std::fs::File;
 use std::io;
@@ -16,7 +17,6 @@ use std::io::prelude::*;
 use std::marker::Sized;
 use std::path::Path;
 use std::str::FromStr;
-use std::fmt;
 
 #[cfg(feature = "use-socketcan")]
 use socketcan::CANFrame;
@@ -55,7 +55,7 @@ impl DbcLibrary {
     /// # Example
     ///
     /// ```rust
-    /// use canparse::dbc::DbcLibrary;
+    /// use fastcan::dbc::DbcLibrary;
     ///
     /// let lib: DbcLibrary = DbcLibrary::from_dbc_file("./tests/data/sample.dbc").unwrap();
     ///
@@ -76,10 +76,10 @@ impl DbcLibrary {
     /// # Example
     ///
     /// ```rust
-    /// extern crate canparse;
+    /// extern crate fastcan;
     /// extern crate encoding;
     ///
-    /// use canparse::dbc::DbcLibrary;
+    /// use fastcan::dbc::DbcLibrary;
     /// use encoding::Encoding;
     /// use encoding::all::ISO_8859_1;
     ///
@@ -138,8 +138,8 @@ impl DbcLibrary {
     /// use std::collections::HashMap;
     /// use std::io::BufRead;
     /// use std::str::FromStr;
-    /// use canparse::dbc::Entry;
-    /// use canparse::dbc::DbcLibrary;
+    /// use fastcan::dbc::Entry;
+    /// use fastcan::dbc::DbcLibrary;
     ///
     /// let mut lib = DbcLibrary::new( HashMap::default() );
     ///
@@ -721,14 +721,7 @@ impl<'a> DecodeMessage<&'a CANFrame> for SignalDefinition {
 
         let fun = move |frame: &CANFrame| {
             let msg = &frame.data();
-            decode_message(
-                bit_len,
-                start_bit,
-                little_endian,
-                scale,
-                offset,
-                &msg.to_vec(),
-            )
+            decode_message(bit_len, start_bit, little_endian, scale, offset, msg)
         };
 
         Box::new(fun)
@@ -986,13 +979,18 @@ mod tests {
     #[test]
     fn test_parse_array() {
         assert_relative_eq!(SIGNAL_DEF.decode_message(MSG.clone()).unwrap(), 2728.5f32);
-        assert_relative_eq!(SIGNAL_DEF_BE.decode_message(MSG_BE.clone()).unwrap(), 2728.5);
+        assert_relative_eq!(
+            SIGNAL_DEF_BE.decode_message(MSG_BE.clone()).unwrap(),
+            2728.5
+        );
     }
 
     #[test]
     fn test_parse_message() {
         assert_relative_eq!(
-            SIGNAL_DEF.decode_message(MSG.clone()[..7].to_vec()).unwrap(),
+            SIGNAL_DEF
+                .decode_message(MSG.clone()[..7].to_vec())
+                .unwrap(),
             2728.5
         );
         assert_relative_eq!(
@@ -1015,7 +1013,7 @@ mod tests {
         signal_map.insert("Engine_Speed".to_string(), 2728.5);
         signal_map.insert("Engine_Speed2".to_string(), 2728.5);
 
-        let ret = FRAME_DEF.encode_message(signal_map).clone();
+        let ret = FRAME_DEF.encode_message(signal_map);
 
         assert!(ret.is_ok());
 
@@ -1029,7 +1027,7 @@ mod tests {
 
         assert_eq!(sig.unwrap(), 2728.5);
 
-        let sig = SIGNAL_DEF_ALT.decode_message(ret.clone());
+        let sig = SIGNAL_DEF_ALT.decode_message(ret);
 
         assert!(sig.is_some());
 
@@ -1073,11 +1071,13 @@ mod tests {
         #[test]
         fn test_parse_canframe() {
             assert_relative_eq!(
-                SIGNAL_DEF.parse_message(&FRAME as &CANFrame).unwrap(),
+                SIGNAL_DEF.decode_message(&FRAME as &CANFrame).unwrap(),
                 2728.5
             );
             assert_relative_eq!(
-                SIGNAL_DEF_BE.parse_message(&FRAME_BE as &CANFrame).unwrap(),
+                SIGNAL_DEF_BE
+                    .decode_message(&FRAME_BE as &CANFrame)
+                    .unwrap(),
                 2728.5
             );
         }

@@ -1,5 +1,5 @@
 [package]
-name = "canparse"
+name = "fast-can"
 version = "0.1.4"
 authors = ["Jon Magnuson <jon.magnuson@gmail.com>", "Fabian Bally <fabian.bally@gmail.com>"]
 description = "A CAN signal and definition parser"
@@ -11,7 +11,7 @@ license = "MIT/Apache-2.0"
 edition = "2018"
 
 [lib]
-name = "canparse"
+name = "fastcan"
 path = "src/lib.rs"
 
 [[bench]]
@@ -43,5 +43,5 @@ lazy_static = "1.3"
 features = ["use-socketcan"]
 
 [badges]
-travis-ci = { repository = "jmagnuson/canparse" }
-codecov = { repository = "jmagnuson/canparse", branch = "master", service = "github" }
+travis-ci = { repository = "fabianbally/fast-can-rs" }
+codecov = { repository = "fabianbally/fast-can-rs", branch = "main", service = "github" }
