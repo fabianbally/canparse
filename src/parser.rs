@@ -241,6 +241,22 @@ impl FrameDefinition {
     pub fn get_signals(&self) -> Vec<SignalDefinition> {
         return self.signals.values().cloned().collect();
     }
+
+    pub fn get_name(&self) -> &str {
+        &self.name_abbrev
+    }
+
+    pub fn get_id(&self) -> u32 {
+        self.id
+    }
+
+    pub fn get_description(&self) -> &str {
+        &self.description
+    }
+
+    pub fn get_length(&self) -> u32 {
+        self.length
+    }
 }
 // TODO: DbcDefinition Builder pattern
 
@@ -436,9 +452,9 @@ impl FromDbc for FrameDefinition {
 /// Suspect Parameter Number definition
 #[derive(Debug, PartialEq, Clone)]
 pub struct SignalDefinition {
-    pub name: String,
-    pub number: usize,
-    pub id: u32,
+    name: String,
+    number: usize,
+    id: u32,
     description: String,
     start_bit: usize,
     bit_len: usize,
@@ -539,7 +555,7 @@ pub trait DecodeMessage<N> {
 }
 
 pub trait EncodeMessage<N> {
-    fn encode_message(&self, signal_map: HashMap<String, f64>) -> Result<N, String>;
+    fn encode_message(&self, signal_map: &HashMap<String, f64>) -> Result<N, String>;
 }
 
 impl SignalDefinition {
@@ -574,6 +590,18 @@ impl SignalDefinition {
             max_value,
             units,
         }
+    }
+
+    pub fn get_name(&self) -> &str {
+        &self.name
+    }
+
+    pub fn get_id(&self) -> u32 {
+        self.id
+    }
+
+    pub fn get_description(&self) -> &str {
+        &self.description
     }
 }
 
@@ -631,7 +659,7 @@ impl DecodeMessage<Vec<u8>> for SignalDefinition {
 }
 
 impl EncodeMessage<Vec<u8>> for FrameDefinition {
-    fn encode_message(&self, signal_map: HashMap<String, f64>) -> Result<Vec<u8>, String> {
+    fn encode_message(&self, signal_map: &HashMap<String, f64>) -> Result<Vec<u8>, String> {
         let signals = self.get_signals();
 
         let mut result: [u8; 8] = [0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00];
@@ -665,7 +693,7 @@ impl EncodeMessage<Vec<u8>> for FrameDefinition {
 }
 
 impl EncodeMessage<[u8; 8]> for FrameDefinition {
-    fn encode_message(&self, signal_map: HashMap<String, f64>) -> Result<[u8; 8], String> {
+    fn encode_message(&self, signal_map: &HashMap<String, f64>) -> Result<[u8; 8], String> {
         let signals = self.get_signals();
 
         let mut result: [u8; 8] = [0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00];
@@ -1013,7 +1041,7 @@ mod tests {
         signal_map.insert("Engine_Speed".to_string(), 2728.5);
         signal_map.insert("Engine_Speed2".to_string(), 2728.5);
 
-        let ret = FRAME_DEF.encode_message(signal_map);
+        let ret = FRAME_DEF.encode_message(&signal_map);
 
         assert!(ret.is_ok());
 
