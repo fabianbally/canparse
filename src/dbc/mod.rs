@@ -72,6 +72,13 @@ pub struct DbcSignalAttribute {
     pub value: String,
 }
 
+#[derive(Debug, Clone, Eq, PartialEq)]
+pub struct DbcSignalLongName {
+    pub short_name: String,
+    pub long_name: String,
+    pub id: u32 
+}
+
 /// Composed DBC entry.
 #[derive(Debug, Clone, PartialEq)]
 pub enum Entry {
@@ -100,6 +107,8 @@ pub enum Entry {
     /// `BA_ "[attribute name]" SG_ [node|can id] [signal name] [attribute value];`
     SignalAttribute(DbcSignalAttribute),
 
+    SignalLongName(DbcSignalLongName),
+
     // `CM_ [BU_|BO_|SG_] [can id] [signal name] "[description]"`
     // Description, -- flatten subtypes instead
 
@@ -127,6 +136,7 @@ impl Entry {
             Entry::SignalDefinition(_) => EntryType::SignalDefinition,
             Entry::SignalDescription(_) => EntryType::SignalDescription,
             Entry::SignalAttribute(_) => EntryType::SignalAttribute,
+            Entry::SignalLongName(_) => EntryType::SignalLongName,
             Entry::Unknown(_) => EntryType::Unknown,
         }
     }
@@ -158,6 +168,7 @@ pub enum EntryType {
     SignalDefinition,
     SignalDescription,
     SignalAttribute,
+    SignalLongName,
 //    SignalAttributeDefinition,
 
     // AttributeDefinition,
@@ -181,6 +192,7 @@ impl Display for EntryType {
             EntryType::SignalAttribute => "SignalAttribute",
 
             EntryType::Unknown => "Unknown",
+            EntryType::SignalLongName => "SignalLongName",
         };
         write!(f, "{}", entry_str)
     }

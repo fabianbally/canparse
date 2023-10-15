@@ -28,6 +28,7 @@ named!(pub entry<&str, Entry>, alt!(
     message_definition     => { Entry::MessageDefinition } |
     message_description    => { Entry::MessageDescription } |
     message_attribute      => { Entry::MessageAttribute } |
+    signal_long_name       => { Entry::SignalLongName } |
     signal_definition      => { Entry::SignalDefinition } |
     signal_description     => { Entry::SignalDescription } |
     signal_attribute       => { Entry::SignalAttribute } |
@@ -50,6 +51,25 @@ named!(pub version<&str, DbcVersion>,
         data: quoted_str >>
         line_ending >>
         ( DbcVersion(data) )
+    )
+);
+
+named!(pub signal_long_name<&str, DbcSignalLongName>,
+    do_parse!(
+        tag!("BA_")   >>
+        tag!(" ")   >>
+        tag!("\"SystemSignalLongSymbol\"") >>
+        tag!(" SG_ ") >>
+        id: map_res!(digit, FromStr::from_str) >>
+        tag!(" ") >>
+        short: map_res!(
+            take_until!(" "), FromStr::from_str
+        ) >>
+        tag!(" ") >>
+        long: quoted_str >>
+        tag!(";") >>
+        line_ending >>
+        ( DbcSignalLongName{short_name: short, long_name: long, id: id} )
     )
 );
 

@@ -46,6 +46,26 @@ pub struct Message {
     /// e.g., CM_ BO_ 2364540158 "Electronic Engine Controller 1";
     description: Option<String>,
     signals: HashMap<String, Signal>,
+    long_names: HashMap<String, String>
+}
+
+impl Message {
+    fn apply_long_names(&mut self) {
+
+        let mut signals: HashMap<String, Signal> = HashMap::new();
+
+        for (name, signal) in self.signals.iter() {
+            if self.long_names.contains_key(name) {
+                signals.insert(self.long_names.get(name).unwrap().clone(), signal.clone());
+            }
+        }
+
+        for (short_name, _) in self.long_names.iter() {
+            self.signals.remove(short_name);
+        }
+
+        self.signals.extend(signals);
+    }
 }
 
 impl FromDbc for Message {
@@ -62,9 +82,9 @@ impl FromDbc for Message {
                 message_len,
                 sending_node,
             }) => Ok(Message {
-                name: name,
-                message_len: message_len,
-                sending_node: sending_node,
+                name,
+                message_len,
+                sending_node,
                 ..Default::default()
             }),
             Entry::MessageDescription(dbc::DbcMessageDescription {
@@ -85,7 +105,7 @@ impl FromDbc for Message {
                 attributes.insert(name, value);
 
                 Ok(Message {
-                    attributes: attributes,
+                    attributes,
                     ..Default::default()
                 })
             }
@@ -167,7 +187,15 @@ impl FromDbc for Message {
                     self.signals.insert(name, signal);
                     Ok(())
                 }
-            }
+            },
+            Entry::SignalLongName(inner) => {
+                if self.long_names.contains_key(&inner.short_name) {
+                    return Err(());
+                }
+
+                self.long_names.insert(inner.short_name, inner.long_name);
+                Ok(())
+            },
             _ => Err(()),
         }
     }
@@ -350,9 +378,10 @@ impl DbcLibrary {
             }
             Entry::SignalDescription(dbc::DbcSignalDescription { ref id, .. }) => id,
             Entry::SignalAttribute(dbc::DbcSignalAttribute { ref id, .. }) => id,
+            Entry::SignalLongName(dbc::DbcSignalLongName {ref id, .. }) => id,
             _ => {
                 return Err(format!("Unsupported entry: {}.", entry));
-            }
+            },
         };
 
         self.messages
@@ -368,6 +397,11 @@ impl DbcLibrary {
             });
 
         self.last_id = Some(_id);
+
+        for (_, message) in self.messages.iter_mut() {
+            message.apply_long_names();
+        }
+
         Ok(())
     }
 }
