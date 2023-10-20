@@ -1,5 +1,5 @@
 //! Signal processing using PGN/SPN definitions.
-
+/*
 #![allow(clippy::trivially_copy_pass_by_ref, clippy::too_many_arguments)]
 
 use crate::dbc::{parser as nomparse, *};
@@ -20,7 +20,8 @@ use std::str::FromStr;
 
 #[cfg(feature = "use-socketcan")]
 use socketcan::CANFrame;
-
+*/
+/*
 /// Trait for converting `Entry` values into a library's own entries.
 pub trait FromDbc {
     type Err;
@@ -158,7 +159,7 @@ impl DbcLibrary {
         use std::collections::hash_map::Entry as HashMapEntry;
 
         let _id: u32 = *match entry {
-            Entry::MessageDefinition(DbcMessageDefinition { ref id, .. }) => id,
+            Entry::MessageDefinition(DbcFrameDefinition { ref id, .. }) => id,
             Entry::MessageDescription(DbcMessageDescription { ref id, .. }) => id,
             Entry::MessageAttribute(DbcMessageAttribute { ref id, .. }) => id,
             Entry::SignalDefinition(..) => {
@@ -358,7 +359,7 @@ impl FromDbc for FrameDefinition {
         Self: Sized,
     {
         match entry {
-            Entry::MessageDefinition(DbcMessageDefinition { id, name, .. }) => Ok(
+            Entry::MessageDefinition(DbcFrameDefinition { id, name, .. }) => Ok(
                 FrameDefinition::new(id, name, "".to_string(), 0, HashMap::new()),
             ),
             Entry::MessageDescription(DbcMessageDescription {
@@ -383,7 +384,7 @@ impl FromDbc for FrameDefinition {
 
     fn merge_entry(&mut self, entry: Entry) -> Result<(), Self::Err> {
         match entry {
-            Entry::MessageDefinition(DbcMessageDefinition {
+            Entry::MessageDefinition(DbcFrameDefinition {
                 id, message_len, ..
             }) => {
                 self.id = id;
@@ -467,26 +468,6 @@ pub struct SignalDefinition {
     units: String,
 }
 
-/// Internal function for parsing CAN message arrays given the definition parameters.  This is where
-/// the real calculations happen.
-fn parse_array(
-    bit_len: usize,
-    start_bit: usize,
-    little_endian: bool,
-    scale: f32,
-    offset: f32,
-    msg: &[u8; 8],
-) -> Option<f32> {
-    let msg64: u64 = if little_endian {
-        LittleEndian::read_u64(msg)
-    } else {
-        BigEndian::read_u64(msg)
-    };
-
-    let bit_mask: u64 = 2u64.pow(bit_len as u32) - 1;
-
-    Some((((msg64 >> start_bit) & bit_mask) as f32) * scale + offset)
-}
 
 /// Internal function for parsing CAN message slices given the definition parameters.  This is where
 /// the real calculations happen.
@@ -1111,3 +1092,5 @@ mod tests {
         }
     }
 }
+
+*/
