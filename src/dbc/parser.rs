@@ -42,7 +42,7 @@ pub fn parse_dbc(line: &str) -> Result<Entry, ParseEntryError> {
     }
 }
 
-pub fn parse_message_definition(line: &str) -> Option<DbcFrameDefinition> {
+fn parse_message_definition(line: &str) -> Option<DbcFrameDefinition> {
     static RE: LazyRegex = LazyRegex::new(|| {
         Regex::new(r#"BO_ (?P<id>\d+) (?P<name>\S+) ?: (?P<len>\d+) (?P<sending_node>.*) ?"#)
             .unwrap()
@@ -70,7 +70,7 @@ pub fn parse_message_definition(line: &str) -> Option<DbcFrameDefinition> {
     })
 }
 
-pub fn parse_message_description(line: &str) -> Option<DbcMessageDescription> {
+fn parse_message_description(line: &str) -> Option<DbcMessageDescription> {
     static RE: LazyRegex =
         LazyRegex::new(|| Regex::new(r#"CM_ BO_ (?P<id>\d+) "(?P<description>.*)";"#).unwrap());
 
@@ -88,9 +88,9 @@ pub fn parse_message_description(line: &str) -> Option<DbcMessageDescription> {
     })
 }
 
-pub fn parse_message_attribute(line: &str) -> Option<DbcMessageAttribute> {
+fn parse_message_attribute(line: &str) -> Option<DbcMessageAttribute> {
     static RE: LazyRegex = LazyRegex::new(|| {
-        Regex::new(r#"BA_ "(?P<name>\w+)" BO_(?P<id>\d+) (?P<value>\S*);"#).unwrap()
+        Regex::new(r#"BA_ "(?P<name>\w+)" BO_ (?P<id>\d+) (?P<value>\S*);"#).unwrap()
     });
 
     RE.captures(line).and_then(|cap| {
@@ -111,7 +111,7 @@ pub fn parse_message_attribute(line: &str) -> Option<DbcMessageAttribute> {
     })
 }
 
-pub fn parse_signal_definition(line: &str) -> Option<DbcSignalDefinition> {
+fn parse_signal_definition(line: &str) -> Option<DbcSignalDefinition> {
     static RE: LazyRegex = LazyRegex::new(|| {
         Regex::new(
             r#" SG_ (?P<name>\S*)[ \t]((?P<multiplexed>m\d+)|(?P<multiplexor>M))? ?:[ ]?(?P<start_bit>\d+)\|(?P<bit_len>\d+)@(?P<little_endian>\d)(?P<is_signed>[+-]) \((?P<scale>-?\d+(\.\d+)?(e-?\d+)?),(?P<offset>-?\d+(\.\d+)?(e-?\d+)?)\) \[(?P<min_value>-?\d+(\.\d+)?(e-?\d+)?)\|(?P<max_value>-?\d+(\.\d+)?(e-?\d+)?)\] "(?P<units>.*)" (?P<receiving_node>.*)"#,
@@ -169,7 +169,7 @@ pub fn parse_signal_definition(line: &str) -> Option<DbcSignalDefinition> {
     })
 }
 
-pub fn parse_signal_description(line: &str) -> Option<DbcSignalDescription> {
+fn parse_signal_description(line: &str) -> Option<DbcSignalDescription> {
     static RE: LazyRegex = LazyRegex::new(|| {
         Regex::new(r#"CM_ SG_ (?P<id>\d+) (?P<name>\w+)[ \t]"(?P<description>.*)";"#).unwrap()
     });
@@ -192,7 +192,7 @@ pub fn parse_signal_description(line: &str) -> Option<DbcSignalDescription> {
     })
 }
 
-pub fn parse_signal_attribute(line: &str) -> Option<DbcSignalAttribute> {
+fn parse_signal_attribute(line: &str) -> Option<DbcSignalAttribute> {
     static RE: LazyRegex = LazyRegex::new(|| {
         Regex::new(r#"BA_ "(?P<key>\w+)" SG_ (?P<id>\d+) (?P<name>\w+)[ \t]"?(?P<value>\w+)"?;"#)
             .unwrap()
@@ -219,12 +219,12 @@ pub fn parse_signal_attribute(line: &str) -> Option<DbcSignalAttribute> {
 
 #[cfg(test)]
 mod tests {
-    use crate::dbc::*;
     use super::*;
+    use crate::dbc::*;
 
     #[test]
     fn test_signal_definition() {
-        let sig = DbcSignalDefinition {
+        let sig: DbcSignalDefinition = DbcSignalDefinition {
             name: "Engine_Speed".to_string(),
             start_bit: 24,
             bit_len: 16,
@@ -235,12 +235,89 @@ mod tests {
             min_value: 0.0,
             max_value: 8031.88,
             units: "rpm".to_string(),
-            receiving_node: "Vector__XXX".to_string()
+            receiving_node: "Vector__XXX".to_string(),
         };
 
-        assert!(parse_signal_definition(
-            r#" SG_ Engine_Speed : 24|16@1+ (0.125,0) [0|8031.88] "rpm" Vector__XXX"#
-        )
-        .unwrap() == sig);
+        assert_eq!(
+            parse_signal_definition(
+                r#" SG_ Engine_Speed : 24|16@1+ (0.125,0) [0|8031.88] "rpm" Vector__XXX"#
+            )
+            .unwrap(),
+            sig
+        );
+    }
+
+    #[test]
+    fn test_message_definition() {
+        let frame: DbcFrameDefinition = DbcFrameDefinition {
+            id: 2364539904,
+            name: "EEC1".to_string(),
+            message_len: 8,
+            sending_node: "Vector__XXX".to_string(),
+        };
+
+        assert_eq!(
+            parse_message_definition(r#"BO_ 2364539904 EEC1 : 8 Vector__XXX"#).unwrap(),
+            frame
+        );
+    }
+
+    #[test]
+    fn test_message_description() {
+        let description = DbcMessageDescription {
+            id: 2364539904,
+            description: "Engine Controller".to_string(),
+        };
+
+        assert_eq!(
+            parse_message_description(r#"CM_ BO_ 2364539904 "Engine Controller";\n"#).unwrap(),
+            description
+        );
+    }
+
+    #[test]
+    fn test_message_attribute() {
+        let attribute = DbcMessageAttribute {
+            name: "SingleFrame".to_string(),
+            id: 2364539904,
+            value: "0".to_string(),
+        };
+
+        assert_eq!(
+            parse_message_attribute(r#"BA_ "SingleFrame" BO_ 2364539904 0;"#).unwrap(),
+            attribute
+        );
+    }
+
+    #[test]
+    fn test_signal_description() {
+        let description = DbcSignalDescription {
+            id: 2364539904,
+            signal_name: "Engine_Speed".to_string(),
+            description: "A description for Engine speed.".to_string(),
+        };
+
+        assert_eq!(
+            parse_signal_description(
+                r#"CM_ SG_ 2364539904 Engine_Speed "A description for Engine speed.";"#
+            )
+            .unwrap(),
+            description
+        );
+    }
+
+    #[test]
+    fn test_signal_attribute() {
+        let attribute = DbcSignalAttribute {
+            name: "SPN".to_string(),
+            id: 2364539904,
+            signal_name: "Engine_Speed".to_string(),
+            value: "190".to_string(),
+        };
+
+        assert_eq!(
+            parse_signal_attribute(r#"BA_ "SPN" SG_ 2364539904 Engine_Speed 190;"#).unwrap(),
+            attribute
+        );
     }
 }

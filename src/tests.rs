@@ -4,10 +4,7 @@ mod tests {
 
     use crate::{
         dbc::DbcSignalDefinition,
-        dbc::{
-            library::{DbcFrame, DbcSignal},
-            DbcLibrary, DbcVersion, Entry,
-        },
+        dbc::{DbcFrame, DbcLibrary, DbcSignal, DbcVersion, Entry},
         mapper::{DecodeMessage, EncodeMessage},
     };
     use approx::assert_relative_eq;
@@ -81,8 +78,7 @@ mod tests {
             *DBC_ONE
                 .get_frame(2364539904)
                 .expect("failed to get PgnDefinition from PgnLibrary")
-                .get_signals()
-                .get("Engine_Speed")
+                .get_signal("Engine_Speed")
                 .expect("failed to get SpnDefinition from PgnDefinition")
                 .get_definition(),
             *SIGNAL_DEF
@@ -115,8 +111,7 @@ mod tests {
         let name = DBC_FF
             .get_frame(1297)
             .expect("Did not find FSG_EXTRA_FRAME")
-            .get_signals()
-            .get("FSG_DV_EBS_Brake_pressure_s_0000")
+            .get_signal("FSG_DV_EBS_Brake_pressure_s_0000")
             .expect("Did not find signal")
             .get_attribute("SystemSignalLongSymbol")
             .expect("Did not find LongName Attribute");
@@ -178,21 +173,6 @@ mod tests {
         assert!(sig.is_some());
 
         assert_eq!(sig.unwrap(), 2728.5);
-    }
-
-    #[test]
-    fn parse_message_closure() {
-        let dbc_signal = DbcSignal::new(Some(SIGNAL_DEF.clone()), None, HashMap::new(), None);
-        let dbc_signal_be = DbcSignal::new(Some(SIGNAL_DEF_BE.clone()), None, HashMap::new(), None);
-
-        assert_relative_eq!(
-            dbc_signal.parser()(MSG.clone()[..].to_vec()).unwrap(),
-            2728.5
-        );
-        assert_relative_eq!(
-            dbc_signal_be.parser()(MSG_BE.clone()[..].to_vec()).unwrap(),
-            2728.5
-        );
     }
 
     #[cfg(feature = "use-socketcan")]

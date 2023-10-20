@@ -3,6 +3,7 @@ use std::collections::HashMap;
 
 /// Trait for converting `Entry` values into a library's own entries.
 pub trait FromDbc {
+    /// Error Type for parsing errors
     type Err;
 
     /// Converts an `Entity` value from scratch.
@@ -17,6 +18,7 @@ pub trait FromDbc {
 
 type SignalAttribute = String;
 #[derive(Clone, Debug, Default, PartialEq)]
+/// Container datatype for holding informations concerning a signal of a CAN frame
 pub struct DbcSignal {
     /// e.g., {"SPN", "190"}
     /// BA_ "SPN" SG_ 2364540158 EngSpeed 190;
@@ -34,6 +36,16 @@ pub struct DbcSignal {
 }
 
 impl DbcSignal {
+    ///
+    /// Returns new DbcSignal
+    ///
+    /// # Example
+    /// ```rust
+    /// use fastcan::dbc::*;
+    /// use std::collections::HashMap;
+    ///
+    /// let signal = DbcSignal::new(None, Some("A description".to_string()), HashMap::new(), None);
+    /// ```
     pub fn new(
         definition: Option<DbcSignalDefinition>,
         description: Option<String>,
@@ -44,14 +56,16 @@ impl DbcSignal {
             definition,
             description,
             attributes,
-            value_definition
+            value_definition,
         }
     }
 
+    /// Returns the definition of the signal
     pub fn get_definition(&self) -> &DbcSignalDefinition {
-        self.definition.as_ref().unwrap()
+        self.definition.as_ref().unwrap() // if this fails, there is a bug either in the error management of the library or in the lib itself
     }
 
+    /// Queries the signal for an attribute with a given identifier
     pub fn get_attribute(&self, identifier: &str) -> Option<&String> {
         self.attributes.get(identifier)
     }
@@ -60,6 +74,8 @@ impl DbcSignal {
 type MessageAttribute = String;
 
 #[derive(Clone, Debug, Default)]
+///
+/// Container datatype for holding all informations about a CAN frame from a DBC file
 pub struct DbcFrame {
     name: String,
     id: u32,
@@ -74,6 +90,7 @@ pub struct DbcFrame {
 }
 
 impl DbcFrame {
+    /// Returns new DBCFrame
     pub fn new(
         name: String,
         id: u32,
@@ -94,15 +111,23 @@ impl DbcFrame {
         }
     }
 
-    pub fn get_signals(&self) -> &HashMap<String, DbcSignal> {
-        &self.signals
+    /// Returns Vec of borrowed signal objects
+    pub fn get_signals(&self) -> Vec<&DbcSignal> {
+        self.signals.values().collect()
     }
 
+    /// Query signal with signal name
+    pub fn get_signal(&self, name: &str) -> Option<&DbcSignal> {
+        self.signals.get(name)
+    }
+
+    /// Returns arbitration ID of CAN frame
     pub fn get_id(&self) -> u32 {
         self.id
     }
 
-    pub fn get_attribute(&self, identifier: &String) -> &String {
+    /// Query frame attribute with an identifier
+    pub fn get_attribute(&self, identifier: &str) -> &String {
         self.attributes.get(identifier).unwrap()
     }
 }
@@ -310,14 +335,17 @@ pub struct DbcLibrary {
 }
 
 impl DbcLibrary {
+    /// Query frames with frame ID
     pub fn get_frame(&self, id: u32) -> Option<&DbcFrame> {
         self.frames.get(&id)
     }
 
+    /// Returns how many frames are contained in the DBC
     pub fn len(&self) -> usize {
         self.frames.len()
     }
 
+    /// Returns true if library is empty, false if it contains at least one CAN frame definition
     pub fn is_empty(&self) -> bool {
         self.frames.len() == 0
     }
@@ -387,7 +415,6 @@ impl DbcLibrary {
                     .map_err(|e| io::Error::new(io::ErrorKind::Other, e))
             })?;
 
-
         for line in data.lines() {
             match parser::parse_dbc(line) {
                 Ok(entry) => {
@@ -395,9 +422,7 @@ impl DbcLibrary {
                         // TODO: Handle add_entry error
                     }
                 }
-                Err(_) => {
-                    
-                }
+                Err(_) => {}
             }
         }
 
@@ -406,6 +431,7 @@ impl DbcLibrary {
 }
 
 impl DbcLibrary {
+    /// Add DBC `Entry` to DBC library
     pub fn add_entry(&mut self, entry: Entry) -> Result<(), String> {
         let _id: u32 = *match entry {
             Entry::MessageDefinition(dbc::DbcFrameDefinition { ref id, .. }) => id,
@@ -443,4 +469,3 @@ impl DbcLibrary {
         Ok(())
     }
 }
-

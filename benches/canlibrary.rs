@@ -5,7 +5,7 @@ extern crate fastcan;
 use std::collections::HashMap;
 
 use criterion::{black_box, criterion_group, criterion_main, Criterion as Bencher};
-use fastcan::dbc::{library::DbcSignal, DbcSignalDefinition};
+use fastcan::dbc::{DbcSignal, DbcSignalDefinition};
 use fastcan::mapper::DecodeMessage;
 
 lazy_static! {
