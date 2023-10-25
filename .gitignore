@@ -9,3 +9,5 @@ bak/
 *~
 *.swp
 *.iml
+
+tarpaulin-report.html

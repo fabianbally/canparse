@@ -1,39 +1,43 @@
-//! A CAN signal and definition parser, written in Rust.
-//!
-//! The goal of canparse is to provide a means of converting CAN frames into
-//! pre-defined signals, via CANdb definition input ([DBC](https://vector.com/vi_candblib_en.html)).
-//! One common application is the [J1939](https://en.wikipedia.org/wiki/SAE_J1939)
-//! spec, which defines a set of common parameters for heavy-duty trucks and other vehicles.
-//! `PgnLibrary` is also included as an application of DBC, to give first-class support for
-//! the PGN/SPN schema.
-//!
-//! ## Example
-//!
-//! For a predefined DBC file, a simple program which utilizes `PgnLibrary` can be
-//! implemented as folows:
-//!
-//! ```rust,no_run
-//! use canparse::pgn::{PgnLibrary, SpnDefinition, ParseMessage};
-//!
-//! // Parse dbc file into PgnLibrary
-//! let lib = PgnLibrary::from_dbc_file("./j1939.dbc").unwrap();
-//!
-//! // Pull signal definition for engine speed
-//! let enginespeed_def: &SpnDefinition = lib
-//!     .get_spn("Engine_Speed").unwrap();
-//!
-//! // Parse frame containing engine speed
-//! let msg: [u8; 8] = [0x11, 0x22, 0x33, 0x44, 0x55, 0x66, 0x77, 0x88];
-//! let engine_speed: f32 = enginespeed_def.parse_message(&msg).unwrap();
-//!
-//! println!("Engine speed: {}", engine_speed);
-//! ```
-
 #![cfg_attr(
     feature = "cargo-clippy",
     allow(clippy::redundant_field_names, clippy::unreadable_literal)
 )]
-#![crate_name = "canparse"]
+#![crate_name = "fastcan"]
+#![warn(missing_docs)]
+
+//!
+//! # fastcan-rs
+//!
+//! The fastcan-rs library is a fork of the canparse library.
+//! While the canparse library implements the J1393, the fastcan-rs
+//! library follows a more generic approach and just implements basic CAN encoding and decoding.
+//!
+//! With the fastcan-rs library, you can load DBC files dynamically and encode as well as decode CAN messages.
+//!
+//! # Examples
+//!
+//! ```rust
+//! use fastcan::{dbc::DbcSignalDefinition,
+//!     dbc::{DbcFrame, DbcSignal,
+//!     DbcLibrary, DbcVersion, Entry},
+//!     mapper::{DecodeMessage, EncodeMessage},
+//! };
+//!
+//! use std::collections::HashMap;
+//!
+//! let dbc = DbcLibrary::from_dbc_file("./tests/data/sample.dbc").unwrap();
+//!
+//! let mut signal_map: HashMap<String, f64> = HashMap::new();
+//! signal_map.insert("Engine_Speed".to_string(), 2728.5);
+//!
+//! let frame = dbc.get_frame(2364539904).unwrap();
+//!
+//! let ret: Vec<u8> = frame.encode_message(&signal_map).unwrap();
+//!
+//! let signal = frame.get_signal("Engine_Speed").unwrap();
+//!
+//! let data = signal.decode_message(ret);
+//! ```
 
 extern crate encoding;
 #[macro_use]
@@ -42,11 +46,11 @@ extern crate enum_primitive;
 #[macro_use]
 extern crate lazy_static;
 extern crate byteorder;
-#[macro_use]
-extern crate nom;
 
 #[cfg(feature = "use-socketcan")]
 extern crate socketcan;
 
 pub mod dbc;
-pub mod pgn;
+pub mod mapper;
+
+mod tests;

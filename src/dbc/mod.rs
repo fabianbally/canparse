@@ -7,65 +7,85 @@ use std::fmt;
 use std::fmt::{Display, Formatter};
 use std::str::FromStr;
 
-pub mod library;
-pub mod parser;
+mod library;
+mod parser;
 
-pub use self::library::DbcLibrary;
+pub use self::library::{DbcFrame, DbcLibrary, DbcSignal};
 
 #[derive(Debug, Clone, Eq, PartialEq)]
-pub struct Version(pub String);
+#[doc(hidden)]
+pub struct DbcVersion(pub String);
 
 #[derive(Debug, Clone, PartialEq)]
+#[doc(hidden)]
 pub struct BusConfiguration(pub f32);
 
 #[derive(Debug, Clone, Eq, PartialEq)]
-pub struct MessageDefinition {
+/// Container for CAN frame definition from DBC
+pub struct DbcFrameDefinition {
+    /// Arbitration ID
     pub id: u32,
+    /// CAN frame name
     pub name: String,
+    /// Length of frame in bytes
     pub message_len: u32,
+    /// Node that sends the frame
     pub sending_node: String,
 }
 
 #[derive(Debug, Clone, Eq, PartialEq)]
-pub struct MessageDescription {
+#[doc(hidden)]
+pub struct DbcMessageDescription {
     pub id: u32,
-    // TODO: Remove this
-    pub signal_name: String,
     pub description: String,
 }
 
 #[derive(Debug, Clone, Eq, PartialEq)]
-pub struct MessageAttribute {
+#[doc(hidden)]
+pub struct DbcMessageAttribute {
     pub name: String,
     pub id: u32,
-    pub signal_name: String,
     pub value: String,
 }
 
 #[derive(Debug, Clone, PartialEq)]
-pub struct SignalDefinition {
+/// Container for CAN signal definition from DBC
+pub struct DbcSignalDefinition {
+    /// Signal name
     pub name: String,
+    /// Bit position in frame where the signal starts
     pub start_bit: usize,
+    /// Length of the signal in bits
     pub bit_len: usize,
+    /// Flag for if the signal is little endian
     pub little_endian: bool,
+    /// Flag for if the signal is signed
     pub signed: bool,
+    /// Factor that has to be applied to retrieve the physical value of the signal
     pub scale: f32,
+    /// Offset that has to be applied to retrieve the physical value of the signal
     pub offset: f32,
+    /// Minimum value of the signal
     pub min_value: f32,
+    /// Maximum value of the signal
     pub max_value: f32,
+    /// Unit of the physical value of the signal
     pub units: String,
+    /// Nodes that receive the signal, seperated by commas
     pub receiving_node: String,
 }
 
 #[derive(Debug, Clone, Eq, PartialEq)]
-pub struct SignalDescription {
+#[doc(hidden)]
+pub struct DbcSignalDescription {
     pub id: u32,
     pub signal_name: String,
     pub description: String,
 }
 
 #[derive(Debug, Clone, Eq, PartialEq)]
-pub struct SignalAttribute {
+#[doc(hidden)]
+pub struct DbcSignalAttribute {
     pub name: String,
     pub id: u32,
     pub signal_name: String,
@@ -76,9 +96,9 @@ pub struct SignalAttribute {
 #[derive(Debug, Clone, PartialEq)]
 pub enum Entry {
     /// `VERSION`
-    Version(Version),
+    Version(DbcVersion),
 
-    /// BS_: <Speed>
+    /// `BS_: <Speed>`
     BusConfiguration(BusConfiguration),
 
     // TODO: ??
@@ -87,18 +107,18 @@ pub enum Entry {
     // CanNodesDescription,
     // CanNodesAttribute,
     /// `BO_ [can id] [message name]: [message length] [sending node]`
-    MessageDefinition(MessageDefinition),
+    MessageDefinition(DbcFrameDefinition),
     /// `CM_ BO_ [can id] [signal name] "[description]"`
-    MessageDescription(MessageDescription),
+    MessageDescription(DbcMessageDescription),
     /// `BA_ "[attribute name]" BO_ [node|can id] [signal name] [attribute value];`
-    MessageAttribute(MessageAttribute),
+    MessageAttribute(DbcMessageAttribute),
 
     /// `SG_ [signal name] [...] : [start bit]|[length]@[endian][sign] [[min]|[max]] "[unit]" [receiving nodes]`
-    SignalDefinition(SignalDefinition),
+    SignalDefinition(DbcSignalDefinition),
     /// `CM_ SG_ [can id] [signal name] "[description]"`
-    SignalDescription(SignalDescription),
+    SignalDescription(DbcSignalDescription),
     /// `BA_ "[attribute name]" SG_ [node|can id] [signal name] [attribute value];`
-    SignalAttribute(SignalAttribute),
+    SignalAttribute(DbcSignalAttribute),
 
     // `CM_ [BU_|BO_|SG_] [can id] [signal name] "[description]"`
     // Description, -- flatten subtypes instead
@@ -111,6 +131,7 @@ pub enum Entry {
 
     // `BA_ "[attribute name]" [BU_|BO_|SG_] [node|can id] [signal name] [attribute value];`
     // Attribute
+    #[doc(hidden)]
     Unknown(String),
 }
 
@@ -140,6 +161,7 @@ impl Display for Entry {
 
 enum_from_primitive! {
 /// Internal type for DBC `Entry` line.
+#[doc(hidden)]
 #[derive(Debug, Clone, Eq, PartialEq)]
 pub enum EntryType {
     Version = 0,
@@ -158,6 +180,7 @@ pub enum EntryType {
     SignalDefinition,
     SignalDescription,
     SignalAttribute,
+    SignalLongName,
 //    SignalAttributeDefinition,
 
     // AttributeDefinition,
@@ -181,6 +204,7 @@ impl Display for EntryType {
             EntryType::SignalAttribute => "SignalAttribute",
 
             EntryType::Unknown => "Unknown",
+            EntryType::SignalLongName => "SignalLongName",
         };
         write!(f, "{}", entry_str)
     }
@@ -266,9 +290,14 @@ impl FromStr for Entry {
     type Err = ParseEntryError;
 
     fn from_str(line: &str) -> Result<Self, Self::Err> {
-        parser::entry(line)
-            .map_err(|_e| EntryErrorKind::RegexNoMatch.into())
-            .map(|(_i, entry)| entry)
+        parser::parse_dbc(line).map_or_else(
+            || {
+                Err(ParseEntryError {
+                    kind: EntryErrorKind::RegexNoMatch,
+                })
+            },
+            Ok,
+        )
     }
 }
 
@@ -279,6 +308,8 @@ pub struct ValueDefinition {
     values: Vec<String>,
 }
 
+#[doc(hidden)]
+/// Types a attribute can be
 pub enum AttributeType {
     /// Integer type with min/max values
     Int { min: i32, max: i32 },
@@ -288,158 +319,4 @@ pub enum AttributeType {
     String,
     /// Enum type, represented as a vector of `String`s
     Enum(Vec<String>),
-}
-
-#[cfg(test)]
-mod tests {
-    macro_rules! test_entry {
-        ($test_name: ident, $entry_type: ident, $test_line: expr, $expected: expr) => {
-            mod $test_name {
-                use crate::dbc::*;
-                use std::str::FromStr;
-
-                #[test]
-                fn from_str() {
-                    assert_eq!(
-                        Entry::from_str($test_line),
-                        Ok(Entry::$entry_type($expected))
-                    );
-                }
-
-                /*
-                // FIXME: This test ends up failing because of `Entry::Unknown`
-                #[test]
-                fn from_str_err() {
-                    let failstr = format!("GONNAFAIL {}\n", $test_line);
-                    let res = Entry::from_str(&failstr);
-                    println!("res: {:?}", res);
-                    assert!(
-                        res.is_err(),
-                        "Result of entry parse failure should be Err"
-                    );
-                }
-                */
-
-                #[test]
-                fn entry_type() {
-                    let entry = Entry::$entry_type($expected);
-                    let entry_type = EntryType::$entry_type;
-
-                    assert_eq!(entry.get_type(), entry_type);
-                    assert_eq!(format!("{}", entry), format!("{}", entry_type),);
-                }
-
-                #[test]
-                fn nom_parse() {
-                    assert_eq!(parser::$test_name($test_line).unwrap().1, $expected);
-                    assert_eq!(
-                        parser::entry($test_line).unwrap().1,
-                        Entry::$entry_type($expected)
-                    );
-                }
-            }
-        };
-    }
-
-    test_entry!(
-        version,
-        Version,
-        "VERSION \"A version string\"\n",
-        Version("A version string".to_string())
-    );
-
-    test_entry!(
-        message_definition,
-        MessageDefinition,
-        "BO_ 2364539904 EEC1 : 8 Vector__XXX\n",
-        MessageDefinition {
-            id: 2364539904,
-            name: "EEC1".to_string(),
-            message_len: 8,
-            sending_node: "Vector__XXX".to_string()
-        }
-    );
-
-    test_entry!(
-        message_description,
-        MessageDescription,
-        "CM_ BO_ 2364539904 \"Engine Controller\";\n",
-        MessageDescription {
-            id: 2364539904,
-            signal_name: "".to_string(),
-            description: "Engine Controller".to_string()
-        }
-    );
-
-    test_entry!(
-        message_attribute,
-        MessageAttribute,
-        "BA_ \"SingleFrame\" BO_ 2364539904 0;\n",
-        MessageAttribute {
-            name: "SingleFrame".to_string(),
-            signal_name: "".to_string(),
-            id: 2364539904,
-            value: "0".to_string()
-        }
-    );
-
-    test_entry!(
-        signal_definition,
-        SignalDefinition,
-        " SG_ Engine_Speed : 24|16@1+ (0.125,0) [0|8031.88] \"rpm\" Vector__XXX\n",
-        SignalDefinition {
-            name: "Engine_Speed".to_string(),
-            start_bit: 24,
-            bit_len: 16,
-            little_endian: true,
-            signed: false,
-            scale: 0.125,
-            offset: 0.0,
-            min_value: 0.0,
-            max_value: 8031.88,
-            units: "rpm".to_string(),
-            receiving_node: "Vector__XXX".to_string()
-        }
-    );
-
-    test_entry!(
-        signal_description,
-        SignalDescription,
-        "CM_ SG_ 2364539904 Engine_Speed \"A description for Engine speed.\";\n",
-        SignalDescription {
-            id: 2364539904,
-            signal_name: "Engine_Speed".to_string(),
-            description: "A description for Engine speed.".to_string()
-        }
-    );
-
-    test_entry!(
-        signal_attribute,
-        SignalAttribute,
-        "BA_ \"SPN\" SG_ 2364539904 Engine_Speed 190;\n",
-        SignalAttribute {
-            name: "SPN".to_string(),
-            id: 2364539904,
-            signal_name: "Engine_Speed".to_string(),
-            value: "190".to_string()
-        }
-    );
-
-    mod multiline {
-        test_entry!(
-            signal_description,
-            SignalDescription,
-            "CM_ SG_ 2364539904 Actual_Engine___Percent_Torque_High_Resolution \"A multi- \r \
-             \r \
-             line description for Engine torque.\";\n",
-            SignalDescription {
-                id: 2364539904,
-                signal_name: "Actual_Engine___Percent_Torque_High_Resolution".to_string(),
-                description: "A multi- \r \
-                              \r \
-                              line description for Engine torque."
-                    .to_string()
-            }
-        );
-    }
 }

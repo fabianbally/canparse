@@ -1,0 +1,1767 @@
+VERSION ""
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: FF_BMS FF_DB FF_FB FF_FC FS_Datalogger FF_IMU FF_PDU FF_PE FF_RC RES
+
+
+BO_ 521 FF_AS_Status: 3 FF_AS
+ SG_ FF_AS_FB_SC_TSA_R2D_FB : 16|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_AS_FB_SC_ende : 15|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_AS_ST_SC_drivingMode : 14|1@1+ (1,0) [0|1] "state" Vector__XXX
+ SG_ FF_AS_FB_SC_SCpreAS : 13|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_AS_FB_SC_SCbyAS : 12|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_AS_ST_SC_keepSC : 11|1@1+ (1,0) [0|1] "state" Vector__XXX
+ SG_ FF_AS_FB_EBS_EBSbyRES2 : 10|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_AS_FB_EBS_EBS2 : 9|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_AS_ST_EBS_EBS2 : 8|1@1+ (1,0) [0|1] "state" Vector__XXX
+ SG_ FF_AS_FB_EBS_EBS1 : 7|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_AS_ST_EBS_EBS1 : 6|1@1+ (1,0) [0|1] "state" Vector__XXX
+ SG_ FF_AS_FB_EBS_preEBS2 : 5|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_AS_FB_EBS_preEBS1 : 4|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_AS_FB_Fuse_12V : 3|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_AS_FB_Fuse_5V : 2|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_AS_ST_Status_LED_red : 1|1@1+ (1,0) [0|1] "state" Vector__XXX
+ SG_ FF_AS_ST_Status_LED_green : 0|1@1+ (1,0) [0|1] "state" Vector__XXX
+
+BO_ 537 FF_AS_ZED_coordinate: 6 FF_AS
+ SG_ FF_AS_FB_ZED_coordinate_z : 32|16@1+ (0.01,-320) [-320|320] "m" Vector__XXX
+ SG_ FF_AS_FB_ZED_coordinate_y : 16|16@1+ (0.01,-320) [-320|320] "m" Vector__XXX
+ SG_ FF_AS_FB_ZED_coordinate_x : 0|16@1+ (0.01,-320) [-320|320] "m" Vector__XXX
+
+BO_ 553 FF_AS_ZED_velocity: 6 FF_AS
+ SG_ FF_AS_FB_ZED_velocity_z : 32|16@1+ (0.01,-320) [-320|320] "m/s" Vector__XXX
+ SG_ FF_AS_FB_ZED_velocity_y : 16|16@1+ (0.01,-320) [-320|320] "m/s" Vector__XXX
+ SG_ FF_AS_FB_ZED_velocity_x : 0|16@1+ (0.01,-320) [-320|320] "m/s" Vector__XXX
+
+BO_ 569 FF_AS_ZED_rotation: 6 FF_AS
+ SG_ FF_AS_FB_ZED_rotation_z : 32|16@1+ (0.01,-320) [-320|320] "rad" Vector__XXX
+ SG_ FF_AS_FB_ZED_rotation_y : 16|16@1+ (0.01,-320) [-320|320] "rad" Vector__XXX
+ SG_ FF_AS_FB_ZED_rotation_x : 0|16@1+ (0.01,-320) [-320|320] "rad" Vector__XXX
+
+BO_ 585 FF_AS_ZED_angular_velocity: 6 FF_AS
+ SG_ FF_AS_FB_ZED_angular_velocity_z : 32|16@1+ (0.01,-320) [-320|320] "rad/s" Vector__XXX
+ SG_ FF_AS_FB_ZED_angular_velocity_y : 16|16@1+ (0.01,-320) [-320|320] "rad/s" Vector__XXX
+ SG_ FF_AS_FB_ZED_angular_velocity_x : 0|16@1+ (0.01,-320) [-320|320] "rad/s" Vector__XXX
+
+BO_ 793 FF_AS_Ctrl: 3 FF_AS
+ SG_ FF_AS_VA_ASCtrl_PowerState : 16|4@1+ (10,0) [0|100] "%"  FF_DB,FF_PE
+ SG_ FF_AS_VA_ASCtrl_TPPS : 4|12@1+ (0.1,-101) [-100|100] "%"  FF_PE
+ SG_ FF_AS_ST_ASCtrl_R2DSound : 3|1@1+ (1,0) [0|1] "output"  FF_DB
+ SG_ FF_AS_ST_ASCtrl_VS : 0|3@1+ (1,0) [0|4] ""  FF_DB
+
+BO_ 281 FF_AS_Error: 8 FF_AS
+ SG_ FF_AS_EE_SCS_AS : 11|1@1+ (1,0) [0|1] "error"  FF_DB,FF_BMS
+ SG_ FF_AS_EE_Error_AS : 10|1@1+ (1,0) [0|1] "error"  FF_DB
+
+BO_ 1297 FSG_DV_extra_1: 4 FF_AS
+ SG_ FSG_DV_EBS_Brake_pressure_s_0000 : 16|12@1+ (0.1,0) [0|200] "bar" Vector__XXX
+ SG_ FSG_DV_EBS_Brake_pressure_sensor : 4|12@1+ (0.1,0) [0|200] "bar" Vector__XXX
+ SG_ FSG_DV_EBS_Power_stage_2_active : 3|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ FSG_DV_EBS_Power_stage_1_active : 2|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ FSG_DV_EBS_AS_driving_mode : 1|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ FSG_DV_EBS_AS_is_sending_watchdo : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+
+BO_ 1298 FSG_DV_extra_2: 6 FF_AS
+ SG_ FSG_DV_EBS_Supply_pressure__0002 : 36|12@1+ (0.1,0) [0|400] "bar" Vector__XXX
+ SG_ FSG_DV_EBS_Supply_pressure__0001 : 24|12@1+ (0.1,0) [0|400] "bar" Vector__XXX
+ SG_ FSG_DV_EBS_Supply_pressure__0000 : 12|12@1+ (0.01,0) [0|40] "bar" Vector__XXX
+ SG_ FSG_DV_EBS_Supply_pressure_senso : 0|12@1+ (0.01,0) [0|40] "bar" Vector__XXX
+
+BO_ 1282 FSG_DV_system_status: 5 FF_AS
+ SG_ FSG_DV_Cones_count_all : 23|17@1+ (1,0) [0|131071] "" Vector__XXX
+ SG_ FSG_DV_Cones_count_actual : 15|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ FSG_DV_Lap_counter : 11|4@1+ (1,0) [0|15] "rounds"  FF_DB
+ SG_ FSG_DV_Service_brake_state : 9|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ FSG_DV_Steering_state : 8|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ FSG_DV_AMI_state : 5|3@1+ (1,0) [0|7] ""  FF_DB,FF_PE
+ SG_ FSG_DV_EBS_state : 3|2@1+ (1,0) [0|3] ""  FF_DB
+ SG_ FSG_DV_AS_state : 0|3@1+ (1,0) [0|5] ""  FF_DB,FF_PDU
+
+BO_ 1281 FSD_DV_driving_dynamics_2: 6 FF_AS
+ SG_ FSG_DV_Yaw_rate : 32|16@1- (0.0078125,0) [-256|255.9921875] "degree/s" Vector__XXX
+ SG_ FSG_DV_Acceleration_lateral : 16|16@1- (0.001953125,0) [-64|63.998046875] "m/s�" Vector__XXX
+ SG_ FSG_DV_Acceleration_longitudinal : 0|16@1- (0.001953125,0) [-64|63.998046875] "m/s�" Vector__XXX
+
+BO_ 1280 FSD_DV_driving_dynamics_1: 8 FF_AS
+ SG_ FSG_DV_Motor_moment_target : 56|8@1- (1,0) [-127|128] "percent" Vector__XXX
+ SG_ FSG_DV_Motor_moment_actual : 48|8@1- (1,0) [-127|128] "percent" Vector__XXX
+ SG_ FSG_DV_Brake_hydr_target : 40|8@1+ (1,0) [0|255] "percent" Vector__XXX
+ SG_ FSG_DV_Brake_hydr_actual : 32|8@1+ (1,0) [0|255] "percent" Vector__XXX
+ SG_ FSG_DV_Steering_angle_target : 24|8@1- (0.5,0) [-63|64] "degree" Vector__XXX
+ SG_ FSG_DV_Steering_angle_actual : 16|8@1- (0.5,0) [-63|64] "degree" Vector__XXX
+ SG_ FSG_DV_Speed_target : 8|8@1+ (1,0) [0|255] "kmph" Vector__XXX
+ SG_ FSG_DV_Speed_actual : 0|8@1+ (1,0) [0|255] "kmph" Vector__XXX
+
+BO_ 514 FF_BMS_Status: 8 FF_BMS
+ SG_ FF_BMS_ST_AccuPower_MaxPowerStag : 60|4@1+ (1,0) [1|10] "power stage"  FF_DB
+ SG_ FF_BMS_ST_AccuPower_Recuperation : 59|1@1+ (1,0) [0|1] "feedback"  FF_PE
+ SG_ FF_BMS_ST_CurrentMeasurment_Curr : 58|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_BMS_FB_LWL_TX_FB : 55|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_BMS_FB_IL_HVIL_RD_HVFB : 54|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_BMS_FB_IL_IMDIL_RD_FB : 53|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_BMS_ST_IL_IMDIL_RD : 52|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_BMS_FB_TSALgn_FB : 45|1@1+ (1,0) [0|1] "feedback"  FF_DB
+ SG_ FF_BMS_FB_HV_DISC_HVFB : 44|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_BMS_FB_HV_AIR_NEG_HVFB : 43|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_BMS_FB_HV_HV95_HVFB : 42|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_BMS_FB_HV_HV60_HVFB : 40|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_BMS_FB_HV_PREC_AIR_POS_HVFB : 39|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_BMS_ST_SC_DisCharge_open : 36|1@1+ (1,0) [0|1] "feedback"  FF_PE
+ SG_ FF_BMS_FB_SC_DisCharge_openFB : 35|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_BMS_FB_SC_AIRminus_locked : 34|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_BMS_FB_SC_AIRminus : 33|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_BMS_ST_SC_AIRminus : 32|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_BMS_FB_SC_AIRplus_locked : 31|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_BMS_FB_SC_AIRplus : 30|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_BMS_ST_SC_AIRplus : 29|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_BMS_FB_Fuse_TSAL_FB : 28|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_BMS_SC_SCbyHVinterlock_SCFB : 27|1@1+ (1,0) [0|1] "feedback"  FF_DB
+ SG_ FF_BMS_ST_SC_PreCharge : 26|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_BMS_FB_SC_PreCharge_FB : 25|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_BMS_ST_KeepSC : 24|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_BMS_FB_SCFB_BMS : 23|1@1+ (1,0) [0|1] "feedback"  FF_DB
+ SG_ FF_BMS_FB_IMD_preFB : 22|1@1+ (1,0) [0|1] "feedback"  FF_PE,FF_DB
+ SG_ FF_BMS_FB_SCFB_IMD : 21|1@1+ (1,0) [0|1] "feedback"  FF_DB
+ SG_ FF_BMS_SC_SCFB_dig : 20|1@1+ (1,0) [0|1] "feedback"  FF_PE,FF_DB
+ SG_ FF_BMS_FB_Fuse_SC_SCFB : 19|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_BMS_FB_Fuse_5V_S_FB : 18|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_BMS_FB_Fuse_LV_P_FB : 17|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_BMS_FB_Fuse_5V_P_FB : 16|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_BMS_ST_TractiveSystemState : 12|4@1+ (1,0) [0|9] ""  FF_PE,FF_RL,FF_DB
+ SG_ FF_BMS_ST_EEPROM_newCalibrationS : 8|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_BMS_ST_EEPROM_newParameterSav : 7|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_BMS_FB_DCU_StatusLedRed : 6|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_BMS_ST_DCU_StatusLedRed : 5|1@1+ (1,0) [0|1] "output" Vector__XXX
+ SG_ FF_BMS_FB_DCU_StatusLedGreen : 4|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_BMS_ST_DCU_StatusLedGreen : 3|1@1+ (1,0) [0|1] "output" Vector__XXX
+ SG_ FF_BMS_ST_DCU_StatusLed : 0|3@1+ (1,0) [0|3] "" Vector__XXX
+
+BO_ 802 FF_BMS_Status_2: 2 FF_BMS
+ SG_ FF_BMS_FB_SCFB_End_analog : 0|16@1+ (0.001,-1) [0|30] "V" Vector__XXX
+
+BO_ 786 FF_BMS_Control: 2 FF_BMS
+ SG_ FF_BMS_Control_TS m101 : 8|8@1+ (1,0) [0|256] ""  FF_BMS
+ SG_ FF_BMS_Control_Balance m100 : 8|8@1+ (1,0) [0|256] ""  FF_BMS
+ SG_ FF_BMS_Control_mux M : 0|8@1+ (1,0) [0|256] "mux"  FF_BMS
+
+BO_ 274 FF_BMS_Error: 8 FF_BMS
+ SG_ FF_BMS_EE_F_TSAL_FB : 63|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_BMS_EE_Error_IMD : 62|1@1+ (1,0) [0|1] "error"  FF_DB,FF_CHARGER
+ SG_ FF_BMS_EE_Error_BMS : 61|1@1+ (1,0) [0|1] "error"  FF_DB
+ SG_ FF_BMS_EE_SCFB_Overvoltage : 60|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_BMS_EE_IL_HVIL_red : 59|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_BMS_EE_TractiveSystemActiveLi : 52|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_BMS_EE_SCS_PE : 51|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_BMS_EE_SCS_DB : 50|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_BMS_EE_SCS_FC : 49|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_BMS_EE_SCS_AS : 48|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_BMS_EE_SCS_IMU : 47|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_BMS_EE_Current_OutOfRange : 46|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_BMS_EE_Current_ChargeContinuo : 45|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_BMS_EE_Current_ChargePeak : 44|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_BMS_EE_Current_DischargeConti : 43|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_BMS_EE_Current_DischargePeak : 42|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_BMS_EE_Slave_Error : 41|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_BMS_EE_Slave_Timeout : 40|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_BMS_EE_Cells_OverTempera_0000 : 39|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_BMS_EE_Cells_OverTemperature_ : 38|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_BMS_EE_Cells_OverVoltage : 37|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_BMS_EE_Cells_UnderVoltage : 36|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_BMS_EE_PRECHARGE_SCS : 35|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_BMS_EE_PRECHARGE_PEHV400FB : 34|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_BMS_EE_PRECHARGE_PEHV60FB : 33|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_BMS_EE_PRECHARGE_PEDisChargeH : 32|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_BMS_EE_PRECHARGE_PreCAIRpHVFB : 31|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_BMS_EE_PRECHARGE_DisChargeHVF : 29|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_BMS_EE_PRECHARGE_AIRmHVFB : 28|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_BMS_EE_PRECHARGE_HV60FB : 26|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_BMS_EE_PRECHARGE_HV95FB : 24|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_BMS_EE_PRECHARGE_SC : 23|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_BMS_EE_IMDIL_RD_FB : 22|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_BMS_EE_AIRminus_locked : 20|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_BMS_EE_AIRminus : 19|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_BMS_EE_AIRplus_locked : 18|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_BMS_EE_AIRplus : 17|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_BMS_EE_PreCharge_FB : 16|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_BMS_EE_DisCharge_openFB : 15|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_BMS_EE_F_SC_SCFB : 13|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_BMS_EE_F_5V_S_FB : 12|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_BMS_EE_F_LV_P_FB : 11|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_BMS_EE_F_5V_P_FB : 10|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_BMS_EE_DCU_StatusLedGreen : 8|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_BMS_EE_DCU_StatusLedRed : 7|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_BMS_EE_EEPROM_HwIdMissmatch : 6|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_BMS_EC_EEPROM_communication : 5|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_BMS_EC_MB_HwIdMissmatch : 4|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_BMS_EC_MB_SelfTestFailed : 3|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_BMS_EC_MB_InitFailed : 2|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_BMS_EC_DCU_SelfTestFailed : 1|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_BMS_EC_DCU_EcuNonOperational : 0|1@1+ (1,0) [0|1] "error" Vector__XXX
+
+BO_ 770 FF_BMS_Warning: 8 FF_BMS
+ SG_ FF_BMS_EW_Configuration_Der_0000 : 25|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_BMS_EW_Configuration_Derating : 24|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_BMS_EW_ConfigurationSlave_Num : 23|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_BMS_EW_ConfigurationFaul_0002 : 22|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_BMS_EW_ConfigurationFaul_0001 : 21|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_BMS_EW_ConfigurationFaul_0000 : 20|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_BMS_EW_ConfigurationFault_Cel : 19|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_BMS_EW_Configuration_SCEnd : 18|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_BMS_EW_Configuration_HVCurren : 17|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_BMS_FB_DCU_Vcc24V : 8|8@1+ (0.05,18.0) [18.0|30.75] "V" Vector__XXX
+ SG_ FF_BMS_EW_DCU_Vcc24V : 5|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_BMS_EW_EEPROM_wasCleared : 3|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_BMS_EI_DCU_EcuSoftwareVe_0000 : 2|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_BMS_EI_DCU_EcuSoftwareVersion : 1|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_BMS_EW_DCU_resetCausedByWatch : 0|1@1+ (1,0) [0|1] "error" Vector__XXX
+
+BO_ 1570 FF_BMS_DCDC: 8 FF_BMS
+ SG_ FF_BMS_DCDC_Temp : 56|8@1+ (0.5,0) [0|128] "°C" Vector__XXX
+ SG_ FF_BMS_DCDC_IOUT : 48|8@1+ (0.3,0) [0|76.8] "A" Vector__XXX
+ SG_ FF_BMS_DCDC_VOUT : 40|8@1+ (0.2,0) [0|51.2] "V" Vector__XXX
+ SG_ FF_BMS_DCDC_VIN : 32|8@1+ (4,0) [0|1024] "V" Vector__XXX
+
+BO_ 1794 FF_BMS_config: 4 FF_BMS
+ SG_ FF_BMS_CI_DCU_ECU_sw_version_3 m3336 : 16|16@1- (1,0) [-32.768|32.767] "sw_version"  FF_BMS
+ SG_ FF_BMS_CI_DCU_ECU_sw_version_2 m3335 : 16|16@1- (1,0) [-32.768|32.767] "sw_version"  FF_BMS
+ SG_ FF_BMS_CI_DCU_ECU_sw_version_1 m3334 : 16|16@1- (1,0) [-32.768|32.767] "sw_version"  FF_BMS
+ SG_ FF_BMS_CI_DCU_ECU_sw_version_0 m3333 : 16|16@1- (1,0) [-32.768|32.767] "sw_version"  FF_BMS
+ SG_ FF_BMS_CI_MB_HWID m3332 : 16|16@1- (1,0) [0|100] "hwid"  FF_BMS
+ SG_ FF_BMS_CI_MB_board_number m3331 : 16|16@1- (1,0) [1|100] "board_number"  FF_BMS
+ SG_ FF_BMS_CI_MB_HW_revision m3330 : 16|16@1- (1,0) [0|100] "hw_revision"  FF_BMS
+ SG_ FF_BMS_CI_DCU_board_number m3329 : 16|16@1- (1,0) [1|100] "board_number"  FF_BMS
+ SG_ FF_BMS_CI_DCU_HW_revision m3328 : 16|16@1- (1,0) [0|100] "hw_revision"  FF_BMS
+ SG_ FF_BMS_CV_SCEnd_calibration_24V m2324 : 16|16@1- (1,0) [1|4095] "ADCval"  FF_BMS
+ SG_ FF_BMS_CV_DCU_Vcc24V_calibration m2304 : 16|16@1- (1,0) [16|4033] "ADCval"  FF_BMS
+ SG_ FF_BMS_CC_SCEnd_calibrate_24V m1304 : 16|16@1- (1,0) [1|1] "command"  FF_BMS
+ SG_ FF_BMS_CC_HVCurrent_calibrate_0A m1303 : 16|16@1- (1,0) [1|1] "command"  FF_BMS
+ SG_ FF_BMS_CC_DCU_set_MB_board_numbe m1288 : 16|16@1- (1,0) [1|100] "board_number"  FF_BMS
+ SG_ FF_BMS_CC_DCU_set_MB_HW_revision m1287 : 16|16@1- (1,0) [0|100] "hw_revision"  FF_BMS
+ SG_ FF_BMS_CC_DCU_set_DCU_board_numb m1286 : 16|16@1- (1,0) [1|100] "board_number"  FF_BMS
+ SG_ FF_BMS_CC_DCU_set_DCU_HW_revisio m1285 : 16|16@1- (1,0) [0|100] "hw_revision"  FF_BMS
+ SG_ FF_BMS_CC_EEPROM_clean_Parameter m1284 : 16|16@1- (1,0) [0|1] "command"  FF_BMS
+ SG_ FF_BMS_CC_EEPROM_clean_Calibrati m1283 : 16|16@1- (1,0) [0|1] "command"  FF_BMS
+ SG_ FF_BMS_CC_EEPROM_send_all_Config m1282 : 16|16@1- (1,0) [0|1] "command"  FF_BMS
+ SG_ FF_BMS_CC_EEPROM_send_Config m1281 : 16|16@1- (1,0) [0|4607] "mux_id"  FF_BMS
+ SG_ FF_BMS_CC_DCU_Vcc24V_calibration m1280 : 16|16@1- (1,0) [0|1] "command"  FF_BMS
+ SG_ FF_BMS_CP_SCS_enabled_PE m320 : 16|16@1+ (1,0) [0|1] "boolean"  FF_BMS
+ SG_ FF_BMS_CP_SCS_enabled_DB m319 : 16|16@1+ (1,0) [0|1] "boolean"  FF_BMS
+ SG_ FF_BMS_CP_SCS_enabled_FC m318 : 16|16@1+ (1,0) [0|1] "boolean"  FF_BMS
+ SG_ FF_BMS_CP_SCS_enabled_AS m317 : 16|16@1+ (1,0) [0|1] "boolean"  FF_BMS
+ SG_ FF_BMS_CP_SCS_Timeout m315 : 16|16@1+ (1,0) [0|10000] "ms"  FF_BMS
+ SG_ FF_BMS_CP_PowerStage_Derating_Ma m314 : 16|16@1+ (1,0) [0|60] "°C"  FF_BMS
+ SG_ FF_BMS_CP_PowerStage_Derati_0000 m313 : 16|16@1+ (1,0) [0|50] "°C"  FF_BMS
+ SG_ FF_BMS_CP_PowerStage_Derating_Mi m312 : 16|16@1+ (1,0) [0|90] "%"  FF_BMS
+ SG_ FF_BMS_CP_PowerStage_Derating_St m311 : 16|16@1+ (1,0) [0|100] "%"  FF_BMS
+ SG_ FF_BMS_CP_PowerStage_Recuperatio m310 : 16|16@1+ (1,0) [1|5] "°C"  FF_BMS
+ SG_ FF_BMS_CP_SOC_InitTime_ms m309 : 16|16@1+ (1,0) [2000|20000] "ms"  FF_BMS
+ SG_ FF_BMS_CP_SOC_AccumulatorCapacit m308 : 16|16@1+ (1,0) [1000|20000] "mAh"  FF_BMS
+ SG_ FF_BMS_CP_CurrentMeasurment_0002 m307 : 16|16@1+ (0,60000) [1|12] "ms"  FF_BMS
+ SG_ FF_BMS_CP_CurrentMeasurment_0001 m306 : 16|16@1+ (0,60000) [1|12] "ms"  FF_BMS
+ SG_ FF_BMS_CP_CurrentMeasurment_0000 m305 : 16|16@1+ (1,0) [1|100] "A"  FF_BMS
+ SG_ FF_BMS_CP_CurrentMeasurment_Dire m304 : 16|16@1+ (1,0) [1|100] "A"  FF_BMS
+ SG_ FF_BMS_CP_Slave_NumberOfSlaves m303 : 16|16@1+ (1,0) [1|12] "number"  FF_BMS
+ SG_ FF_BMS_CP_Fault_StartupTime_ms m302 : 16|16@1+ (1,0) [500|60000] "ms"  FF_BMS
+ SG_ FF_BMS_CP_Fault_Current_Cha_0001 m301 : 16|16@1+ (1,0) [100|10000] "ms"  FF_BMS
+ SG_ FF_BMS_CP_Fault_Current_Cha_0000 m300 : 16|16@1+ (1,0) [50|200] "A"  FF_BMS
+ SG_ FF_BMS_CP_Fault_Current_Charging m299 : 16|16@1+ (1,0) [10|100] "A"  FF_BMS
+ SG_ FF_BMS_CP_Fault_Current_Dis_0001 m298 : 16|16@1+ (1,0) [100|10000] "ms"  FF_BMS
+ SG_ FF_BMS_CP_Fault_Current_Dis_0000 m297 : 16|16@1+ (1,0) [50|300] "A"  FF_BMS
+ SG_ FF_BMS_CP_Fault_Current_Discharg m296 : 16|16@1+ (1,0) [10|200] "A"  FF_BMS
+ SG_ FF_BMS_CP_Fault_Cell_Overte_0000 m295 : 16|16@1+ (1,0) [40|60] "°C"  FF_BMS
+ SG_ FF_BMS_CP_Fault_Cell_Overtempera m294 : 16|16@1+ (1,0) [40|60] "°C"  FF_BMS
+ SG_ FF_BMS_CP_Fault_Cell_Undervoltag m293 : 16|16@1+ (1,0) [3000|3500] "mV"  FF_BMS
+ SG_ FF_BMS_CP_Fault_Cell_Overvoltage m292 : 16|16@1+ (1,0) [4000|4200] "mV"  FF_BMS
+ SG_ FF_BMS_CP_HVCurrent_NominalRange m291 : 16|16@1+ (1,0) [100|600] "A"  FF_BMS
+ SG_ FF_BMS_CP_SCFB_UpperLimit_mV m290 : 16|16@1+ (1,0) [20000|30000] "mV"  FF_BMS
+ SG_ FF_BMS_CP_SCFB_LowerLimit_mV m289 : 16|16@1+ (1,0) [0|20000] "mV"  FF_BMS
+ SG_ FF_BMS_CP_PreCharge_check_AIRp_H m288 : 16|16@1+ (1,0) [0|1] ""  FF_BMS
+ SG_ FF_BMS_CP_PreCharge_check_AIRm_H m287 : 16|16@1+ (1,0) [0|1] ""  FF_BMS
+ SG_ FF_BMS_CP_PreCharge_check_HV95_H m286 : 16|16@1+ (1,0) [0|1] ""  FF_BMS
+ SG_ FF_BMS_CP_PreCharge_check_HV60_H m285 : 16|16@1+ (1,0) [0|1] ""  FF_BMS
+ SG_ FF_BMS_CP_PreCharge_check_D_0000 m284 : 16|16@1+ (1,0) [0|1] ""  FF_BMS
+ SG_ FF_BMS_CP_PreCharge_check_HV400_ m283 : 16|16@1+ (1,0) [0|1] ""  FF_BMS
+ SG_ FF_BMS_CP_PreCharge_check_HV60_P m282 : 16|16@1+ (1,0) [0|1] ""  FF_BMS
+ SG_ FF_BMS_CP_PreCharge_check_DisCha m281 : 16|16@1+ (1,0) [0|1] ""  FF_BMS
+ SG_ FF_BMS_CP_PreCharge_delayTime_de m280 : 16|16@1+ (1,0) [0|10000] "ms"  FF_BMS
+ SG_ FF_BMS_CP_PreCharge_expectTime_c m279 : 16|16@1+ (1,0) [0|5000] "ms"  FF_BMS
+ SG_ FF_BMS_CP_PreCharge_expectT_0002 m278 : 16|16@1+ (1,0) [0|1000] "ms"  FF_BMS
+ SG_ FF_BMS_CP_PreCharge_expectT_0001 m277 : 16|16@1+ (1,0) [0|1000] "ms"  FF_BMS
+ SG_ FF_BMS_CP_PreCharge_expectT_0000 m276 : 16|16@1+ (1,0) [0|10000] "ms"  FF_BMS
+ SG_ FF_BMS_CP_PreCharge_expectTime_H m275 : 16|16@1+ (1,0) [0|1000] "ms"  FF_BMS
+ SG_ FF_BMS_CP_PreCharge_expectTime_A m274 : 16|16@1+ (1,0) [0|1000] "ms"  FF_BMS
+ SG_ FF_BMS_CP_PreCharge_expectTime_o m273 : 16|16@1+ (1,0) [0|1000] "ms"  FF_BMS
+ SG_ FF_BMS_CP_PreCharge_RestartDelay m272 : 16|16@1+ (1,0) [1000|30000] "ms"  FF_BMS
+ SG_ FF_BMS_CP_MB_VerboseCAN m271 : 16|16@1- (1,0) [0|1] "parameter"  FF_BMS
+ SG_ FF_BMS_CP_DCU_disable_status_mes m262 : 16|16@1- (1,0) [0|1] "parameter"  FF_BMS
+ SG_ FF_BMS_CP_DCU_disable_watchdog m261 : 16|16@1- (1,0) [0|1] "parameter"  FF_BMS
+ SG_ FF_BMS_CP_DCU_Vcc24V_UpperLimit m260 : 16|16@1- (0.001,0) [0|32.767] "V"  FF_BMS
+ SG_ FF_BMS_CP_DCU_Vcc24V_LowerLimit m259 : 16|16@1- (0.001,0) [0|32.767] "V"  FF_BMS
+ SG_ FF_BMS_CP_DCU_Vcc24V m258 : 16|16@1- (1,0) [0|1] "parameter"  FF_BMS
+ SG_ FF_BMS_CP_DCU_StatusLED m257 : 16|16@1- (1,0) [0|1] "parameter"  FF_BMS
+ SG_ FF_BMS_CP_DCU_ADC_LowPass m256 : 16|16@1- (1,0) [1|10] "count"  FF_BMS
+ SG_ FF_BMS_config_mux M : 0|16@1+ (1,0) [0|4607] "mux"  FF_BMS
+
+BO_ 526 FF_DB_Status: 8 FF_DB
+ SG_ FF_DB_ST_System_InterventionEnab : 62|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ FF_DB_ST_Discipline_Mode : 59|3@1+ (1,0) [0|4] ""  FF_PE
+ SG_ FF_DB_ST_Recuperation : 58|1@1+ (1,0) [0|3] ""  FF_PE
+ SG_ FF_DB_ST_Drive_Mode : 54|4@1+ (1,0) [0|3] ""  FF_PE
+ SG_ FF_DB_ST_Inverter_Power : 53|1@1+ (1,0) [0|3] ""  FF_PE
+ SG_ FF_DB_ST_Button_VehicleState : 49|4@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ FF_DB_ST_Button_PowerDown : 45|4@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ FF_DB_ST_Button_PowerUp : 41|4@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ FF_DB_ST_AS_DVMode : 39|2@1+ (1,0) [0|3] ""  FF_PE
+ SG_ FF_DB_ST_RADIO_Talk : 37|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ FF_DB_ST_CAN_Marker : 36|1@1+ (1,0) [0|1] "marker" Vector__XXX
+ SG_ FF_DB_ST_R2D_PlaySound : 35|1@1+ (1,0) [0|1] "output"  FF_PDU
+ SG_ FF_DB_ST_HL_Active : 34|1@1+ (1,0) [0|1] "output"  FF_PDU
+ SG_ FF_DB_ST_LED_CMMS : 33|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ FF_DB_ST_LED_UniBlue : 32|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ FF_DB_ST_LED_UniGreen : 31|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ FF_DB_ST_LED_UniRed : 30|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ FF_DB_ST_LED_NoTS : 29|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ FF_DB_ST_LED_IMD : 28|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ FF_DB_ST_LED_ASM : 27|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ FF_DB_ST_LED_BMS : 26|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ FF_DB_ST_VehicleMode_VS : 23|3@1+ (1,0) [0|4] ""  FF_PE,FF_RC,FF_BMS
+ SG_ FF_DB_ST_HardReset_btn : 22|1@1+ (1,0) [0|1] "output"  FF_PE
+ SG_ FF_DB_VA_Power_State : 18|4@1+ (10,0) [0|100] "%"  FF_PE
+ SG_ FF_DB_SC_SecureCircuit_CMMS : 12|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_DB_ST_EEPROM_newCalibrationSa : 8|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ FF_DB_ST_EEPROM_newParameterSave : 7|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ FF_DB_FB_DCU_StatusLedRed : 6|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ FF_DB_ST_DCU_StatusLedRed : 5|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ FF_DB_FB_DCU_StatusLedGreen : 4|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ FF_DB_ST_DCU_StatusLedGreen : 3|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ FF_DB_ST_DCU_StatusLed : 0|3@1+ (1,0) [0|3] "" Vector__XXX
+
+BO_ 286 FF_DB_Error: 8 FF_DB
+ SG_ FF_DB_EE_SCS_RearCenter : 31|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_DB_EE_FAN_InvalidConfig : 30|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_DB_EE_FAN_TempSens : 29|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_DB_EW_IMU_Timeout : 28|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_DB_EE_SCS_Dashboard : 27|1@1+ (1,0) [0|1] "error"  FF_BMS
+ SG_ FF_DB_EE_PE_Timeout : 26|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_DB_EE_ASM_Timeout : 25|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_DB_EE_BMS_Timeout : 24|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_DB_EE_CMMS_FeedbackFail : 22|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_DB_EE_CMMS_InitFailed : 21|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_DB_EE_Powerbuttons_InitFailed : 20|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_DB_EE_VS_InitFailed : 19|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_DB_EE_LED_InvalidFeedbackLedC : 17|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_DB_EE_LED_InvalidFeedbac_0001 : 16|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_DB_EE_LED_InvalidFeedbac_0000 : 15|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_DB_EE_LED_InvalidFeedbackLedU : 14|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_DB_EE_LED_InvalidFeedbackLedN : 13|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_DB_EE_LED_InvalidFeedbackLedI : 12|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_DB_EE_LED_InvalidFeedbackLedA : 11|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_DB_EE_LED_InvalidFeedbackLedB : 10|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_DB_EE_DCU_StatusLedGreen : 8|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_DB_EE_DCU_StatusLedRed : 7|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_DB_EE_EEPROM_HwIdMissmatch : 6|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_DB_EC_EEPROM_communication : 5|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_DB_EC_MB_HwIdMissmatch : 4|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_DB_EC_MB_SelfTestFailed : 3|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_DB_EC_MB_InitFailed : 2|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_DB_EC_DCU_SelfTestFailed : 1|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_DB_EC_DCU_EcuNonOperational : 0|1@1+ (1,0) [0|1] "error" Vector__XXX
+
+BO_ 782 FF_DB_Warning: 8 FF_DB
+ SG_ FF_DB_EW_SecureCircuit_NoFeedbac : 16|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_DB_FB_DCU_Vcc24V : 8|8@1+ (0.05,18.0) [18.0|30.75] "V" Vector__XXX
+ SG_ FF_DB_EW_DCU_Vcc24V : 5|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_DB_EW_EEPROM_wasCleared : 3|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_DB_EI_DCU_EcuSoftwareVersionW : 2|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_DB_EI_DCU_EcuSoftwareVersionC : 1|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_DB_EW_DCU_resetCausedByWatchd : 0|1@1+ (1,0) [0|1] "error" Vector__XXX
+
+BO_ 1806 FF_DB_config: 4 FF_DB
+ SG_ FF_DB_CI_DCU_ECU_sw_version_3 m3336 : 16|16@1- (1,0) [-32.768|32.767] "sw_version"  FF_DB
+ SG_ FF_DB_CI_DCU_ECU_sw_version_2 m3335 : 16|16@1- (1,0) [-32.768|32.767] "sw_version"  FF_DB
+ SG_ FF_DB_CI_DCU_ECU_sw_version_1 m3334 : 16|16@1- (1,0) [-32.768|32.767] "sw_version"  FF_DB
+ SG_ FF_DB_CI_DCU_ECU_sw_version_0 m3333 : 16|16@1- (1,0) [-32.768|32.767] "sw_version"  FF_DB
+ SG_ FF_DB_CI_MB_HWID m3332 : 16|16@1- (1,0) [0|100] "hwid"  FF_DB
+ SG_ FF_DB_CI_MB_board_number m3331 : 16|16@1- (1,0) [1|100] "board_number"  FF_DB
+ SG_ FF_DB_CI_MB_HW_revision m3330 : 16|16@1- (1,0) [0|100] "hw_revision"  FF_DB
+ SG_ FF_DB_CI_DCU_board_number m3329 : 16|16@1- (1,0) [1|100] "board_number"  FF_DB
+ SG_ FF_DB_CI_DCU_HW_revision m3328 : 16|16@1- (1,0) [0|100] "hw_revision"  FF_DB
+ SG_ FF_DB_CV_DCU_Vcc24V_calibration m2304 : 16|16@1- (1,0) [16|4033] "ADCval"  FF_DB
+ SG_ FF_DB_CC_DCU_set_MB_board_number m1289 : 16|16@1- (1,0) [1|100] "board_number"  FF_DB
+ SG_ FF_DB_CC_DCU_set_MB_HW_revision m1288 : 16|16@1- (1,0) [0|100] "hw_revision"  FF_DB
+ SG_ FF_DB_CC_DCU_set_DCU_board_numbe m1287 : 16|16@1- (1,0) [1|100] "board_number"  FF_DB
+ SG_ FF_DB_CC_DCU_set_DCU_HW_revision m1286 : 16|16@1- (1,0) [0|100] "hw_revision"  FF_DB
+ SG_ FF_DB_CC_EEPROM_clean_Parameter m1285 : 16|16@1- (1,0) [0|1] "command"  FF_DB
+ SG_ FF_DB_CC_EEPROM_clean_Calibratio m1284 : 16|16@1- (1,0) [0|1] "command"  FF_DB
+ SG_ FF_DB_CC_EEPROM_send_all_Config m1283 : 16|16@1- (1,0) [0|1] "command"  FF_DB
+ SG_ FF_DB_CC_EEPROM_send_Config m1282 : 16|16@1- (1,0) [0|4607] "mux_id"  FF_DB
+ SG_ FF_DB_CC_DCU_Vcc24V_calibration m1280 : 16|16@1- (1,0) [0|1] "command"  FF_DB
+ SG_ FF_DB_CP_FAN_Rear_Battery_C_0000 m308 : 16|16@1+ (0.01,0) [0|500] "I"  FF_DB
+ SG_ FF_DB_CP_FAN_Rear_Battery_Contro m307 : 16|16@1+ (0.01,0) [0|500] "P"  FF_DB
+ SG_ FF_DB_CP_FAN_Rear_TempSetpoint m306 : 16|16@1+ (0.5,0) [0|125] "°C"  FF_DB
+ SG_ FF_DB_CP_FAN_Radiators_Hysteresi m305 : 16|16@1+ (1,0) [0|50] "°C"  FF_DB
+ SG_ FF_DB_CP_FAN_Radiators_mode m304 : 16|16@1+ (1,0) [0|2] ""  FF_DB
+ SG_ FF_DB_CP_FAN_Radiators_TempSetpo m303 : 16|16@1+ (0.5,0) [0|125] "°C"  FF_DB
+ SG_ FF_DB_CP_FAN_Battery2_Hysteresis m302 : 16|16@1+ (1,0) [0|50] "°C"  FF_DB
+ SG_ FF_DB_CP_FAN_Battery2_mode m301 : 16|16@1+ (1,0) [0|2] ""  FF_DB
+ SG_ FF_DB_CP_FAN_Battery1_Hysteresis m300 : 16|16@1+ (1,0) [0|50] "°C"  FF_DB
+ SG_ FF_DB_CP_FAN_Battery1_mode m299 : 16|16@1+ (1,0) [0|2] ""  FF_DB
+ SG_ FF_DB_CP_FAN_Rear_Inverter__0000 m298 : 16|16@1+ (0.01,0) [0|500] "I"  FF_DB
+ SG_ FF_DB_CP_FAN_Rear_Inverter_Contr m297 : 16|16@1+ (0.01,0) [0|500] "P"  FF_DB
+ SG_ FF_DB_CP_FAN_Rear_UpperLimit m296 : 16|16@1+ (1,0) [0|100] "%"  FF_DB
+ SG_ FF_DB_CP_FAN_Rear_LowerLimit m295 : 16|16@1+ (1,0) [0|100] "%"  FF_DB
+ SG_ FF_DB_CP_FAN_Rear_power m294 : 16|16@1+ (1,0) [0|100] "%"  FF_DB
+ SG_ FF_DB_CP_FAN_Rear_mode m293 : 16|16@1+ (1,0) [0|1] ""  FF_DB
+ SG_ FF_DB_CP_FAN_Battery_TempSetpoin m292 : 16|16@1+ (0.5,0) [0|125] "°C"  FF_DB
+ SG_ FF_DB_CP_ASASSI_Frequency_Hz m291 : 16|16@1- (1,0) [1|5] "Hz"  FF_DB
+ SG_ FF_DB_CP_ASEmergencySound_Freque m289 : 16|16@1- (1,0) [1|5] "Hz"  FF_DB
+ SG_ FF_DB_CP_ASEmergencySound_Active m288 : 16|16@1- (1,0) [8000|10000] "ms"  FF_DB
+ SG_ FF_DB_CP_BrakePressure_ActivateB m287 : 16|16@1- (1,0) [0|200] "bar"  FF_DB
+ SG_ FF_DB_CP_AS_DVMode m286 : 16|16@1+ (1,0) [0|3] ""  FF_DB
+ SG_ FF_DB_CP_R2Dsound_PlayTime m285 : 16|16@1+ (1,0) [1000|3000] "ms"  FF_DB
+ SG_ FF_DB_CP_TS_Timeout m284 : 16|16@1+ (1,0) [0|10000] "ms"  FF_DB
+ SG_ FF_DB_CP_BPS_Threshold m283 : 16|16@1+ (1,0) [0|100] "bar"  FF_DB
+ SG_ FF_DB_CP_SW_Button4 m282 : 16|16@1+ (1,0) [0|10] ""  FF_DB
+ SG_ FF_DB_CP_SW_Button3 m281 : 16|16@1+ (1,0) [0|10] ""  FF_DB
+ SG_ FF_DB_CP_SW_Button2 m280 : 16|16@1+ (1,0) [0|10] ""  FF_DB
+ SG_ FF_DB_CP_SW_Button1 m279 : 16|16@1+ (1,0) [0|10] ""  FF_DB
+ SG_ FF_DB_CP_CAN_TimeoutPE m278 : 16|16@1+ (1,0) [0|500] "ms"  FF_DB
+ SG_ FF_DB_CP_CAN_TimeoutASM m277 : 16|16@1+ (1,0) [0|500] "ms"  FF_DB
+ SG_ FF_DB_CP_CAN_TimeoutBMS m274 : 16|16@1+ (1,0) [0|500] "ms"  FF_DB
+ SG_ FF_DB_CP_MB_VerboseCAN m271 : 16|16@1- (1,0) [0|1] "parameter"  FF_DB
+ SG_ FF_DB_CP_DCU_disable_status_mess m262 : 16|16@1- (1,0) [0|1] "parameter"  FF_DB
+ SG_ FF_DB_CP_DCU_disable_watchdog m261 : 16|16@1- (1,0) [0|1] "parameter"  FF_DB
+ SG_ FF_DB_CP_DCU_Vcc24V_UpperLimit m260 : 16|16@1- (0.001,0) [0|32.767] "V"  FF_DB
+ SG_ FF_DB_CP_DCU_Vcc24V_LowerLimit m259 : 16|16@1- (0.001,0) [0|32.767] "V"  FF_DB
+ SG_ FF_DB_CP_DCU_Vcc24V m258 : 16|16@1- (1,0) [0|1] "parameter"  FF_DB
+ SG_ FF_DB_CP_DCU_StatusLED m257 : 16|16@1- (1,0) [0|1] "parameter"  FF_DB
+ SG_ FF_DB_CP_DCU_ADC_LowPass m256 : 16|16@1- (1,0) [1|10] "count"  FF_DB
+ SG_ FF_DB_config_mux M : 0|16@1+ (1,0) [0|4607] "mux"  FF_DB
+
+BO_ 518 FF_FB_Status: 8 FF_FB
+ SG_ FF_FB_ST_EBS_Pressure : 12|12@1+ (0.1,-1) [0|40] "bar" Vector__XXX
+ SG_ FF_FB_ST_EEPROM_newCalibrationSa : 8|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_FB_ST_EEPROM_newParameterSave : 7|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_FB_FB_DCU_StatusLedRed : 6|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_FB_ST_DCU_StatusLedRed : 5|1@1+ (1,0) [0|1] "output" Vector__XXX
+ SG_ FF_FB_FB_DCU_StatusLedGreen : 4|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_FB_ST_DCU_StatusLedGreen : 3|1@1+ (1,0) [0|1] "output" Vector__XXX
+ SG_ FF_FB_ST_DCU_StatusLed : 0|3@1+ (1,0) [0|3] "" Vector__XXX
+
+BO_ 278 FF_FB_Error: 8 FF_FB
+ SG_ FF_FB_EE_Pressure : 10|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_FB_EE_DCU_StatusLedGreen : 8|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_FB_EE_DCU_StatusLedRed : 7|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_FB_EE_EEPROM_HwIdMissmatch : 6|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_FB_EC_EEPROM_communication : 5|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_FB_EC_MB_HwIdMissmatch : 4|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_FB_EC_MB_SelfTestFailed : 3|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_FB_EC_MB_InitFailed : 2|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_FB_EC_DCU_SelfTestFailed : 1|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_FB_EC_DCU_EcuNonOperational : 0|1@1+ (1,0) [0|1] "error" Vector__XXX
+
+BO_ 774 FF_FB_Warning: 8 FF_FB
+ SG_ FF_FB_FB_DCU_Vcc24V : 8|8@1+ (0.05,18.0) [18.0|30.75] "V" Vector__XXX
+ SG_ FF_FB_EW_DCU_Vcc24V : 5|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_FB_EW_EEPROM_wasCleared : 3|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_FB_EI_DCU_EcuSoftwareVersionW : 2|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_FB_EI_DCU_EcuSoftwareVersionC : 1|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_FB_EW_DCU_resetCausedByWatchd : 0|1@1+ (1,0) [0|1] "error" Vector__XXX
+
+BO_ 1798 FF_FB_config: 4 FF_FB
+ SG_ FF_FB_CI_DCU_ECU_sw_version_3 m3336 : 16|16@1- (1,0) [-32.768|32.767] "sw_version"  FF_FB
+ SG_ FF_FB_CI_DCU_ECU_sw_version_2 m3335 : 16|16@1- (1,0) [-32.768|32.767] "sw_version"  FF_FB
+ SG_ FF_FB_CI_DCU_ECU_sw_version_1 m3334 : 16|16@1- (1,0) [-32.768|32.767] "sw_version"  FF_FB
+ SG_ FF_FB_CI_DCU_ECU_sw_version_0 m3333 : 16|16@1- (1,0) [-32.768|32.767] "sw_version"  FF_FB
+ SG_ FF_FB_CI_MB_HWID m3332 : 16|16@1- (1,0) [0|100] "hwid"  FF_FB
+ SG_ FF_FB_CI_MB_board_number m3331 : 16|16@1- (1,0) [1|100] "board_number"  FF_FB
+ SG_ FF_FB_CI_MB_HW_revision m3330 : 16|16@1- (1,0) [0|100] "hw_revision"  FF_FB
+ SG_ FF_FB_CI_DCU_board_number m3329 : 16|16@1- (1,0) [1|100] "board_number"  FF_FB
+ SG_ FF_FB_CI_DCU_HW_revision m3328 : 16|16@1- (1,0) [0|100] "hw_revision"  FF_FB
+ SG_ FF_FB_CV_DCU_Vcc24V_calibration m2304 : 16|16@1- (1,0) [16|4033] "ADCval"  FF_FB
+ SG_ FF_FB_CC_DCU_set_MB_board_number m1288 : 16|16@1- (1,0) [1|100] "board_number"  FF_FB
+ SG_ FF_FB_CC_DCU_set_MB_HW_revision m1287 : 16|16@1- (1,0) [0|100] "hw_revision"  FF_FB
+ SG_ FF_FB_CC_DCU_set_DCU_board_numbe m1286 : 16|16@1- (1,0) [1|100] "board_number"  FF_FB
+ SG_ FF_FB_CC_DCU_set_DCU_HW_revision m1285 : 16|16@1- (1,0) [0|100] "hw_revision"  FF_FB
+ SG_ FF_FB_CC_EEPROM_clean_Parameter m1284 : 16|16@1- (1,0) [0|1] "command"  FF_FB
+ SG_ FF_FB_CC_EEPROM_clean_Calibratio m1283 : 16|16@1- (1,0) [0|1] "command"  FF_FB
+ SG_ FF_FB_CC_EEPROM_send_all_Config m1282 : 16|16@1- (1,0) [0|1] "command"  FF_FB
+ SG_ FF_FB_CC_EEPROM_send_Config m1281 : 16|16@1- (1,0) [0|4607] "mux_id"  FF_FB
+ SG_ FF_FB_CC_DCU_Vcc24V_calibration m1280 : 16|16@1- (1,0) [0|1] "command"  FF_FB
+ SG_ FF_FB_CP_EBS_Pressure_MaxVoltage m274 : 16|16@1- (0.01,0) [0|24.0] "V"  FF_FB
+ SG_ FF_FB_CP_EBS_Pressure_MinVoltage m273 : 16|16@1- (0.01,0) [0|24.0] "V"  FF_FB
+ SG_ FF_FB_CP_EBS_Pressure_NominalRan m272 : 16|16@1- (0.1,0) [0|10] "bar"  FF_FB
+ SG_ FF_FB_CP_MB_VerboseCAN m271 : 16|16@1- (1,0) [0|1] "parameter"  FF_FB
+ SG_ FF_FB_CP_DCU_disable_status_mess m262 : 16|16@1- (1,0) [0|1] "parameter"  FF_FB
+ SG_ FF_FB_CP_DCU_disable_watchdog m261 : 16|16@1- (1,0) [0|1] "parameter"  FF_FB
+ SG_ FF_FB_CP_DCU_Vcc24V_UpperLimit m260 : 16|16@1- (0.001,0) [0|32.767] "V"  FF_FB
+ SG_ FF_FB_CP_DCU_Vcc24V_LowerLimit m259 : 16|16@1- (0.001,0) [0|32.767] "V"  FF_FB
+ SG_ FF_FB_CP_DCU_Vcc24V m258 : 16|16@1- (1,0) [0|1] "parameter"  FF_FB
+ SG_ FF_FB_CP_DCU_StatusLED m257 : 16|16@1- (1,0) [0|1] "parameter"  FF_FB
+ SG_ FF_FB_CP_DCU_ADC_LowPass m256 : 16|16@1- (1,0) [1|10] "count"  FF_FB
+ SG_ FF_FB_config_mux M : 0|16@1+ (1,0) [0|4607] "mux"  FF_FB
+
+BO_ 516 FF_FC_Status: 8 FF_FC
+ SG_ FF_FC_FB_SC_RES : 63|1@1+ (1,0) [0|1] "feedback"  FF_PE,FF_DB
+ SG_ FF_FC_FB_SC_BOTS : 62|1@1+ (1,0) [0|1] "feedback"  FF_PE,FF_DB
+ SG_ FF_FC_FB_SC_FL : 61|1@1+ (1,0) [0|1] "feedback"  FF_PE,FF_DB
+ SG_ FF_FC_FB_SC_FR : 60|1@1+ (1,0) [0|1] "feedback"  FF_PE,FF_DB
+ SG_ FF_FC_FB_SC_Firewall : 59|1@1+ (1,0) [0|1] "feedback"  FF_PE,FF_DB
+ SG_ FF_FC_FB_SC_IS : 58|1@1+ (1,0) [0|1] "feedback"  FF_PE,FF_DB
+ SG_ FF_FC_FB_SC_CMMS : 57|1@1+ (1,0) [0|1] "feedback"  FF_PE,FF_DB
+ SG_ FF_FC_FB_SC_MMMS : 56|1@1+ (1,0) [0|1] "feedback"  FF_PE,FF_DB
+ SG_ FF_FC_VA_Recuperation_PedalFeedb : 48|8@1+ (1,0) [0|200] "%"  FF_PE
+ SG_ FF_FC_FB_BPS_Front : 36|12@1+ (0.1,-1) [0|200] "bar"  FF_PE,FF_DB,FF_RC,FF_PDU
+ SG_ FF_FC_VA_SteeringAngleSensor_Ang : 24|12@1+ (0.1,-121) [-120|120] "°"  FF_PE
+ SG_ FF_FC_VA_TPPS_Drive : 12|12@1+ (0.1,-101) [-100|100] "%"  FF_PE
+ SG_ FF_FC_ST_EEPROM_newCalibrationSa : 8|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_FC_ST_EEPROM_newParameterSave : 7|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_FC_FB_DCU_StatusLedRed : 6|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_FC_ST_DCU_StatusLedRed : 5|1@1+ (1,0) [0|1] "output" Vector__XXX
+ SG_ FF_FC_FB_DCU_StatusLedGreen : 4|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_FC_ST_DCU_StatusLedGreen : 3|1@1+ (1,0) [0|1] "output" Vector__XXX
+ SG_ FF_FC_ST_DCU_StatusLed : 0|3@1+ (1,0) [0|3] "" Vector__XXX
+
+BO_ 276 FF_FC_Error: 8 FF_FC
+ SG_ FF_FC_EE_SCS_FrontCenter : 26|1@1+ (1,0) [0|1] "error"  FF_BMS
+ SG_ FF_FC_EE_SAS : 25|1@1+ (1,0) [0|1] "error"  Vector_XXX
+ SG_ FF_FC_EE_TPPS_2 : 24|1@1+ (1,0) [0|1] "error"  Vector_XXX
+ SG_ FF_FC_EE_TPPS_1 : 23|1@1+ (1,0) [0|1] "error"  Vector_XXX
+ SG_ FF_FC_EE_TPPS_Implausible : 22|1@1+ (1,0) [0|1] "error"  Vector_XXX
+ SG_ FF_FC_EE_BPS_Front : 21|1@1+ (1,0) [0|1] "error"  Vector_XXX
+ SG_ FF_FC_EE_DCU_StatusLedGreen : 20|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_FC_EE_DCU_StatusLedRed : 19|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_FC_EE_EEPROM_HwIdMissmatch : 18|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_FC_EC_EEPROM_communication : 17|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_FC_EE_FUSE_LvRPP : 16|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_FC_EE_FUSE_5VS : 15|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_FC_EE_FUSE_5VP : 14|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_FC_EE_MB_OUT4 : 13|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_FC_EE_MB_OUT3 : 12|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_FC_EE_MB_OUT2 : 11|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_FC_EE_MB_OUT1 : 10|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_FC_EC_MB_HwIdMissmatch : 4|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_FC_EC_MB_SelfTestFailed : 3|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_FC_EC_MB_InitFailed : 2|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_FC_EC_DCU_SelfTestFailed : 1|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_FC_EC_DCU_EcuNonOperational : 0|1@1+ (1,0) [0|1] "error" Vector__XXX
+
+BO_ 772 FF_FC_Warning: 8 FF_FC
+ SG_ FF_FC_FB_TPPS_Sensor2 : 34|16@1+ (0.1,-1) [0|100] "%" Vector__XXX
+ SG_ FF_FC_FB_TPPS_Sensor1 : 18|16@1+ (0.1,-1) [0|100] "%" Vector__XXX
+ SG_ FF_FC_EW_SUSPENSION_FL : 17|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_FC_EW_SUSPENSION_FR : 16|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_FC_FB_DCU_Vcc24V : 8|8@1+ (0.05,18.0) [18.0|30.75] "V" Vector__XXX
+ SG_ FF_FC_EW_DCU_Vcc24V : 5|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_FC_EW_EEPROM_wasCleared : 3|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_FC_EI_DCU_EcuSoftwareVersionW : 2|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_FC_EI_DCU_EcuSoftwareVersionC : 1|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_FC_EW_DCU_resetCausedByWatchd : 0|1@1+ (1,0) [0|1] "error" Vector__XXX
+
+BO_ 1796 FF_FC_config: 4 FF_FC
+ SG_ FF_FC_CI_DCU_ECU_sw_version_3 m3336 : 16|16@1- (1,0) [-32.768|32.767] "sw_version"  FF_FC
+ SG_ FF_FC_CI_DCU_ECU_sw_version_2 m3335 : 16|16@1- (1,0) [-32.768|32.767] "sw_version"  FF_FC
+ SG_ FF_FC_CI_DCU_ECU_sw_version_1 m3334 : 16|16@1- (1,0) [-32.768|32.767] "sw_version"  FF_FC
+ SG_ FF_FC_CI_DCU_ECU_sw_version_0 m3333 : 16|16@1- (1,0) [-32.768|32.767] "sw_version"  FF_FC
+ SG_ FF_FC_CI_MB_HWID m3332 : 16|16@1- (1,0) [0|100] "hwid"  FF_FC
+ SG_ FF_FC_CI_MB_board_number m3331 : 16|16@1- (1,0) [1|100] "board_number"  FF_FC
+ SG_ FF_FC_CI_MB_HW_revision m3330 : 16|16@1- (1,0) [0|100] "hw_revision"  FF_FC
+ SG_ FF_FC_CI_DCU_board_number m3329 : 16|16@1- (1,0) [1|100] "board_number"  FF_FC
+ SG_ FF_FC_CI_DCU_HW_revision m3328 : 16|16@1- (1,0) [0|100] "hw_revision"  FF_FC
+ SG_ FF_FC_CV_SAS_right m2330 : 16|16@1- (1,0) [16|4033] "ADCval"  FF_FC
+ SG_ FF_FC_CV_SAS_left m2329 : 16|16@1- (1,0) [16|4033] "ADCval"  FF_FC
+ SG_ FF_FC_CV_TPPS_2_max m2328 : 16|16@1- (1,0) [16|4033] "ADCval"  FF_FC
+ SG_ FF_FC_CV_TPPS_2_offset m2327 : 16|16@1- (1,0) [16|4033] "ADCval"  FF_FC
+ SG_ FF_FC_CV_TPPS_1_max m2326 : 16|16@1- (1,0) [16|4033] "ADCval"  FF_FC
+ SG_ FF_FC_CV_TPPS_1_offset m2325 : 16|16@1- (1,0) [16|4033] "ADCval"  FF_FC
+ SG_ FF_FC_CV_BPS_F_offset m2324 : 16|16@1- (1,0) [16|4033] "ADCval"  FF_FC
+ SG_ FF_FC_CV_SUSPENSION_FL_offset m2321 : 16|16@1- (1,0) [16|4033] "ADCval"  FF_FC
+ SG_ FF_FC_CV_SUSPENSION_FR_offset m2320 : 16|16@1- (1,0) [16|4033] "ADCval"  FF_FC
+ SG_ FF_FC_CV_DCU_Vcc24V_calibration m2304 : 16|16@1- (1,0) [16|4033] "ADCval"  FF_FC
+ SG_ FF_FC_CC_SAS_callibration_right m1306 : 16|16@1- (1,0) [0|1] "command"  FF_FC
+ SG_ FF_FC_CC_SAS_callibration_left m1305 : 16|16@1- (1,0) [0|1] "command"  FF_FC
+ SG_ FF_FC_CC_TPPS_set_max m1304 : 16|16@1- (1,0) [0|1] "command"  FF_FC
+ SG_ FF_FC_CC_TPPS_set_offset m1303 : 16|16@1- (1,0) [0|1] "command"  FF_FC
+ SG_ FF_FC_CC_BPS_F_set_offset m1302 : 16|16@1- (1,0) [0|1] "command"  FF_FC
+ SG_ FF_FC_CC_SUSPENSION_set_offset m1301 : 16|16@1- (1,0) [0|1] "command"  FF_FC
+ SG_ FF_FC_CC_DCU_set_MB_board_number m1288 : 16|16@1- (1,0) [1|100] "board_number"  FF_FC
+ SG_ FF_FC_CC_DCU_set_MB_HW_revision m1287 : 16|16@1- (1,0) [0|100] "hw_revision"  FF_FC
+ SG_ FF_FC_CC_DCU_set_DCU_board_numbe m1286 : 16|16@1- (1,0) [1|100] "board_number"  FF_FC
+ SG_ FF_FC_CC_DCU_set_DCU_HW_revision m1285 : 16|16@1- (1,0) [0|100] "hw_revision"  FF_FC
+ SG_ FF_FC_CC_EEPROM_clean_Parameter m1284 : 16|16@1- (1,0) [0|1] "command"  FF_FC
+ SG_ FF_FC_CC_EEPROM_clean_Calibratio m1283 : 16|16@1- (1,0) [0|1] "command"  FF_FC
+ SG_ FF_FC_CC_EEPROM_send_all_Config m1282 : 16|16@1- (1,0) [0|1] "command"  FF_FC
+ SG_ FF_FC_CC_EEPROM_send_Config m1281 : 16|16@1- (1,0) [0|4607] "mux_id"  FF_FC
+ SG_ FF_FC_CC_DCU_Vcc24V_calibration m1280 : 16|16@1- (1,0) [0|1] "command"  FF_FC
+ SG_ FF_FC_CP_MB_VerboseCAN m271 : 16|16@1- (1,0) [0|1] "parameter"  FF_FC
+ SG_ FF_FC_CP_VBSPD_TPPS m295 : 16|16@1+ (1,0) [0|100] "%"  FF_FC
+ SG_ FF_FC_CP_VBSPD_BrakePressure m294 : 16|16@1+ (1,0) [0|30] "Bar"  FF_FC
+ SG_ FF_FC_CP_SUSPENSION_FL_ErrorTime m293 : 16|16@1+ (100,0) [0|100] "ms"  FF_FC
+ SG_ FF_FC_CP_SUSPENSION_FL_Enable m292 : 16|16@1+ (1,0) [0|1] ""  FF_FC
+ SG_ FF_FC_CP_SUSPENSION_FR_ErrorTime m291 : 16|16@1+ (100,0) [0|100] "ms"  FF_FC
+ SG_ FF_FC_CP_SUSPENSION_FR_Enable m290 : 16|16@1+ (1,0) [0|1] ""  FF_FC
+ SG_ FF_FC_CP_SAS_OverTravelTolerance m289 : 16|16@1+ (0.1,0) [0|100] "ADCval"  FF_FC
+ SG_ FF_FC_CP_SAS_ErrorTime m288 : 16|16@1+ (1,0) [0|100] "ms"  FF_FC
+ SG_ FF_FC_CP_SAS_Enable m287 : 16|16@1+ (1,0) [0|1] ""  FF_FC
+ SG_ FF_FC_CP_TPPS_OverTravelToleranc m286 : 16|16@1+ (1,0) [0|100] "ADCval"  FF_FC
+ SG_ FF_FC_CP_TPPS_Characteristic m285 : 16|16@1+ (1,0) [0|3] ""  FF_FC
+ SG_ FF_FC_CP_TPPS_DeviationMax m284 : 16|16@1+ (0.1,0) [0|10] "%"  FF_FC
+ SG_ FF_FC_CP_TPPS_ErrorTime m283 : 16|16@1+ (1,0) [0|100] "ms"  FF_FC
+ SG_ FF_FC_CP_BPS_F_ErrorTime m282 : 16|16@1+ (1,0) [0|100] "ms"  FF_FC
+ SG_ FF_FC_CP_BPS_F_Enable m281 : 16|16@1+ (1,0) [0|1] ""  FF_FC
+ SG_ FF_FC_CP_DCU_disable_status_mess m262 : 16|16@1- (1,0) [0|1] "parameter"  FF_FC
+ SG_ FF_FC_CP_DCU_disable_watchdog m261 : 16|16@1- (1,0) [0|1] "parameter"  FF_FC
+ SG_ FF_FC_CP_DCU_Vcc24V_UpperLimit m260 : 16|16@1- (0.001,0) [0|32.767] "V"  FF_FC
+ SG_ FF_FC_CP_DCU_Vcc24V_LowerLimit m259 : 16|16@1- (0.001,0) [0|32.767] "V"  FF_FC
+ SG_ FF_FC_CP_DCU_Vcc24V m258 : 16|16@1- (1,0) [0|1] "parameter"  FF_FC
+ SG_ FF_FC_CP_DCU_StatusLED m257 : 16|16@1- (1,0) [0|1] "parameter"  FF_FC
+ SG_ FF_FC_CP_DCU_ADC_LowPass m256 : 16|16@1- (1,0) [1|10] "count"  FF_FC
+ SG_ FF_FC_config_mux M : 0|16@1+ (1,0) [0|4607] "mux"  FF_FC
+
+BO_ 1072 FS_Datalogger_Status: 6 FS_Datalogger
+ SG_ Current : 32|16@1+ (64,0) [0|4194240] "mA" Vector__XXX
+ SG_ Voltage : 16|16@1+ (16,0) [0|1048560] "mV" Vector__XXX
+ SG_ Status_Triggered_Current : 11|1@1- (1,0) [0|0] "" Vector__XXX
+ SG_ Status_Triggered_Voltage : 10|1@1- (1,0) [0|0] "" Vector__XXX
+ SG_ Status_Logging : 9|1@1- (1,0) [0|0] "" Vector__XXX
+ SG_ Status_Ready : 8|1@1- (1,0) [0|0] "" Vector__XXX
+ SG_ MsgCnt : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 1066 FF_IMU_Error: 1 FF_IMU
+
+BO_ 1050 FF_IMU_StatusWord: 4 FF_IMU
+ SG_ FF_IMU_FB_Status_ExternalClockSy : 30|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ FF_IMU_FB_Status_RepresentativeM : 29|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ FF_IMU_FB_Status_NoRotation : 28|2@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ FF_IMU_FB_Status_GpsValid : 26|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ FF_IMU_FB_Status_OrientationVali : 25|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ FF_IMU_FB_Status_SelfTestOk : 24|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ FF_IMU_FB_Status_ClipMagY : 23|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ FF_IMU_FB_Status_ClipMagX : 22|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ FF_IMU_FB_Status_ClipGyrZ : 21|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ FF_IMU_FB_Status_ClipGyrY : 20|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ FF_IMU_FB_Status_ClipGyrX : 19|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ FF_IMU_FB_Status_ClipAccZ : 18|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ FF_IMU_FB_Status_ClipAccY : 17|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ FF_IMU_FB_Status_ClipAccX : 16|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ FF_IMU_FB_Status_SyncOut : 14|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ FF_IMU_FB_Status_SyncIn : 13|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ FF_IMU_FB_Status_Interpolated : 12|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ FF_IMU_FB_Status_ClippingDetecte : 11|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ FF_IMU_FB_Status_Retransmitted : 10|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ FF_IMU_FB_Status_ClipMagZ : 8|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ FF_IMU_FB_Status_FilterMode : 1|3@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ FF_IMU_FB_Status_RtkStatus : 4|2@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ FF_IMU_FB_Status_HaveGnssTimePul : 2|1@1+ (1,0) [0|1] "" Vector__XXX
+
+BO_ 1034 FF_IMU_Quaternion: 8 FF_IMU
+ SG_ FF_IMU_FB_Quaternion_4 : 55|16@0- (3.0517578125e-05,0) [0|0] "" Vector__XXX
+ SG_ FF_IMU_FB_Quaternion_3 : 39|16@0- (3.0517578125e-05,0) [-1|1] "" Vector__XXX
+ SG_ FF_IMU_FB_Quaternion_2 : 23|16@0- (3.0517578125e-05,0) [-1|1] "" Vector__XXX
+ SG_ FF_IMU_FB_Quaternion_1 : 7|16@0- (3.0517578125e-05,0) [-1|1] "" Vector__XXX
+
+BO_ 810 FF_IMU_DeltaV: 7 FF_IMU
+ SG_ FF_IMU_FB_DeltaV_Exponent : 55|8@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ FF_IMU_FB_DeltaV_Z : 39|16@0- (7.6293945313e-06,0) [-0.25|0.25] "m/s" Vector__XXX
+ SG_ FF_IMU_FB_DeltaV_Y : 23|16@0- (7.6293945313e-06,0) [-0.25|0.25] "m/s" Vector__XXX
+ SG_ FF_IMU_FB_DeltaV_X : 7|16@0- (7.6293945313e-06,0) [-0.25|0.25] "m/s" Vector__XXX
+
+BO_ 794 FF_IMU_RateOfTurn: 6 FF_IMU
+ SG_ FF_IMU_FB_RateOfTurn_Z : 39|16@0- (0.001953125,0) [0|0] "rad/s"  FF_PE
+ SG_ FF_IMU_FB_RateOfTurn_Y : 23|16@0- (0.001953125,0) [0|0] "rad/s"  FF_PE
+ SG_ FF_IMU_FB_RateOfTurn_X : 7|16@0- (0.001953125,0) [0|0] "rad/s"  FF_PE
+
+BO_ 1594 FF_IMU_Acceleration: 6 FF_IMU
+ SG_ FF_IMU_FB_Acceleration_Z : 39|16@0- (0.00390625,0) [-100|100] "m/s²"  FF_PE
+ SG_ FF_IMU_FB_Acceleration_Y : 23|16@0- (0.00390625,0) [-100|100] "m/s²"  FF_PE
+ SG_ FF_IMU_FB_Acceleration_X : 7|16@0- (0.00390625,0) [-100|100] "m/s²"  FF_PE
+
+BO_ 1578 FF_IMU_FF_IMU_UTC: 8 FF_IMU
+ SG_ FF_IMU_FB_UTC_tenthms : 55|16@0+ (1,0) [0|0] "ms/10" Vector__XXX
+ SG_ FF_IMU_FB_UTC_second : 47|8@0+ (1,0) [0|60] "s" Vector__XXX
+ SG_ FF_IMU_FB_UTC_minute : 39|8@0+ (1,0) [0|60] "m" Vector__XXX
+ SG_ FF_IMU_FB_UTC_hour : 31|8@0+ (1,0) [0|24] "h" Vector__XXX
+ SG_ FF_IMU_FB_UTC_day : 23|8@0+ (1,0) [1|31] "D" Vector__XXX
+ SG_ FF_IMU_FB_UTC_month : 15|8@0+ (1,0) [1|12] "M" Vector__XXX
+ SG_ FF_IMU_FB_UTC_year : 7|8@0+ (1,0) [0|0] "Y" Vector__XXX
+
+BO_ 1802 FF_IMU_EulerAngles: 6 FF_IMU
+ SG_ FF_IMU_FB_EulerAngles_yaw : 39|16@0- (0.0078125,0) [-180|180] "deg"  FF_PE
+ SG_ FF_IMU_FB_EulerAngles_pitch : 23|16@0- (0.0078125,0) [-90|90] "deg"  FF_PE
+ SG_ FF_IMU_FB_EulerAngles_roll : 7|16@0- (0.0078125,0) [-180|180] "deg"  FF_PE
+
+BO_ 1610 FF_IMU_LongLat: 8 FF_IMU
+ SG_ FF_IMU_FB_Postion_longitude : 39|32@0- (1.1920928955e-07,0) [-180|180] "deg" Vector__XXX
+ SG_ FF_IMU_FB_Postion_latitude : 7|32@0- (5.9604644775e-08,0) [-90|90] "deg" Vector__XXX
+
+BO_ 826 FF_IMU_Velocity: 6 FF_IMU
+ SG_ FF_IMU_FB_Velocity_Z : 39|16@0- (0.015625,0) [-500|500] "m/s"  FF_DB,FF_PE
+ SG_ FF_IMU_FB_Velocity_Y : 23|16@0- (0.015625,0) [-500|500] "m/s"  FF_DB,FF_PE
+ SG_ FF_IMU_FB_Velocity_X : 7|16@0- (0.015625,0) [-500|500] "m/s"  FF_DB,FF_PE
+
+BO_ 785 FF_PDU_Output_Status: 8 FF_PDU
+ SG_ FF_PDU_FB_VOLT_ALV : 53|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_PDU_FB_VOLT_LV : 52|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_PDU_FB_HSS_10B : 51|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_PDU_FB_HSS_10A : 50|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_PDU_FB_HSS_09B : 49|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_PDU_FB_HSS_09A : 48|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_PDU_FB_HSS_08B : 47|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_PDU_FB_HSS_08A : 46|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_PDU_FB_HSS_07B : 45|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_PDU_FB_HSS_07A : 44|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_PDU_FB_HSS_06B : 43|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_PDU_FB_HSS_06A : 42|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_PDU_FB_HSS_05B : 41|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_PDU_FB_HSS_05A : 40|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_PDU_FB_HSS_04B : 39|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_PDU_FB_HSS_04A : 38|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_PDU_FB_HSS_03B : 37|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_PDU_FB_HSS_03A : 36|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_PDU_FB_HSS_02B : 35|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_PDU_FB_HSS_02A : 34|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_PDU_FB_HSS_01B : 33|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_PDU_FB_HSS_01A : 32|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_PDU_FB_VOLT_FPO_HC_4 : 28|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_PDU_FB_VOLT_FPO_HC_3 : 27|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_PDU_FB_VOLT_FPO_HC_2 : 26|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_PDU_FB_VOLT_FPO_HC_A1 : 25|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_PDU_FB_VOLT_FPO_LC_5 : 24|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_PDU_FB_VOLT_FPO_LC_4 : 23|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_PDU_FB_VOLT_FPO_LC_3 : 22|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_PDU_FB_VOLT_FPO_LC_2 : 21|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_PDU_FB_VOLT_FPO_LC_A1 : 20|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_PDU_FB_VOLT_HSS_10B : 19|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_PDU_FB_VOLT_HSS_10A : 18|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_PDU_FB_VOLT_HSS_09B : 17|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_PDU_FB_VOLT_HSS_09A : 16|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_PDU_FB_VOLT_HSS_08B : 15|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_PDU_FB_VOLT_HSS_08A : 14|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_PDU_FB_VOLT_HSS_07B : 13|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_PDU_FB_VOLT_HSS_07A : 12|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_PDU_FB_VOLT_HSS_06B : 11|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_PDU_FB_VOLT_HSS_06A : 10|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_PDU_FB_VOLT_HSS_05B : 9|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_PDU_FB_VOLT_HSS_05A : 8|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_PDU_FB_VOLT_HSS_04B : 7|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_PDU_FB_VOLT_HSS_04A : 6|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_PDU_FB_VOLT_HSS_03B : 5|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_PDU_FB_VOLT_HSS_03A : 4|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_PDU_FB_VOLT_HSS_02B : 3|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_PDU_FB_VOLT_HSS_02A : 2|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_PDU_FB_VOLT_HSS_01B : 1|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_PDU_FB_VOLT_HSS_01A : 0|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+
+BO_ 513 FF_PDU_Status: 8 FF_PDU
+ SG_ FF_PDU_ST_EEPROM_newCalibrationS : 8|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_PDU_ST_EEPROM_newParameterSav : 7|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_PDU_FB_DCU_StatusLedRed : 6|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_PDU_ST_DCU_StatusLedRed : 5|1@1+ (1,0) [0|1] "output" Vector__XXX
+ SG_ FF_PDU_FB_DCU_StatusLedGreen : 4|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_PDU_ST_DCU_StatusLedGreen : 3|1@1+ (1,0) [0|1] "output" Vector__XXX
+ SG_ FF_PDU_ST_DCU_StatusLed : 0|3@1+ (1,0) [0|3] "" Vector__XXX
+
+BO_ 1585 FF_PDU_Debug_01: 8 FF_PDU
+ SG_ FF_PDU_Debug_01_07 : 56|8@1+ (1,0) [0|255] "feedback" Vector__XXX
+ SG_ FF_PDU_Debug_01_06 : 48|8@1+ (1,0) [0|255] "feedback" Vector__XXX
+ SG_ FF_PDU_Debug_01_05 : 40|8@1+ (1,0) [0|255] "feedback" Vector__XXX
+ SG_ FF_PDU_Debug_01_04 : 32|8@1+ (1,0) [0|255] "feedback" Vector__XXX
+ SG_ FF_PDU_Debug_01_03 : 24|8@1+ (1,0) [0|255] "feedback" Vector__XXX
+ SG_ FF_PDU_Debug_01_02 : 16|8@1+ (1,0) [0|255] "feedback" Vector__XXX
+ SG_ FF_PDU_Debug_01_01 : 8|8@1+ (1,0) [0|255] "feedback" Vector__XXX
+ SG_ FF_PDU_Debug_01_00 : 0|8@1+ (1,0) [0|255] "feedback" Vector__XXX
+
+BO_ 1601 FF_PDU_Debug_02: 8 FF_PDU
+ SG_ FF_PDU_Debug_02_03 : 48|16@1+ (1,0) [0|255] "feedback" Vector__XXX
+ SG_ FF_PDU_Debug_02_02 : 32|16@1+ (1,0) [0|255] "feedback" Vector__XXX
+ SG_ FF_PDU_Debug_02_01 : 16|16@1+ (1,0) [0|255] "feedback" Vector__XXX
+ SG_ FF_PDU_Debug_02_00 : 0|16@1+ (1,0) [0|255] "feedback" Vector__XXX
+
+BO_ 801 FF_PDU_HSS_ctrl: 2 FF_DB
+ SG_ FF_PDU_HSS_ctrl_10B m119 : 8|1@1+ (1,0) [0|1] "command"  FF_PDU
+ SG_ FF_PDU_HSS_ctrl_10A m118 : 8|1@1+ (1,0) [0|1] "command"  FF_PDU
+ SG_ FF_PDU_HSS_ctrl_09B m117 : 8|1@1+ (1,0) [0|1] "command"  FF_PDU
+ SG_ FF_PDU_HSS_ctrl_09A m116 : 8|1@1+ (1,0) [0|1] "command"  FF_PDU
+ SG_ FF_PDU_HSS_ctrl_08B m115 : 8|1@1+ (1,0) [0|1] "command"  FF_PDU
+ SG_ FF_PDU_HSS_ctrl_08A m114 : 8|1@1+ (1,0) [0|1] "command"  FF_PDU
+ SG_ FF_PDU_HSS_ctrl_07B m113 : 8|1@1+ (1,0) [0|1] "command"  FF_PDU
+ SG_ FF_PDU_HSS_ctrl_07A m112 : 8|1@1+ (1,0) [0|1] "command"  FF_PDU
+ SG_ FF_PDU_HSS_ctrl_06B m111 : 8|1@1+ (1,0) [0|1] "command"  FF_PDU
+ SG_ FF_PDU_HSS_ctrl_06A m110 : 8|1@1+ (1,0) [0|1] "command"  FF_PDU
+ SG_ FF_PDU_HSS_ctrl_05B m109 : 8|1@1+ (1,0) [0|1] "command"  FF_PDU
+ SG_ FF_PDU_HSS_ctrl_05A m108 : 8|1@1+ (1,0) [0|1] "command"  FF_PDU
+ SG_ FF_PDU_HSS_ctrl_04B m107 : 8|1@1+ (1,0) [0|1] "command"  FF_PDU
+ SG_ FF_PDU_HSS_ctrl_04A m106 : 8|1@1+ (1,0) [0|1] "command"  FF_PDU
+ SG_ FF_PDU_HSS_ctrl_03B m105 : 8|1@1+ (1,0) [0|1] "command"  FF_PDU
+ SG_ FF_PDU_HSS_ctrl_03A m104 : 8|1@1+ (1,0) [0|1] "command"  FF_PDU
+ SG_ FF_PDU_HSS_ctrl_02B m103 : 8|1@1+ (1,0) [0|1] "command"  FF_PDU
+ SG_ FF_PDU_HSS_ctrl_02A m102 : 8|1@1+ (1,0) [0|1] "command"  FF_PDU
+ SG_ FF_PDU_HSS_ctrl_01B m101 : 8|1@1+ (1,0) [0|1] "command"  FF_PDU
+ SG_ FF_PDU_HSS_ctrl_01A m100 : 8|1@1+ (1,0) [0|1] "command"  FF_PDU
+ SG_ FF_PDU_HSS_ctrl_mux M : 0|8@1+ (1,0) [0|256] "mux"  FF_PDU
+
+BO_ 273 FF_PDU_Error: 8 FF_PDU
+ SG_ FF_PDU_EE_VOLTFB_ALV : 63|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EE_VOLTFB_LV : 62|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EE_VOLTFB_FPO_HC_4 : 58|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EE_VOLTFB_FPO_HC_3 : 57|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EE_VOLTFB_FPO_HC_2 : 56|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EE_VOLTFB_FPO_HC_A1 : 55|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EE_VOLTFB_FPO_LC_5 : 54|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EE_VOLTFB_FPO_LC_4 : 53|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EE_VOLTFB_FPO_LC_3 : 52|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EE_VOLTFB_FPO_LC_2 : 51|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EE_VOLTFB_FPO_LC_A1 : 50|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EE_VOLTFB_HSS_10B : 49|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EE_VOLTFB_HSS_10A : 48|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EE_VOLTFB_HSS_09B : 47|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EE_VOLTFB_HSS_09A : 46|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EE_VOLTFB_HSS_08B : 45|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EE_VOLTFB_HSS_08A : 44|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EE_VOLTFB_HSS_07B : 43|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EE_VOLTFB_HSS_07A : 42|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EE_VOLTFB_HSS_06B : 41|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EE_VOLTFB_HSS_06A : 40|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EE_VOLTFB_HSS_05B : 39|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EE_VOLTFB_HSS_05A : 38|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EE_VOLTFB_HSS_04B : 37|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EE_VOLTFB_HSS_04A : 36|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EE_VOLTFB_HSS_03B : 35|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EE_VOLTFB_HSS_03A : 34|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EE_VOLTFB_HSS_02B : 33|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EE_VOLTFB_HSS_02A : 32|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EE_VOLTFB_HSS_01B : 31|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EE_VOLTFB_HSS_01A : 30|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EE_HSS_Error_10B : 29|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EE_HSS_Error_10A : 28|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EE_HSS_Error_09B : 27|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EE_HSS_Error_09A : 26|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EE_HSS_Error_08B : 25|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EE_HSS_Error_08A : 24|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EE_HSS_Error_07B : 23|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EE_HSS_Error_07A : 22|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EE_HSS_Error_06B : 21|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EE_HSS_Error_06A : 20|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EE_HSS_Error_05B : 19|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EE_HSS_Error_05A : 18|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EE_HSS_Error_04B : 17|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EE_HSS_Error_04A : 16|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EE_HSS_Error_03B : 15|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EE_HSS_Error_03A : 14|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EE_HSS_Error_02B : 13|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EE_HSS_Error_02A : 12|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EE_HSS_Error_01B : 11|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EE_HSS_Error_01A : 10|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EE_DCU_StatusLedGreen : 8|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EE_DCU_StatusLedRed : 7|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EE_EEPROM_HwIdMissmatch : 6|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EC_EEPROM_communication : 5|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EC_MB_HwIdMissmatch : 4|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EC_MB_SelfTestFailed : 3|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EC_MB_InitFailed : 2|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EC_DCU_SelfTestFailed : 1|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EC_DCU_EcuNonOperational : 0|1@1+ (1,0) [0|1] "error" Vector__XXX
+
+BO_ 769 FF_PDU_Warning: 8 FF_PDU
+ SG_ FF_PDU_EW_CurOutOfRange_FPO_HC_4 : 44|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EW_CurOutOfRange_FPO_HC_3 : 43|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EW_CurOutOfRange_FPO_HC_2 : 42|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EW_CurOutOfRange_FPO_HC_A : 41|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EW_CurOutOfRange_FPO_LC_5 : 40|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EW_CurOutOfRange_FPO_LC_4 : 39|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EW_CurOutOfRange_FPO_LC_3 : 38|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EW_CurOutOfRange_FPO_LC_2 : 37|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EW_CurOutOfRange_FPO_LC_A : 36|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EW_CurOutOfRange_HSS_10B : 35|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EW_CurOutOfRange_HSS_10A : 34|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EW_CurOutOfRange_HSS_09B : 33|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EW_CurOutOfRange_HSS_09A : 32|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EW_CurOutOfRange_HSS_08B : 31|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EW_CurOutOfRange_HSS_08A : 30|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EW_CurOutOfRange_HSS_07B : 29|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EW_CurOutOfRange_HSS_07A : 28|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EW_CurOutOfRange_HSS_06B : 27|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EW_CurOutOfRange_HSS_06A : 26|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EW_CurOutOfRange_HSS_05B : 25|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EW_CurOutOfRange_HSS_05A : 24|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EW_CurOutOfRange_HSS_04B : 23|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EW_CurOutOfRange_HSS_04A : 22|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EW_CurOutOfRange_HSS_03B : 21|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EW_CurOutOfRange_HSS_03A : 20|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EW_CurOutOfRange_HSS_02B : 19|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EW_CurOutOfRange_HSS_02A : 18|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EW_CurOutOfRange_HSS_01B : 17|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EW_CurOutOfRange_HSS_01A : 16|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_FB_DCU_Vcc24V : 8|8@1+ (0.05,18.0) [18.0|30.75] "V" Vector__XXX
+ SG_ FF_PDU_EW_DCU_Vcc24V : 5|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EW_EEPROM_wasCleared : 3|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EI_DCU_EcuSoftwareVe_0000 : 2|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EI_DCU_EcuSoftwareVersion : 1|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PDU_EW_DCU_resetCausedByWatch : 0|1@1+ (1,0) [0|1] "error" Vector__XXX
+
+BO_ 1793 FF_PDU_config: 4 FF_PDU
+ SG_ FF_PDU_CI_DCU_ECU_sw_version_3 m3336 : 16|16@1- (1,0) [-32.768|32.767] "sw_version"  FF_PDU
+ SG_ FF_PDU_CI_DCU_ECU_sw_version_2 m3335 : 16|16@1- (1,0) [-32.768|32.767] "sw_version"  FF_PDU
+ SG_ FF_PDU_CI_DCU_ECU_sw_version_1 m3334 : 16|16@1- (1,0) [-32.768|32.767] "sw_version"  FF_PDU
+ SG_ FF_PDU_CI_DCU_ECU_sw_version_0 m3333 : 16|16@1- (1,0) [-32.768|32.767] "sw_version"  FF_PDU
+ SG_ FF_PDU_CI_MB_HWID m3332 : 16|16@1- (1,0) [0|100] "hwid"  FF_PDU
+ SG_ FF_PDU_CI_MB_board_number m3331 : 16|16@1- (1,0) [1|100] "board_number"  FF_PDU
+ SG_ FF_PDU_CI_MB_HW_revision m3330 : 16|16@1- (1,0) [0|100] "hw_revision"  FF_PDU
+ SG_ FF_PDU_CI_DCU_board_number m3329 : 16|16@1- (1,0) [1|100] "board_number"  FF_PDU
+ SG_ FF_PDU_CI_DCU_HW_revision m3328 : 16|16@1- (1,0) [0|100] "hw_revision"  FF_PDU
+ SG_ FF_PDU_CV_temp_offset_25C_HSS_10 m2396 : 16|16@1- (1,0) [16|4095] "ADCval"  FF_PDU
+ SG_ FF_PDU_CV_temp_offset_25C_HSS_09 m2395 : 16|16@1- (1,0) [16|4095] "ADCval"  FF_PDU
+ SG_ FF_PDU_CV_temp_offset_25C_HSS_08 m2394 : 16|16@1- (1,0) [16|4095] "ADCval"  FF_PDU
+ SG_ FF_PDU_CV_temp_offset_25C_HSS_07 m2393 : 16|16@1- (1,0) [16|4095] "ADCval"  FF_PDU
+ SG_ FF_PDU_CV_temp_offset_25C_HSS_06 m2392 : 16|16@1- (1,0) [16|4095] "ADCval"  FF_PDU
+ SG_ FF_PDU_CV_temp_offset_25C_HSS_05 m2391 : 16|16@1- (1,0) [16|4095] "ADCval"  FF_PDU
+ SG_ FF_PDU_CV_temp_offset_25C_HSS_04 m2390 : 16|16@1- (1,0) [16|4095] "ADCval"  FF_PDU
+ SG_ FF_PDU_CV_temp_offset_25C_HSS_03 m2389 : 16|16@1- (1,0) [16|4095] "ADCval"  FF_PDU
+ SG_ FF_PDU_CV_temp_offset_25C_HSS_02 m2388 : 16|16@1- (1,0) [16|4095] "ADCval"  FF_PDU
+ SG_ FF_PDU_CV_temp_offset_25C_HSS_01 m2387 : 16|16@1- (1,0) [16|4095] "ADCval"  FF_PDU
+ SG_ FF_PDU_CV_curr_2A_cal_FPO_HC_4 m2380 : 16|16@1- (1,0) [16|4095] "ADCval"  FF_PDU
+ SG_ FF_PDU_CV_curr_offset_FPO_HC_4 m2379 : 16|16@1- (1,0) [0|4095] "ADCval"  FF_PDU
+ SG_ FF_PDU_CV_curr_2A_cal_FPO_HC_3 m2378 : 16|16@1- (1,0) [16|4095] "ADCval"  FF_PDU
+ SG_ FF_PDU_CV_curr_offset_FPO_HC_3 m2377 : 16|16@1- (1,0) [0|4095] "ADCval"  FF_PDU
+ SG_ FF_PDU_CV_curr_2A_cal_FPO_HC_2 m2376 : 16|16@1- (1,0) [16|4095] "ADCval"  FF_PDU
+ SG_ FF_PDU_CV_curr_offset_FPO_HC_2 m2375 : 16|16@1- (1,0) [0|4095] "ADCval"  FF_PDU
+ SG_ FF_PDU_CV_curr_2A_cal_FPO_HC_A1 m2374 : 16|16@1- (1,0) [16|4095] "ADCval"  FF_PDU
+ SG_ FF_PDU_CV_curr_offset_FPO_HC_A1 m2373 : 16|16@1- (1,0) [0|4095] "ADCval"  FF_PDU
+ SG_ FF_PDU_CV_curr_2A_cal_FPO_LC_5 m2372 : 16|16@1- (1,0) [16|4095] "ADCval"  FF_PDU
+ SG_ FF_PDU_CV_curr_offset_FPO_LC_5 m2371 : 16|16@1- (1,0) [0|4095] "ADCval"  FF_PDU
+ SG_ FF_PDU_CV_curr_2A_cal_FPO_LC_4 m2370 : 16|16@1- (1,0) [16|4095] "ADCval"  FF_PDU
+ SG_ FF_PDU_CV_curr_offset_FPO_LC_4 m2369 : 16|16@1- (1,0) [0|4095] "ADCval"  FF_PDU
+ SG_ FF_PDU_CV_curr_2A_cal_FPO_LC_3 m2368 : 16|16@1- (1,0) [16|4095] "ADCval"  FF_PDU
+ SG_ FF_PDU_CV_curr_offset_FPO_LC_3 m2367 : 16|16@1- (1,0) [0|4095] "ADCval"  FF_PDU
+ SG_ FF_PDU_CV_curr_2A_cal_FPO_LC_2 m2363 : 16|16@1- (1,0) [16|4095] "ADCval"  FF_PDU
+ SG_ FF_PDU_CV_curr_offset_FPO_LC_2 m2362 : 16|16@1- (1,0) [0|4095] "ADCval"  FF_PDU
+ SG_ FF_PDU_CV_curr_2A_cal_FPO_LC_A1 m2361 : 16|16@1- (1,0) [16|4095] "ADCval"  FF_PDU
+ SG_ FF_PDU_CV_curr_offset_FPO_LC_A1 m2360 : 16|16@1- (1,0) [0|4095] "ADCval"  FF_PDU
+ SG_ FF_PDU_CV_curr_2A_cal_HSS_10B m2359 : 16|16@1- (1,0) [16|4095] "ADCval"  FF_PDU
+ SG_ FF_PDU_CV_curr_offset_HSS_10B m2358 : 16|16@1- (1,0) [0|4095] "ADCval"  FF_PDU
+ SG_ FF_PDU_CV_curr_2A_cal_HSS_10A m2357 : 16|16@1- (1,0) [16|4095] "ADCval"  FF_PDU
+ SG_ FF_PDU_CV_curr_offset_HSS_10A m2356 : 16|16@1- (1,0) [0|4095] "ADCval"  FF_PDU
+ SG_ FF_PDU_CV_curr_2A_cal_HSS_09B m2355 : 16|16@1- (1,0) [16|4095] "ADCval"  FF_PDU
+ SG_ FF_PDU_CV_curr_offset_HSS_09B m2354 : 16|16@1- (1,0) [0|4095] "ADCval"  FF_PDU
+ SG_ FF_PDU_CV_curr_2A_cal_HSS_09A m2353 : 16|16@1- (1,0) [16|4095] "ADCval"  FF_PDU
+ SG_ FF_PDU_CV_curr_offset_HSS_09A m2352 : 16|16@1- (1,0) [0|4095] "ADCval"  FF_PDU
+ SG_ FF_PDU_CV_curr_2A_cal_HSS_08B m2351 : 16|16@1- (1,0) [16|4095] "ADCval"  FF_PDU
+ SG_ FF_PDU_CV_curr_offset_HSS_08B m2350 : 16|16@1- (1,0) [0|4095] "ADCval"  FF_PDU
+ SG_ FF_PDU_CV_curr_2A_cal_HSS_08A m2349 : 16|16@1- (1,0) [16|4095] "ADCval"  FF_PDU
+ SG_ FF_PDU_CV_curr_offset_HSS_08A m2348 : 16|16@1- (1,0) [0|4095] "ADCval"  FF_PDU
+ SG_ FF_PDU_CV_curr_2A_cal_HSS_07B m2347 : 16|16@1- (1,0) [16|4095] "ADCval"  FF_PDU
+ SG_ FF_PDU_CV_curr_offset_HSS_07B m2346 : 16|16@1- (1,0) [0|4095] "ADCval"  FF_PDU
+ SG_ FF_PDU_CV_curr_2A_cal_HSS_07A m2345 : 16|16@1- (1,0) [16|4095] "ADCval"  FF_PDU
+ SG_ FF_PDU_CV_curr_offset_HSS_07A m2344 : 16|16@1- (1,0) [0|4095] "ADCval"  FF_PDU
+ SG_ FF_PDU_CV_curr_2A_cal_HSS_06B m2343 : 16|16@1- (1,0) [16|4095] "ADCval"  FF_PDU
+ SG_ FF_PDU_CV_curr_offset_HSS_06B m2342 : 16|16@1- (1,0) [0|4095] "ADCval"  FF_PDU
+ SG_ FF_PDU_CV_curr_2A_cal_HSS_06A m2341 : 16|16@1- (1,0) [16|4095] "ADCval"  FF_PDU
+ SG_ FF_PDU_CV_curr_offset_HSS_06A m2340 : 16|16@1- (1,0) [0|4095] "ADCval"  FF_PDU
+ SG_ FF_PDU_CV_curr_2A_cal_HSS_05B m2339 : 16|16@1- (1,0) [16|4095] "ADCval"  FF_PDU
+ SG_ FF_PDU_CV_curr_offset_HSS_05B m2338 : 16|16@1- (1,0) [0|4095] "ADCval"  FF_PDU
+ SG_ FF_PDU_CV_curr_2A_cal_HSS_05A m2337 : 16|16@1- (1,0) [16|4095] "ADCval"  FF_PDU
+ SG_ FF_PDU_CV_curr_offset_HSS_05A m2336 : 16|16@1- (1,0) [0|4095] "ADCval"  FF_PDU
+ SG_ FF_PDU_CV_curr_2A_cal_HSS_04B m2335 : 16|16@1- (1,0) [16|4095] "ADCval"  FF_PDU
+ SG_ FF_PDU_CV_curr_offset_HSS_04B m2334 : 16|16@1- (1,0) [0|4095] "ADCval"  FF_PDU
+ SG_ FF_PDU_CV_curr_2A_cal_HSS_04A m2333 : 16|16@1- (1,0) [16|4095] "ADCval"  FF_PDU
+ SG_ FF_PDU_CV_curr_offset_HSS_04A m2332 : 16|16@1- (1,0) [0|4095] "ADCval"  FF_PDU
+ SG_ FF_PDU_CV_curr_2A_cal_HSS_03B m2331 : 16|16@1- (1,0) [16|4095] "ADCval"  FF_PDU
+ SG_ FF_PDU_CV_curr_offset_HSS_03B m2330 : 16|16@1- (1,0) [0|4095] "ADCval"  FF_PDU
+ SG_ FF_PDU_CV_curr_2A_cal_HSS_03A m2329 : 16|16@1- (1,0) [16|4095] "ADCval"  FF_PDU
+ SG_ FF_PDU_CV_curr_offset_HSS_03A m2328 : 16|16@1- (1,0) [0|4095] "ADCval"  FF_PDU
+ SG_ FF_PDU_CV_curr_2A_cal_HSS_02B m2327 : 16|16@1- (1,0) [16|4095] "ADCval"  FF_PDU
+ SG_ FF_PDU_CV_curr_offset_HSS_02B m2326 : 16|16@1- (1,0) [0|4095] "ADCval"  FF_PDU
+ SG_ FF_PDU_CV_curr_2A_cal_HSS_02A m2325 : 16|16@1- (1,0) [16|4095] "ADCval"  FF_PDU
+ SG_ FF_PDU_CV_curr_offset_HSS_02A m2324 : 16|16@1- (1,0) [0|4095] "ADCval"  FF_PDU
+ SG_ FF_PDU_CV_curr_2A_cal_HSS_01B m2323 : 16|16@1- (1,0) [16|4095] "ADCval"  FF_PDU
+ SG_ FF_PDU_CV_curr_offset_HSS_01B m2322 : 16|16@1- (1,0) [0|4095] "ADCval"  FF_PDU
+ SG_ FF_PDU_CV_curr_2A_cal_HSS_01A m2321 : 16|16@1- (1,0) [16|4095] "ADCval"  FF_PDU
+ SG_ FF_PDU_CV_curr_offset_HSS_01A m2320 : 16|16@1- (1,0) [0|4095] "ADCval"  FF_PDU
+ SG_ FF_PDU_CV_DCU_Vcc24V_calibration m2304 : 16|16@1- (1,0) [16|4033] "ADCval"  FF_PDU
+ SG_ FF_PDU_CC_set_temperature_offset m1327 : 16|16@1- (1,0) [1|100] "command"  FF_PDU
+ SG_ FF_PDU_CC_set_current_2A_ECUPDU m1325 : 16|16@1- (1,0) [1|100] "command"  FF_PDU
+ SG_ FF_PDU_CC_set_current_2A_HC_4 m1323 : 16|16@1- (1,0) [1|100] "command"  FF_PDU
+ SG_ FF_PDU_CC_set_current_2A_HC_3 m1322 : 16|16@1- (1,0) [1|100] "command"  FF_PDU
+ SG_ FF_PDU_CC_set_current_2A_HC_2 m1321 : 16|16@1- (1,0) [1|100] "command"  FF_PDU
+ SG_ FF_PDU_CC_set_current_2A_HC_A1 m1320 : 16|16@1- (1,0) [1|100] "command"  FF_PDU
+ SG_ FF_PDU_CC_set_current_2A_LC_5 m1319 : 16|16@1- (1,0) [1|100] "command"  FF_PDU
+ SG_ FF_PDU_CC_set_current_2A_LC_4 m1318 : 16|16@1- (1,0) [1|100] "command"  FF_PDU
+ SG_ FF_PDU_CC_set_current_2A_LC_3 m1317 : 16|16@1- (1,0) [1|100] "command"  FF_PDU
+ SG_ FF_PDU_CC_set_current_2A_LC_2 m1316 : 16|16@1- (1,0) [1|100] "command"  FF_PDU
+ SG_ FF_PDU_CC_set_current_2A_LC_A1 m1315 : 16|16@1- (1,0) [1|100] "command"  FF_PDU
+ SG_ FF_PDU_CC_set_offset_ECUPDU m1313 : 16|16@1- (1,0) [1|100] "command"  FF_PDU
+ SG_ FF_PDU_CC_set_offset_HC_4 m1311 : 16|16@1- (1,0) [1|100] "command"  FF_PDU
+ SG_ FF_PDU_CC_set_offset_HC_3 m1310 : 16|16@1- (1,0) [1|100] "command"  FF_PDU
+ SG_ FF_PDU_CC_set_offset_HC_2 m1309 : 16|16@1- (1,0) [1|100] "command"  FF_PDU
+ SG_ FF_PDU_CC_set_offset_HC_A1 m1308 : 16|16@1- (1,0) [1|100] "command"  FF_PDU
+ SG_ FF_PDU_CC_set_offset_LC_5 m1307 : 16|16@1- (1,0) [1|100] "command"  FF_PDU
+ SG_ FF_PDU_CC_set_offset_LC_4 m1306 : 16|16@1- (1,0) [1|100] "command"  FF_PDU
+ SG_ FF_PDU_CC_set_offset_LC_3 m1305 : 16|16@1- (1,0) [1|100] "command"  FF_PDU
+ SG_ FF_PDU_CC_set_offset_LC_2 m1304 : 16|16@1- (1,0) [1|100] "command"  FF_PDU
+ SG_ FF_PDU_CC_set_offset_LC_A1 m1303 : 16|16@1- (1,0) [1|100] "command"  FF_PDU
+ SG_ FF_PDU_CC_set_offset_Calibration m1302 : 16|16@1- (1,0) [1|100] "command"  FF_PDU
+ SG_ FF_PDU_CC_set_current_2A_Calibra m1301 : 16|16@1- (1,0) [1|100] "command"  FF_PDU
+ SG_ FF_PDU_CC_DCU_set_MB_board_numbe m1288 : 16|16@1- (1,0) [1|100] "board_number"  FF_PDU
+ SG_ FF_PDU_CC_DCU_set_MB_HW_revision m1287 : 16|16@1- (1,0) [0|100] "hw_revision"  FF_PDU
+ SG_ FF_PDU_CC_DCU_set_DCU_board_numb m1286 : 16|16@1- (1,0) [1|100] "board_number"  FF_PDU
+ SG_ FF_PDU_CC_DCU_set_DCU_HW_revisio m1285 : 16|16@1- (1,0) [0|100] "hw_revision"  FF_PDU
+ SG_ FF_PDU_CC_EEPROM_clean_Parameter m1284 : 16|16@1- (1,0) [0|1] "command"  FF_PDU
+ SG_ FF_PDU_CC_EEPROM_clean_Calibrati m1283 : 16|16@1- (1,0) [0|1] "command"  FF_PDU
+ SG_ FF_PDU_CC_EEPROM_send_all_Config m1282 : 16|16@1- (1,0) [0|1] "command"  FF_PDU
+ SG_ FF_PDU_CC_EEPROM_send_Config m1281 : 16|16@1- (1,0) [0|4607] "mux_id"  FF_PDU
+ SG_ FF_PDU_CC_DCU_Vcc24V_calibration m1280 : 16|16@1- (1,0) [0|1] "command"  FF_PDU
+ SG_ FF_PDU_CP_OC_Profile_HSS_10B m375 : 16|16@1- (1,0) [0|5] ""  FF_PDU
+ SG_ FF_PDU_CP_OC_Profile_HSS_10A m374 : 16|16@1- (1,0) [0|5] ""  FF_PDU
+ SG_ FF_PDU_CP_OC_Profile_HSS_09B m373 : 16|16@1- (1,0) [0|5] ""  FF_PDU
+ SG_ FF_PDU_CP_OC_Profile_HSS_09A m372 : 16|16@1- (1,0) [0|5] ""  FF_PDU
+ SG_ FF_PDU_CP_OC_Profile_HSS_08B m371 : 16|16@1- (1,0) [0|5] ""  FF_PDU
+ SG_ FF_PDU_CP_OC_Profile_HSS_08A m370 : 16|16@1- (1,0) [0|5] ""  FF_PDU
+ SG_ FF_PDU_CP_OC_Profile_HSS_07B m369 : 16|16@1- (1,0) [0|5] ""  FF_PDU
+ SG_ FF_PDU_CP_OC_Profile_HSS_07A m368 : 16|16@1- (1,0) [0|5] ""  FF_PDU
+ SG_ FF_PDU_CP_OC_Profile_HSS_06B m367 : 16|16@1- (1,0) [0|5] ""  FF_PDU
+ SG_ FF_PDU_CP_OC_Profile_HSS_06A m366 : 16|16@1- (1,0) [0|5] ""  FF_PDU
+ SG_ FF_PDU_CP_OC_Profile_HSS_05B m365 : 16|16@1- (1,0) [0|5] ""  FF_PDU
+ SG_ FF_PDU_CP_OC_Profile_HSS_05A m364 : 16|16@1- (1,0) [0|5] ""  FF_PDU
+ SG_ FF_PDU_CP_OC_Profile_HSS_04B m363 : 16|16@1- (1,0) [0|5] ""  FF_PDU
+ SG_ FF_PDU_CP_OC_Profile_HSS_04A m362 : 16|16@1- (1,0) [0|5] ""  FF_PDU
+ SG_ FF_PDU_CP_OC_Profile_HSS_03B m361 : 16|16@1- (1,0) [0|5] ""  FF_PDU
+ SG_ FF_PDU_CP_OC_Profile_HSS_03A m360 : 16|16@1- (1,0) [0|5] ""  FF_PDU
+ SG_ FF_PDU_CP_OC_Profile_HSS_02B m359 : 16|16@1- (1,0) [0|5] ""  FF_PDU
+ SG_ FF_PDU_CP_OC_Profile_HSS_02A m358 : 16|16@1- (1,0) [0|5] ""  FF_PDU
+ SG_ FF_PDU_CP_OC_Profile_HSS_01B m357 : 16|16@1- (1,0) [0|5] ""  FF_PDU
+ SG_ FF_PDU_CP_OC_Profile_HSS_01A m356 : 16|16@1- (1,0) [0|5] ""  FF_PDU
+ SG_ FF_PDU_CP_curr_UpLimit_FPO_HC_4 m349 : 16|16@1- (0.001,0) [0|32.767] "A"  FF_PDU
+ SG_ FF_PDU_CP_curr_LowLimit_FPO_HC_4 m348 : 16|16@1- (0.001,0) [0|32.767] "A"  FF_PDU
+ SG_ FF_PDU_CP_curr_UpLimit_FPO_HC_3 m347 : 16|16@1- (0.001,0) [0|32.767] "A"  FF_PDU
+ SG_ FF_PDU_CP_curr_LowLimit_FPO_HC_3 m346 : 16|16@1- (0.001,0) [0|32.767] "A"  FF_PDU
+ SG_ FF_PDU_CP_curr_UpLimit_FPO_HC_2 m345 : 16|16@1- (0.001,0) [0|32.767] "A"  FF_PDU
+ SG_ FF_PDU_CP_curr_LowLimit_FPO_HC_2 m344 : 16|16@1- (0.001,0) [0|32.767] "A"  FF_PDU
+ SG_ FF_PDU_CP_curr_UpLimit_FPO_HC_A1 m343 : 16|16@1- (0.001,0) [0|32.767] "A"  FF_PDU
+ SG_ FF_PDU_CP_curr_LowLimit_FPO_HC_A m342 : 16|16@1- (0.001,0) [0|32.767] "A"  FF_PDU
+ SG_ FF_PDU_CP_curr_UpLimit_FPO_LC_5 m341 : 16|16@1- (0.001,0) [0|32.767] "A"  FF_PDU
+ SG_ FF_PDU_CP_curr_LowLimit_FPO_LC_5 m340 : 16|16@1- (0.001,0) [0|32.767] "A"  FF_PDU
+ SG_ FF_PDU_CP_curr_UpLimit_FPO_LC_4 m339 : 16|16@1- (0.001,0) [0|32.767] "A"  FF_PDU
+ SG_ FF_PDU_CP_curr_LowLimit_FPO_LC_4 m338 : 16|16@1- (0.001,0) [0|32.767] "A"  FF_PDU
+ SG_ FF_PDU_CP_curr_UpLimit_FPO_LC_3 m337 : 16|16@1- (0.001,0) [0|32.767] "A"  FF_PDU
+ SG_ FF_PDU_CP_curr_LowLimit_FPO_LC_3 m336 : 16|16@1- (0.001,0) [0|32.767] "A"  FF_PDU
+ SG_ FF_PDU_CP_curr_UpLimit_FPO_LC_2 m335 : 16|16@1- (0.001,0) [0|32.767] "A"  FF_PDU
+ SG_ FF_PDU_CP_curr_LowLimit_FPO_LC_2 m334 : 16|16@1- (0.001,0) [0|32.767] "A"  FF_PDU
+ SG_ FF_PDU_CP_curr_UpLimit_FPO_LC_A1 m333 : 16|16@1- (0.001,0) [0|32.767] "A"  FF_PDU
+ SG_ FF_PDU_CP_curr_LowLimit_FPO_LC_A m332 : 16|16@1- (0.001,0) [0|32.767] "A"  FF_PDU
+ SG_ FF_PDU_CP_curr_UpLimit_HSS_10B m331 : 16|16@1- (0.001,0) [0|32.767] "A"  FF_PDU
+ SG_ FF_PDU_CP_curr_LowLimit_HSS_10B m330 : 16|16@1- (0.001,0) [0|32.767] "A"  FF_PDU
+ SG_ FF_PDU_CP_curr_UpLimit_HSS_10A m329 : 16|16@1- (0.001,0) [0|32.767] "A"  FF_PDU
+ SG_ FF_PDU_CP_curr_LowLimit_HSS_10A m328 : 16|16@1- (0.001,0) [0|32.767] "A"  FF_PDU
+ SG_ FF_PDU_CP_curr_UpLimit_HSS_09B m327 : 16|16@1- (0.001,0) [0|32.767] "A"  FF_PDU
+ SG_ FF_PDU_CP_curr_LowLimit_HSS_09B m326 : 16|16@1- (0.001,0) [0|32.767] "A"  FF_PDU
+ SG_ FF_PDU_CP_curr_UpLimit_HSS_09A m325 : 16|16@1- (0.001,0) [0|32.767] "A"  FF_PDU
+ SG_ FF_PDU_CP_curr_LowLimit_HSS_09A m324 : 16|16@1- (0.001,0) [0|32.767] "A"  FF_PDU
+ SG_ FF_PDU_CP_curr_UpLimit_HSS_08B m323 : 16|16@1- (0.001,0) [0|32.767] "A"  FF_PDU
+ SG_ FF_PDU_CP_curr_LowLimit_HSS_08B m322 : 16|16@1- (0.001,0) [0|32.767] "A"  FF_PDU
+ SG_ FF_PDU_CP_curr_UpLimit_HSS_08A m321 : 16|16@1- (0.001,0) [0|32.767] "A"  FF_PDU
+ SG_ FF_PDU_CP_curr_LowLimit_HSS_08A m320 : 16|16@1- (0.001,0) [0|32.767] "A"  FF_PDU
+ SG_ FF_PDU_CP_curr_UpLimit_HSS_07B m319 : 16|16@1- (0.001,0) [0|32.767] "A"  FF_PDU
+ SG_ FF_PDU_CP_curr_LowLimit_HSS_07B m318 : 16|16@1- (0.001,0) [0|32.767] "A"  FF_PDU
+ SG_ FF_PDU_CP_curr_UpLimit_HSS_07A m317 : 16|16@1- (0.001,0) [0|32.767] "A"  FF_PDU
+ SG_ FF_PDU_CP_curr_LowLimit_HSS_07A m316 : 16|16@1- (0.001,0) [0|32.767] "A"  FF_PDU
+ SG_ FF_PDU_CP_curr_UpLimit_HSS_06B m315 : 16|16@1- (0.001,0) [0|32.767] "A"  FF_PDU
+ SG_ FF_PDU_CP_curr_LowLimit_HSS_06B m314 : 16|16@1- (0.001,0) [0|32.767] "A"  FF_PDU
+ SG_ FF_PDU_CP_curr_UpLimit_HSS_06A m313 : 16|16@1- (0.001,0) [0|32.767] "A"  FF_PDU
+ SG_ FF_PDU_CP_curr_LowLimit_HSS_06A m312 : 16|16@1- (0.001,0) [0|32.767] "A"  FF_PDU
+ SG_ FF_PDU_CP_curr_UpLimit_HSS_05B m311 : 16|16@1- (0.001,0) [0|32.767] "A"  FF_PDU
+ SG_ FF_PDU_CP_curr_LowLimit_HSS_05B m310 : 16|16@1- (0.001,0) [0|32.767] "A"  FF_PDU
+ SG_ FF_PDU_CP_curr_UpLimit_HSS_05A m309 : 16|16@1- (0.001,0) [0|32.767] "A"  FF_PDU
+ SG_ FF_PDU_CP_curr_LowLimit_HSS_05A m308 : 16|16@1- (0.001,0) [0|32.767] "A"  FF_PDU
+ SG_ FF_PDU_CP_curr_UpLimit_HSS_04B m307 : 16|16@1- (0.001,0) [0|32.767] "A"  FF_PDU
+ SG_ FF_PDU_CP_curr_LowLimit_HSS_04B m306 : 16|16@1- (0.001,0) [0|32.767] "A"  FF_PDU
+ SG_ FF_PDU_CP_curr_UpLimit_HSS_04A m305 : 16|16@1- (0.001,0) [0|32.767] "A"  FF_PDU
+ SG_ FF_PDU_CP_curr_LowLimit_HSS_04A m304 : 16|16@1- (0.001,0) [0|32.767] "A"  FF_PDU
+ SG_ FF_PDU_CP_curr_UpLimit_HSS_03B m303 : 16|16@1- (0.001,0) [0|32.767] "A"  FF_PDU
+ SG_ FF_PDU_CP_curr_LowLimit_HSS_03B m302 : 16|16@1- (0.001,0) [0|32.767] "A"  FF_PDU
+ SG_ FF_PDU_CP_curr_UpLimit_HSS_03A m301 : 16|16@1- (0.001,0) [0|32.767] "A"  FF_PDU
+ SG_ FF_PDU_CP_curr_LowLimit_HSS_03A m300 : 16|16@1- (0.001,0) [0|32.767] "A"  FF_PDU
+ SG_ FF_PDU_CP_curr_UpLimit_HSS_02B m299 : 16|16@1- (0.001,0) [0|32.767] "A"  FF_PDU
+ SG_ FF_PDU_CP_curr_LowLimit_HSS_02B m298 : 16|16@1- (0.001,0) [0|32.767] "A"  FF_PDU
+ SG_ FF_PDU_CP_curr_UpLimit_HSS_02A m297 : 16|16@1- (0.001,0) [0|32.767] "A"  FF_PDU
+ SG_ FF_PDU_CP_curr_LowLimit_HSS_02A m296 : 16|16@1- (0.001,0) [0|32.767] "A"  FF_PDU
+ SG_ FF_PDU_CP_curr_UpLimit_HSS_01B m295 : 16|16@1- (0.001,0) [0|32.767] "A"  FF_PDU
+ SG_ FF_PDU_CP_curr_LowLimit_HSS_01B m294 : 16|16@1- (0.001,0) [0|32.767] "A"  FF_PDU
+ SG_ FF_PDU_CP_curr_UpLimit_HSS_01A m293 : 16|16@1- (0.001,0) [0|32.767] "A"  FF_PDU
+ SG_ FF_PDU_CP_curr_LowLimit_HSS_01A m292 : 16|16@1- (0.001,0) [0|32.767] "A"  FF_PDU
+ SG_ FF_PDU_CP_Startup_HSS_10B m291 : 16|16@1- (10,0) [0|10000] "ms"  FF_PDU
+ SG_ FF_PDU_CP_Startup_HSS_10A m290 : 16|16@1- (10,0) [0|10000] "ms"  FF_PDU
+ SG_ FF_PDU_CP_Startup_HSS_09B m289 : 16|16@1- (10,0) [0|10000] "ms"  FF_PDU
+ SG_ FF_PDU_CP_Startup_HSS_09A m288 : 16|16@1- (10,0) [0|10000] "ms"  FF_PDU
+ SG_ FF_PDU_CP_Startup_HSS_08B m287 : 16|16@1- (10,0) [0|10000] "ms"  FF_PDU
+ SG_ FF_PDU_CP_Startup_HSS_08A m286 : 16|16@1- (10,0) [0|10000] "ms"  FF_PDU
+ SG_ FF_PDU_CP_Startup_HSS_07B m285 : 16|16@1- (10,0) [0|10000] "ms"  FF_PDU
+ SG_ FF_PDU_CP_Startup_HSS_07A m284 : 16|16@1- (10,0) [0|10000] "ms"  FF_PDU
+ SG_ FF_PDU_CP_Startup_HSS_06B m283 : 16|16@1- (10,0) [0|10000] "ms"  FF_PDU
+ SG_ FF_PDU_CP_Startup_HSS_06A m282 : 16|16@1- (10,0) [0|10000] "ms"  FF_PDU
+ SG_ FF_PDU_CP_Startup_HSS_05B m281 : 16|16@1- (10,0) [0|10000] "ms"  FF_PDU
+ SG_ FF_PDU_CP_Startup_HSS_05A m280 : 16|16@1- (10,0) [0|10000] "ms"  FF_PDU
+ SG_ FF_PDU_CP_Startup_HSS_04B m279 : 16|16@1- (10,0) [0|10000] "ms"  FF_PDU
+ SG_ FF_PDU_CP_Startup_HSS_04A m278 : 16|16@1- (10,0) [0|10000] "ms"  FF_PDU
+ SG_ FF_PDU_CP_Startup_HSS_03B m277 : 16|16@1- (10,0) [0|10000] "ms"  FF_PDU
+ SG_ FF_PDU_CP_Startup_HSS_03A m276 : 16|16@1- (10,0) [0|10000] "ms"  FF_PDU
+ SG_ FF_PDU_CP_Startup_HSS_02B m275 : 16|16@1- (10,0) [0|10000] "ms"  FF_PDU
+ SG_ FF_PDU_CP_Startup_HSS_02A m274 : 16|16@1- (10,0) [0|10000] "ms"  FF_PDU
+ SG_ FF_PDU_CP_Startup_HSS_01B m273 : 16|16@1- (10,0) [0|10000] "ms"  FF_PDU
+ SG_ FF_PDU_CP_Startup_HSS_01A m272 : 16|16@1- (10,0) [0|10000] "ms"  FF_PDU
+ SG_ FF_PDU_CP_MB_VerboseCAN m271 : 16|16@1- (1,0) [0|1] "parameter"  FF_PDU
+ SG_ FF_PDU_CP_DCU_disable_status_mes m262 : 16|16@1- (1,0) [0|1] "parameter"  FF_PDU
+ SG_ FF_PDU_CP_DCU_disable_watchdog m261 : 16|16@1- (1,0) [0|1] "parameter"  FF_PDU
+ SG_ FF_PDU_CP_DCU_Vcc24V_UpperLimit m260 : 16|16@1- (0.001,0) [0|32.767] "V"  FF_PDU
+ SG_ FF_PDU_CP_DCU_Vcc24V_LowerLimit m259 : 16|16@1- (0.001,0) [0|32.767] "V"  FF_PDU
+ SG_ FF_PDU_CP_DCU_Vcc24V m258 : 16|16@1- (1,0) [0|1] "parameter"  FF_PDU
+ SG_ FF_PDU_CP_DCU_StatusLED m257 : 16|16@1- (1,0) [0|1] "parameter"  FF_PDU
+ SG_ FF_PDU_CP_DCU_ADC_LowPass m256 : 16|16@1- (1,0) [1|10] "count"  FF_PDU
+ SG_ FF_PDU_config_mux M : 0|16@1+ (1,0) [0|4607] "mux"  FF_PDU
+
+BO_ 275 FF_PE_Error: 8 FF_PE
+ SG_ FF_PE_EE_FUSE_MC_Front : 46|1@1+ (1,0) [0|1] "error"  FF_BMS
+ SG_ FF_PE_EE_FUSE_MC_Rear : 45|1@1+ (1,0) [0|1] "error"  FF_BMS
+ SG_ FF_PE_EE_FUSE_TSAL : 44|1@1+ (1,0) [0|1] "error"  FF_BMS
+ SG_ FF_PE_EE_SCS_PE : 43|1@1+ (1,0) [0|1] "error"  FF_BMS
+ SG_ FF_PE_EE_Timeout_ASCtrl : 37|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PE_EE_Timeout_IMUVelocity : 35|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PE_EE_Timeout_AMKSetpointRR : 34|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PE_EE_Timeout_AMKSetpointRL : 33|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PE_EE_Timeout_AMKSetpointFR : 32|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PE_EE_Timeout_AMKSetpointFL : 31|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PE_EE_Timeout_DBState : 30|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PE_EE_Timeout_FCState : 28|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PE_EE_Timeout_BMSState : 27|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PE_EE_Discharge_HVFeedback : 26|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PE_EE_Discharge_OpenDischarge : 25|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PE_EE_HV_HV60FB : 15|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PE_EE_MotorControllerPower_Re : 14|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PE_EE_MotorControllerPower_Fr : 13|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PE_EE_TorqueEnable_RL : 12|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PE_EE_TorqueEnable_RR : 11|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PE_EE_TorqueEnable_FL : 10|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PE_EE_TorqueEnable_FR : 9|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PE_EE_DCU_StatusLedGreen : 8|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PE_EE_DCU_StatusLedRed : 7|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PE_EE_EEPROM_HwIdMissmatch : 6|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PE_EC_EEPROM_communication : 5|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PE_EC_MB_HwIdMissmatch : 4|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PE_EC_MB_SelfTestFailed : 3|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PE_EC_MB_InitFailed : 2|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PE_EC_DCU_SelfTestFailed : 1|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PE_EC_DCU_EcuNonOperational : 0|1@1+ (1,0) [0|1] "error" Vector__XXX
+
+BO_ 771 FF_PE_Warning: 8 FF_PE
+ SG_ FF_PE_EW_SpeedSource_IMUTimeout : 41|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PE_EW_CP_TireRadius : 40|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PE_EW_CP_MAINTAINANCEREVOLUTI : 39|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PE_EW_CP_MAXREVOLUTION : 38|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PE_EI_InverterState_Volt_0000 : 30|8@1+ (0.35,0) [0|1] "V" Vector__XXX
+ SG_ FF_PE_EI_InverterState_VoltageFe : 22|8@1+ (0.35,0) [0|1] "V" Vector__XXX
+ SG_ FF_PE_EW_MCtrl_OverVoltR : 21|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PE_EW_MCtrl_OverVoltF : 20|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PE_EW_TSAL_Red : 16|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PE_FB_DCU_Vcc24V : 8|8@1+ (0.05,18.0) [18.0|30.75] "V" Vector__XXX
+ SG_ FF_PE_EW_DCU_Vcc24V : 5|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PE_EW_EEPROM_wasCleared : 3|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PE_EI_DCU_EcuSoftwareVersionW : 2|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PE_EI_DCU_EcuSoftwareVersionC : 1|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_PE_EW_DCU_resetCausedByWatchd : 0|1@1+ (1,0) [0|1] "error" Vector__XXX
+
+BO_ 515 FF_PE_Status: 8 FF_PE
+ SG_ FF_PE_FB_SC_Ende : 47|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_PE_FB_Discharge_Open : 46|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_PE_FB_TSAL_red : 40|1@1+ (1,0) [0|1] "feedback"  FF_DB
+ SG_ FF_PE_ST_Recuperation_Active : 38|1@1+ (1,0) [0|1] "feedback"  FF_FC,FF_RC,FF_PDU,FF_DB
+ SG_ FF_PE_ST_Discharge_State : 37|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ FF_PE_FB_InverterState_IsPo_0000 : 35|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_PE_FB_InverterState_IsPowerVo : 34|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_PE_FB_SC_TSMP : 33|1@1+ (1,0) [0|1] "feedback"  FF_DB
+ SG_ FF_PE_FB_HV_DisCharge : 23|1@1+ (1,0) [0|1] ""  FF_BMS,FF_DB
+ SG_ FF_PE_FB_HV_HV60 : 22|1@1+ (1,0) [0|1] "feedback"  FF_BMS,FF_DB
+ SG_ FF_PE_FB_HV_HV400 : 21|1@1+ (1,0) [0|1] "feedback"  FF_BMS,FF_DB
+ SG_ FF_PE_ST_MCtrl_stateRR : 18|3@1+ (1,0) [0|6] ""  FF_DB
+ SG_ FF_PE_ST_MCtrl_stateRL : 15|3@1+ (1,0) [0|6] ""  FF_DB
+ SG_ FF_PE_ST_MCtrl_stateFR : 12|3@1+ (1,0) [0|6] ""  FF_DB
+ SG_ FF_PE_ST_MCtrl_stateFL : 9|3@1+ (1,0) [0|6] ""  FF_DB
+ SG_ FF_PE_ST_EEPROM_newCalibrationSa : 8|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_PE_ST_EEPROM_newParameterSave : 7|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_PE_FB_DCU_StatusLedRed : 6|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_PE_ST_DCU_StatusLedRed : 5|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_PE_FB_DCU_StatusLedGreen : 4|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_PE_ST_DCU_StatusLedGreen : 3|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_PE_ST_DCU_StatusLed : 0|3@1+ (1,0) [0|3] "feedback" Vector__XXX
+
+BO_ 819 FF_PE_Vehicle_Model_1: 8 FF_PE
+ SG_ FF_PE_VA_WheelRR_ExpectedRPM : 48|16@1+ (1,0) [0|20000] "1/min" Vector__XXX
+ SG_ FF_PE_VA_WheelRL_ExpectedRPM : 32|16@1+ (1,0) [0|20000] "1/min" Vector__XXX
+ SG_ FF_PE_VA_WheelFR_ExpectedRPM : 16|16@1+ (1,0) [0|20000] "1/min" Vector__XXX
+ SG_ FF_PE_VA_WheelFL_ExpectedRPM : 0|16@1+ (1,0) [0|20000] "1/min" Vector__XXX
+
+BO_ 1024 FF_PE_Vehicle_Model_1: 6 FF_PE
+ SG_ FF_PE_VA_WheelRR_Slip : 36|12@1+ (0.1,0) [0|100] "%" Vector__XXX
+ SG_ FF_PE_VA_WheelRL_Slip : 24|12@1+ (0.1,0) [0|100] "%" Vector__XXX
+ SG_ FF_PE_VA_WheelFR_Slip : 12|12@1+ (0.1,0) [0|100] "%" Vector__XXX
+ SG_ FF_PE_VA_WheelFL_Slip : 0|12@1+ (0.1,0) [0|100] "%" Vector__XXX
+
+BO_ 1795 FF_PE_config: 4 FF_PE
+ SG_ FF_PE_CI_Inverter_LastError m3337 : 16|16@1- (1,0) [-32768|32767] "ERROR_CODE"  FF_PE
+ SG_ FF_PE_CI_DCU_ECU_sw_version_3 m3336 : 16|16@1- (1,0) [-32.768|32.767] "sw_version"  FF_PE
+ SG_ FF_PE_CI_DCU_ECU_sw_version_2 m3335 : 16|16@1- (1,0) [-32.768|32.767] "sw_version"  FF_PE
+ SG_ FF_PE_CI_DCU_ECU_sw_version_1 m3334 : 16|16@1- (1,0) [-32.768|32.767] "sw_version"  FF_PE
+ SG_ FF_PE_CI_DCU_ECU_sw_version_0 m3333 : 16|16@1- (1,0) [-32.768|32.767] "sw_version"  FF_PE
+ SG_ FF_PE_CI_MB_HWID m3332 : 16|16@1- (1,0) [0|100] "hwid"  FF_PE
+ SG_ FF_PE_CI_MB_board_number m3331 : 16|16@1- (1,0) [1|100] "board_number"  FF_PE
+ SG_ FF_PE_CI_MB_HW_revision m3330 : 16|16@1- (1,0) [0|100] "hw_revision"  FF_PE
+ SG_ FF_PE_CI_DCU_board_number m3329 : 16|16@1- (1,0) [1|100] "board_number"  FF_PE
+ SG_ FF_PE_CI_DCU_HW_revision m3328 : 16|16@1- (1,0) [0|100] "hw_revision"  FF_PE
+ SG_ FF_PE_CV_3DS_gyro_offsetX m2327 : 16|16@1- (1,0) [0|32000] "raw"  FF_PE
+ SG_ FF_PE_CV_3DS_gyro_offsetY m2326 : 16|16@1- (1,0) [0|32000] "raw"  FF_PE
+ SG_ FF_PE_CV_3DS_gyro_offsetZ m2325 : 16|16@1- (1,0) [0|32000] "raw"  FF_PE
+ SG_ FF_PE_CV_3DS_acc_offsetX m2324 : 16|16@1- (1,0) [0|32000] "raw"  FF_PE
+ SG_ FF_PE_CV_3DS_acc_offsetY m2323 : 16|16@1- (1,0) [0|32000] "raw"  FF_PE
+ SG_ FF_PE_CV_3DS_acc_offsetZ m2322 : 16|16@1- (1,0) [0|32000] "raw"  FF_PE
+ SG_ FF_PE_CV_DCU_Vcc5V_calibration m2305 : 16|16@1- (1,0) [16|4033] "ADCval"  FF_PE
+ SG_ FF_PE_CV_DCU_Vcc24V_calibration m2304 : 16|16@1- (1,0) [16|4033] "ADCval"  FF_PE
+ SG_ FF_PE_CC_3DS_WHO_AM_I m1304 : 16|16@1- (1,0) [0|1] "raw"  FF_PE
+ SG_ FF_PE_CC_3DS_Set_offset m1303 : 16|16@1- (1,0) [0|1] "raw"  FF_PE
+ SG_ FF_PE_CC_Manuel_Enable m1302 : 16|16@1- (1,0) [0|1] "parameter"  FF_PE
+ SG_ FF_PE_CC_InverterVoltage_Calibra m1301 : 16|16@1- (1,0) [0|1] "parameter"  FF_PE
+ SG_ FF_PE_CC_DCU_set_MB_board_number m1289 : 16|16@1- (1,0) [1|100] "board_number"  FF_PE
+ SG_ FF_PE_CC_DCU_set_MB_HW_revision m1288 : 16|16@1- (1,0) [0|100] "hw_revision"  FF_PE
+ SG_ FF_PE_CC_DCU_set_DCU_board_numbe m1287 : 16|16@1- (1,0) [1|100] "board_number"  FF_PE
+ SG_ FF_PE_CC_DCU_set_DCU_HW_revision m1286 : 16|16@1- (1,0) [0|100] "hw_revision"  FF_PE
+ SG_ FF_PE_CC_EEPROM_clean_Parameter m1285 : 16|16@1- (1,0) [0|1] "command"  FF_PE
+ SG_ FF_PE_CC_EEPROM_clean_Calibratio m1284 : 16|16@1- (1,0) [0|1] "command"  FF_PE
+ SG_ FF_PE_CC_EEPROM_send_all_Config m1283 : 16|16@1- (1,0) [0|1] "command"  FF_PE
+ SG_ FF_PE_CC_EEPROM_send_Config m1282 : 16|16@1- (1,0) [0|4607] "mux_id"  FF_PE
+ SG_ FF_PE_CC_DCU_Vcc5V_calibration m1281 : 16|16@1- (1,0) [0|1] "command"  FF_PE
+ SG_ FF_PE_CC_DCU_Vcc24V_calibration m1280 : 16|16@1- (1,0) [0|1] "command"  FF_PE
+ SG_ FF_PE_CP_RecuperationTorque_RR m386 : 16|16@1- (1,0) [0|14] "Nm"  FF_PE
+ SG_ FF_PE_CP_RecuperationTorque_RL m385 : 16|16@1- (1,0) [0|14] "Nm"  FF_PE
+ SG_ FF_PE_CP_RecuperationTorque_FR m384 : 16|16@1- (1,0) [0|14] "Nm"  FF_PE
+ SG_ FF_PE_CP_RecuperationTorque_FL m383 : 16|16@1- (1,0) [0|14] "Nm"  FF_PE
+ SG_ FF_PE_CP_RecuperationCurrent_RR m382 : 16|16@1- (1,0) [0|30] "A"  FF_PE
+ SG_ FF_PE_CP_RecuperationCurrent_RL m381 : 16|16@1- (1,0) [0|30] "A"  FF_PE
+ SG_ FF_PE_CP_RecuperationCurrent_FR m380 : 16|16@1- (1,0) [0|30] "A"  FF_PE
+ SG_ FF_PE_CP_RecuperationCurrent_FL m379 : 16|16@1- (1,0) [0|30] "A"  FF_PE
+ SG_ FF_PE_CP_IMUAccelerationSli_0000 m378 : 16|16@1- (1,0) [0|20000] "1/min"  FF_PE
+ SG_ FF_PE_CP_IMUAccelerationSlipCont m377 : 16|16@1- (1,0) [0|100] "%"  FF_PE
+ SG_ FF_PE_CP_Vehicle_TireRadius m376 : 16|16@1- (1,0) [1|1000] "mm"  FF_PE
+ SG_ FF_PE_CP_Vehicle_GearRatio m375 : 16|16@1- (1,0) [1|100] "x:1"  FF_PE
+ SG_ FF_PE_CP_DTCControl_SlipCoeffici m374 : 16|16@1- (1,0) [0|100] "%"  FF_PE
+ SG_ FF_PE_CP_DControl_DifferentialHy m373 : 16|16@1- (1,0) [0|120] "deg"  FF_PE
+ SG_ FF_PE_CP_DControl_DifferentialDe m370 : 16|16@1- (1,0) [0|4000] "Nm%"  FF_PE
+ SG_ FF_PE_CP_DControl_DifferentialGa m369 : 16|16@1- (1,0) [0|50] "Nm%/deg"  FF_PE
+ SG_ FF_PE_CP_INPUT_CONTROLLER_V_0001 m346 : 16|16@1- (0.01,0) [0|100] "D"  FF_PE
+ SG_ FF_PE_CP_INPUT_CONTROLLER_V_0000 m345 : 16|16@1- (0.01,0) [0|100] "I"  FF_PE
+ SG_ FF_PE_CP_INPUT_CONTROLLER_VELOCI m344 : 16|16@1- (0.01,0) [0|100] "P"  FF_PE
+ SG_ FF_PE_CP_MAINTAINANCE_REVOLUTION m342 : 16|16@1- (1,0) [0|20000] "1/min"  FF_PE
+ SG_ FF_PE_CP_MAX_REVOLUTION m341 : 16|16@1- (1,0) [0|20000] "1/min"  FF_PE
+ SG_ FF_PE_CP_MaxTorque_RR m340 : 16|16@1- (1,0) [0|32] "Nm"  FF_PE
+ SG_ FF_PE_CP_MaxTorque_RL m359 : 16|16@1- (1,0) [0|32] "Nm"  FF_PE
+ SG_ FF_PE_CP_MaxTorque_FR m358 : 16|16@1- (1,0) [0|32] "Nm"  FF_PE
+ SG_ FF_PE_CP_MaxTorque_FL m357 : 16|16@1- (1,0) [0|32] "Nm"  FF_PE
+ SG_ FF_PE_CP_MaxPower_RR m356 : 16|16@1- (0.001,0) [0|32] "kW"  FF_PE
+ SG_ FF_PE_CP_MaxPower_RL m355 : 16|16@1- (0.001,0) [0|32] "kW"  FF_PE
+ SG_ FF_PE_CP_MaxPower_FR m354 : 16|16@1- (0.001,0) [0|32] "kW"  FF_PE
+ SG_ FF_PE_CP_MaxPower_FL m353 : 16|16@1- (0.001,0) [0|32] "kW"  FF_PE
+ SG_ FF_PE_CP_Inverter_EnableErrorRes m352 : 16|16@1- (1,0) [0|1] "parameter"  FF_PE
+ SG_ FF_PE_CP_SpeedSource_Timeout m290 : 16|16@1- (1,0) [0|60000] "ms"  FF_PE
+ SG_ FF_PE_CP_ASCtrl_TimeoutCounter m289 : 16|16@1- (1,0) [0|50] "x100ms"  FF_PE
+ SG_ FF_PE_CP_DBState_TimeoutCounter m287 : 16|16@1- (1,0) [0|50] "x100ms"  FF_PE
+ SG_ FF_PE_CP_FCState_TimeoutCounter m285 : 16|16@1- (1,0) [0|50] "x100ms"  FF_PE
+ SG_ FF_PE_CP_BMSState_TimeoutCounter m284 : 16|16@1- (1,0) [0|50] "x100ms"  FF_PE
+ SG_ FF_PE_CP_DynCtrl_Controller m283 : 16|16@1- (1,0) [0|4] ""  FF_PE
+ SG_ FF_PE_CP_MCtrl_ResetDelay m276 : 16|16@1- (100,0) [200|10000] "ms"  FF_PE
+ SG_ FF_PE_CP_MB_VerboseCAN m270 : 16|16@1- (1,0) [0|1] "parameter"  FF_PE
+ SG_ FF_PE_CP_DCU_disable_status_mess m262 : 16|16@1- (1,0) [0|1] "parameter"  FF_PE
+ SG_ FF_PE_CP_DCU_disable_watchdog m261 : 16|16@1- (1,0) [0|1] "parameter"  FF_PE
+ SG_ FF_PE_CP_DCU_Vcc24V_UpperLimit m260 : 16|16@1- (0.001,0) [0|32.767] "V"  FF_PE
+ SG_ FF_PE_CP_DCU_Vcc24V_LowerLimit m259 : 16|16@1- (0.001,0) [0|32.767] "V"  FF_PE
+ SG_ FF_PE_CP_DCU_Vcc24V m258 : 16|16@1- (1,0) [0|1] "parameter"  FF_PE
+ SG_ FF_PE_CP_DCU_StatusLED m257 : 16|16@1- (1,0) [0|1] "parameter"  FF_PE
+ SG_ FF_PE_CP_DCU_ADC_LowPass m256 : 16|16@1- (1,0) [1|10] "count"  FF_PE
+ SG_ FF_PE_config_mux M : 0|16@1+ (1,0) [0|4607] "mux"  FF_PE
+
+BO_ 517 FF_RC_Status: 8 FF_RC
+ SG_ FF_RC_FB_SC_PE : 41|1@1+ (1,0) [0|1] "feedback"  FF_DB
+ SG_ FF_RC_FB_SC_RL : 40|1@1+ (1,0) [0|1] "feedback"  FF_DB
+ SG_ FF_RC_FB_SC_RR : 39|1@1+ (1,0) [0|1] "feedback"  FF_DB
+ SG_ FF_RC_FB_SC_LvBat : 38|1@1+ (1,0) [0|1] "feedback"  FF_DB
+ SG_ FF_RC_FB_SC_BSPD : 37|1@1+ (1,0) [0|1] "feedback"  FF_DB
+ SG_ FF_RC_FB_SC_HVD : 36|1@1+ (1,0) [0|1] "feedback"  FF_DB
+ SG_ FF_RC_FB_SC_TSMS : 34|1@1+ (1,0) [0|1] "feedback"  FF_DB
+ SG_ FF_RC_ST_EEPROM_newCalibrationSa : 8|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_RC_ST_EEPROM_newParameterSave : 7|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_RC_FB_DCU_StatusLedRed : 6|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_RC_ST_DCU_StatusLedRed : 5|1@1+ (1,0) [0|1] "output" Vector__XXX
+ SG_ FF_RC_FB_DCU_StatusLedGreen : 4|1@1+ (1,0) [0|1] "feedback" Vector__XXX
+ SG_ FF_RC_ST_DCU_StatusLedGreen : 3|1@1+ (1,0) [0|1] "output" Vector__XXX
+ SG_ FF_RC_ST_DCU_StatusLed : 0|3@1+ (1,0) [0|3] "" Vector__XXX
+
+BO_ 277 FF_RC_Error: 8 FF_RC
+ SG_ FF_RC_EE_BSPD_HardwareFailure : 24|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_RC_EE_LEM_30 : 23|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_RC_EE_LEM_350 : 22|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_RC_EE_BPS_R : 21|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_RC_EE_FUSE_LvRPP : 16|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_RC_EE_FUSE_5VS : 15|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_RC_EE_FUSE_5VP : 14|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_RC_EE_MB_OUT4 : 13|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_RC_EE_MB_OUT3 : 12|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_RC_EE_MB_OUT2 : 11|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_RC_EE_MB_OUT1 : 10|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_RC_EE_DCU_StatusLedGreen : 8|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_RC_EE_DCU_StatusLedRed : 7|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_RC_EE_EEPROM_HwIdMissmatch : 6|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_RC_EC_EEPROM_communication : 5|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_RC_EC_MB_HwIdMissmatch : 4|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_RC_EC_MB_SelfTestFailed : 3|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_RC_EC_MB_InitFailed : 2|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_RC_EC_DCU_SelfTestFailed : 1|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_RC_EC_DCU_EcuNonOperational : 0|1@1+ (1,0) [0|1] "error" Vector__XXX
+
+BO_ 773 FF_RC_Warning: 8 FF_RC
+ SG_ FF_RC_EW_SUSPENSION_RL : 17|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_RC_EW_SUSPENSION_RR : 16|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_RC_FB_DCU_Vcc24V : 8|8@1+ (0.05,18.0) [18.0|30.75] "V" Vector__XXX
+ SG_ FF_RC_EW_DCU_Vcc24V : 5|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_RC_EW_EEPROM_wasCleared : 3|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_RC_EI_DCU_EcuSoftwareVersionW : 2|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_RC_EI_DCU_EcuSoftwareVersionC : 1|1@1+ (1,0) [0|1] "error" Vector__XXX
+ SG_ FF_RC_EW_DCU_resetCausedByWatchd : 0|1@1+ (1,0) [0|1] "error" Vector__XXX
+
+BO_ 1797 FF_RC_config: 4 FF_RC
+ SG_ FF_RC_CI_DCU_ECU_sw_version_3 m3336 : 16|16@1- (1,0) [-32.768|32.767] "sw_version"  FF_RC
+ SG_ FF_RC_CI_DCU_ECU_sw_version_2 m3335 : 16|16@1- (1,0) [-32.768|32.767] "sw_version"  FF_RC
+ SG_ FF_RC_CI_DCU_ECU_sw_version_1 m3334 : 16|16@1- (1,0) [-32.768|32.767] "sw_version"  FF_RC
+ SG_ FF_RC_CI_DCU_ECU_sw_version_0 m3333 : 16|16@1- (1,0) [-32.768|32.767] "sw_version"  FF_RC
+ SG_ FF_RC_CI_MB_HWID m3332 : 16|16@1- (1,0) [0|100] "hwid"  FF_RC
+ SG_ FF_RC_CI_MB_board_number m3331 : 16|16@1- (1,0) [1|100] "board_number"  FF_RC
+ SG_ FF_RC_CI_MB_HW_revision m3330 : 16|16@1- (1,0) [0|100] "hw_revision"  FF_RC
+ SG_ FF_RC_CI_DCU_board_number m3329 : 16|16@1- (1,0) [1|100] "board_number"  FF_RC
+ SG_ FF_RC_CI_DCU_HW_revision m3328 : 16|16@1- (1,0) [0|100] "hw_revision"  FF_RC
+ SG_ FF_RC_CV_BPS_R_offset m2324 : 16|16@1- (1,0) [16|4033] "ADCval"  FF_RC
+ SG_ FF_RC_CV_LEM_30_offset m2323 : 16|16@1- (1,0) [16|4033] "ADCval"  FF_RC
+ SG_ FF_RC_CV_LEM_350_offset m2322 : 16|16@1- (1,0) [16|4033] "ADCval"  FF_RC
+ SG_ FF_RC_CV_SUSPENSION_RL_offset m2321 : 16|16@1- (1,0) [16|4033] "ADCval"  FF_RC
+ SG_ FF_RC_CV_SUSPENSION_RR_offset m2320 : 16|16@1- (1,0) [16|4033] "ADCval"  FF_RC
+ SG_ FF_RC_CV_DCU_Vcc24V_calibration m2304 : 16|16@1- (1,0) [16|4033] "ADCval"  FF_RC
+ SG_ FF_RC_CC_BPS_R_set_offset m1302 : 16|16@1- (1,0) [0|1] "command"  FF_RC
+ SG_ FF_RC_CC_SUSPENSION_set_offset m1301 : 16|16@1- (1,0) [0|1] "command"  FF_RC
+ SG_ FF_RC_CC_LEM_set_offset m1300 : 16|16@1- (1,0) [0|1] "command"  FF_RC
+ SG_ FF_RC_CC_DCU_set_MB_board_number m1288 : 16|16@1- (1,0) [1|100] "board_number"  FF_RC
+ SG_ FF_RC_CC_DCU_set_MB_HW_revision m1287 : 16|16@1- (1,0) [0|100] "hw_revision"  FF_RC
+ SG_ FF_RC_CC_DCU_set_DCU_board_numbe m1286 : 16|16@1- (1,0) [1|100] "board_number"  FF_RC
+ SG_ FF_RC_CC_DCU_set_DCU_HW_revision m1285 : 16|16@1- (1,0) [0|100] "hw_revision"  FF_RC
+ SG_ FF_RC_CC_EEPROM_clean_Parameter m1284 : 16|16@1- (1,0) [0|1] "command"  FF_RC
+ SG_ FF_RC_CC_EEPROM_clean_Calibratio m1283 : 16|16@1- (1,0) [0|1] "command"  FF_RC
+ SG_ FF_RC_CC_EEPROM_send_all_Config m1282 : 16|16@1- (1,0) [0|1] "command"  FF_RC
+ SG_ FF_RC_CC_EEPROM_send_Config m1281 : 16|16@1- (1,0) [0|4607] "mux_id"  FF_RC
+ SG_ FF_RC_CC_DCU_Vcc24V_calibration m1280 : 16|16@1- (1,0) [0|1] "command"  FF_RC
+ SG_ FF_RC_CP_BSPD_EVAL_Enable m295 : 16|16@1+ (1,0) [0|1] ""  FF_RC
+ SG_ FF_RC_CP_SUSPENSION_RL_ErrorTime m294 : 16|16@1+ (100,0) [0|100] "ms"  FF_RC
+ SG_ FF_RC_CP_SUSPENSION_RL_Enable m293 : 16|16@1+ (1,0) [0|1] ""  FF_RC
+ SG_ FF_RC_CP_SUSPENSION_RR_ErrorTime m292 : 16|16@1+ (100,0) [0|100] "ms"  FF_RC
+ SG_ FF_RC_CP_SUSPENSION_RR_Enable m291 : 16|16@1+ (1,0) [0|1] ""  FF_RC
+ SG_ FF_RC_CP_LEM_350_ErrorTime m290 : 16|16@1+ (100,0) [0|100] "ms"  FF_RC
+ SG_ FF_RC_CP_LEM_350_Enable m289 : 16|16@1+ (1,0) [0|1] ""  FF_RC
+ SG_ FF_RC_CP_LEM_30_ErrorTime m288 : 16|16@1+ (100,0) [0|100] "ms"  FF_RC
+ SG_ FF_RC_CP_LEM_30_Enable m287 : 16|16@1+ (1,0) [0|1] ""  FF_RC
+ SG_ FF_RC_CP_BPS_R_ErrorTime m286 : 16|16@1+ (100,0) [0|100] "ms"  FF_RC
+ SG_ FF_RC_CP_BPS_R_Enable m285 : 16|16@1+ (1,0) [0|1] ""  FF_RC
+ SG_ FF_RC_CP_BSPD_BrakePressure_Thre m284 : 16|16@1+ (0.1,0) [1|200] "bar"  FF_RC
+ SG_ FF_RC_CP_BSPD_Current_Threshold m283 : 16|16@1+ (0.1,-30) [-30|30] "A"  FF_RC
+ SG_ FF_RC_CP_MB_VerboseCAN m271 : 16|16@1- (1,0) [0|1] "parameter"  FF_RC
+ SG_ FF_RC_CP_DCU_disable_status_mess m262 : 16|16@1- (1,0) [0|1] "parameter"  FF_RC
+ SG_ FF_RC_CP_DCU_disable_watchdog m261 : 16|16@1- (1,0) [0|1] "parameter"  FF_RC
+ SG_ FF_RC_CP_DCU_Vcc24V_UpperLimit m260 : 16|16@1- (0.001,0) [0|32.767] "V"  FF_RC
+ SG_ FF_RC_CP_DCU_Vcc24V_LowerLimit m259 : 16|16@1- (0.001,0) [0|32.767] "V"  FF_RC
+ SG_ FF_RC_CP_DCU_Vcc24V m258 : 16|16@1- (1,0) [0|1] "parameter"  FF_RC
+ SG_ FF_RC_CP_DCU_StatusLED m257 : 16|16@1- (1,0) [0|1] "parameter"  FF_RC
+ SG_ FF_RC_CP_DCU_ADC_LowPass m256 : 16|16@1- (1,0) [1|10] "count"  FF_RC
+ SG_ FF_RC_config_mux M : 0|16@1+ (1,0) [0|4607] "mux"  FF_RC
+
+BO_ 0 RES_Set_Node: 2 Vector__XXX
+ SG_ RES_Node_id : 8|8@1+ (1,0) [0|64] "" Vector__XXX
+ SG_ RES_Requested_mode : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 401 RES_Status: 8 RES
+ SG_ RES_Radio_quality : 48|8@1+ (1,0) [0|100] "" Vector__XXX
+ SG_ RES_Remote_Button : 2|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ RES_Remote_Switch : 1|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ RES_State : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+
+BO_ 1809 RES_Booted: 1 RES
+
+
+
+
+CM_ BU_ FF_IMU "Generic Xsens Motion Sensor";
+CM_ SG_ 1050 FF_IMU_FB_Status_GpsValid "Set when the device has a GPS receiver and the receiver says that there is a GPS position fix.";
+CM_ SG_ 1050 FF_IMU_FB_Status_SelfTestOk "Set when the self test result was ok";
+CM_ SG_ 1050 FF_IMU_FB_Status_ClipMagY "Indicates if there was clipping on the Y-axis of the magnetometer";
+CM_ SG_ 1050 FF_IMU_FB_Status_ClipMagX "Indicates if there was clipping on the X-axis of the magnetometer";
+CM_ SG_ 1050 FF_IMU_FB_Status_ClipGyrZ "Indicates if there was clipping on the Z-axis of the gyroscope";
+CM_ SG_ 1050 FF_IMU_FB_Status_ClipGyrY "Indicates if there was clipping on the Y-axis of the gyroscope";
+CM_ SG_ 1050 FF_IMU_FB_Status_ClipGyrX "Indicates if there was clipping on the X-axis of the gyroscope";
+CM_ SG_ 1050 FF_IMU_FB_Status_ClipAccZ "Indicates if there was clipping on the Z-axis of the accelerometer";
+CM_ SG_ 1050 FF_IMU_FB_Status_ClipAccY "Indicates if there was clipping on the Y-axis of the accelerometer";
+CM_ SG_ 1050 FF_IMU_FB_Status_ClipAccX "Indicates if there was clipping on the X-axis of the accelerometer";
+CM_ SG_ 1050 FF_IMU_FB_Status_SyncOut "When set Indicates a sync-out event has been generated";
+CM_ SG_ 1050 FF_IMU_FB_Status_SyncIn "When set indicates a sync-in event has been triggered";
+CM_ SG_ 1050 FF_IMU_FB_Status_Interpolated "When set Indicates the sample is an interpolation between other samples";
+CM_ SG_ 1050 FF_IMU_FB_Status_Retransmitted "When set Indicates the sample was received as a retransmission";
+CM_ SG_ 1050 FF_IMU_FB_Status_ClipMagZ "Indicates if there was clipping on the Z-axis of the magnetometer";
+CM_ SG_ 1050 FF_IMU_FB_Status_FilterMode "Mask for the 3 bit filter mode field";
+CM_ SG_ 1050 FF_IMU_FB_Status_RtkStatus "Mask for 2 bit RTK status field";
+CM_ BO_ 1578 "UTC Time in the following format YYMMDDhhmmss plus tenth of a milli second";
+BA_DEF_ SG_  "SystemSignalLongSymbol" STRING ;
+BA_DEF_DEF_  "SystemSignalLongSymbol" "";
+BA_ "SystemSignalLongSymbol" SG_ 1297 FSG_DV_EBS_Brake_pressure_s_0000 "FSG_DV_EBS_Brake_pressure_sensor_rear";
+BA_ "SystemSignalLongSymbol" SG_ 1297 FSG_DV_EBS_Brake_pressure_sensor "FSG_DV_EBS_Brake_pressure_sensor_front";
+BA_ "SystemSignalLongSymbol" SG_ 1297 FSG_DV_EBS_AS_is_sending_watchdo "FSG_DV_EBS_AS_is_sending_watchdog";
+BA_ "SystemSignalLongSymbol" SG_ 1298 FSG_DV_EBS_Supply_pressure__0002 "FSG_DV_EBS_Supply_pressure_sensor_4";
+BA_ "SystemSignalLongSymbol" SG_ 1298 FSG_DV_EBS_Supply_pressure__0001 "FSG_DV_EBS_Supply_pressure_sensor_3";
+BA_ "SystemSignalLongSymbol" SG_ 1298 FSG_DV_EBS_Supply_pressure__0000 "FSG_DV_EBS_Supply_pressure_sensor_2";
+BA_ "SystemSignalLongSymbol" SG_ 1298 FSG_DV_EBS_Supply_pressure_senso "FSG_DV_EBS_Supply_pressure_sensor_1";
+BA_ "SystemSignalLongSymbol" SG_ 514 FF_BMS_ST_AccuPower_MaxPowerStag "FF_BMS_ST_AccuPower_MaxPowerStage";
+BA_ "SystemSignalLongSymbol" SG_ 514 FF_BMS_ST_AccuPower_Recuperation "FF_BMS_ST_AccuPower_Recuperation_Allowed";
+BA_ "SystemSignalLongSymbol" SG_ 514 FF_BMS_ST_CurrentMeasurment_Curr "FF_BMS_ST_CurrentMeasurment_CurrentDirection";
+BA_ "SystemSignalLongSymbol" SG_ 514 FF_BMS_ST_EEPROM_newCalibrationS "FF_BMS_ST_EEPROM_newCalibrationSaved";
+BA_ "SystemSignalLongSymbol" SG_ 514 FF_BMS_ST_EEPROM_newParameterSav "FF_BMS_ST_EEPROM_newParameterSaved";
+BA_ "SystemSignalLongSymbol" SG_ 274 FF_BMS_EE_TractiveSystemActiveLi "FF_BMS_EE_TractiveSystemActiveLight_green";
+BA_ "SystemSignalLongSymbol" SG_ 274 FF_BMS_EE_Current_ChargeContinuo "FF_BMS_EE_Current_ChargeContinuously";
+BA_ "SystemSignalLongSymbol" SG_ 274 FF_BMS_EE_Current_DischargeConti "FF_BMS_EE_Current_DischargeContinuously";
+BA_ "SystemSignalLongSymbol" SG_ 274 FF_BMS_EE_Cells_OverTempera_0000 "FF_BMS_EE_Cells_OverTemperature_DisCharging";
+BA_ "SystemSignalLongSymbol" SG_ 274 FF_BMS_EE_Cells_OverTemperature_ "FF_BMS_EE_Cells_OverTemperature_Charging";
+BA_ "SystemSignalLongSymbol" SG_ 274 FF_BMS_EE_PRECHARGE_PEDisChargeH "FF_BMS_EE_PRECHARGE_PEDisChargeHVFB";
+BA_ "SystemSignalLongSymbol" SG_ 274 FF_BMS_EE_PRECHARGE_DisChargeHVF "FF_BMS_EE_PRECHARGE_DisChargeHVFB";
+BA_ "SystemSignalLongSymbol" SG_ 770 FF_BMS_EW_Configuration_Der_0000 "FF_BMS_EW_Configuration_Derating_Temperature";
+BA_ "SystemSignalLongSymbol" SG_ 770 FF_BMS_EW_Configuration_Derating "FF_BMS_EW_Configuration_Derating_SOC";
+BA_ "SystemSignalLongSymbol" SG_ 770 FF_BMS_EW_ConfigurationSlave_Num "FF_BMS_EW_ConfigurationSlave_NumberOfSlaves";
+BA_ "SystemSignalLongSymbol" SG_ 770 FF_BMS_EW_ConfigurationFaul_0002 "FF_BMS_EW_ConfigurationFault_Cell_OvertemperatureDischarging_C";
+BA_ "SystemSignalLongSymbol" SG_ 770 FF_BMS_EW_ConfigurationFaul_0001 "FF_BMS_EW_ConfigurationFault_Cell_OvertemperatureCharging_C";
+BA_ "SystemSignalLongSymbol" SG_ 770 FF_BMS_EW_ConfigurationFaul_0000 "FF_BMS_EW_ConfigurationFault_Cell_Undervoltage_mV";
+BA_ "SystemSignalLongSymbol" SG_ 770 FF_BMS_EW_ConfigurationFault_Cel "FF_BMS_EW_ConfigurationFault_Cell_Overvoltage_mV";
+BA_ "SystemSignalLongSymbol" SG_ 770 FF_BMS_EW_Configuration_HVCurren "FF_BMS_EW_Configuration_HVCurrent";
+BA_ "SystemSignalLongSymbol" SG_ 770 FF_BMS_EI_DCU_EcuSoftwareVe_0000 "FF_BMS_EI_DCU_EcuSoftwareVersionWatschn";
+BA_ "SystemSignalLongSymbol" SG_ 770 FF_BMS_EI_DCU_EcuSoftwareVersion "FF_BMS_EI_DCU_EcuSoftwareVersionChanged";
+BA_ "SystemSignalLongSymbol" SG_ 770 FF_BMS_EW_DCU_resetCausedByWatch "FF_BMS_EW_DCU_resetCausedByWatchdog";
+BA_ "SystemSignalLongSymbol" SG_ 1794 FF_BMS_CC_DCU_set_MB_board_numbe "FF_BMS_CC_DCU_set_MB_board_number";
+BA_ "SystemSignalLongSymbol" SG_ 1794 FF_BMS_CC_DCU_set_DCU_board_numb "FF_BMS_CC_DCU_set_DCU_board_number";
+BA_ "SystemSignalLongSymbol" SG_ 1794 FF_BMS_CC_DCU_set_DCU_HW_revisio "FF_BMS_CC_DCU_set_DCU_HW_revision";
+BA_ "SystemSignalLongSymbol" SG_ 1794 FF_BMS_CC_EEPROM_clean_Calibrati "FF_BMS_CC_EEPROM_clean_Calibration";
+BA_ "SystemSignalLongSymbol" SG_ 1794 FF_BMS_CP_PowerStage_Derating_Ma "FF_BMS_CP_PowerStage_Derating_Max_Temperature";
+BA_ "SystemSignalLongSymbol" SG_ 1794 FF_BMS_CP_PowerStage_Derati_0000 "FF_BMS_CP_PowerStage_Derating_Start_Temperature";
+BA_ "SystemSignalLongSymbol" SG_ 1794 FF_BMS_CP_PowerStage_Derating_Mi "FF_BMS_CP_PowerStage_Derating_Min_SOC";
+BA_ "SystemSignalLongSymbol" SG_ 1794 FF_BMS_CP_PowerStage_Derating_St "FF_BMS_CP_PowerStage_Derating_Start_SOC";
+BA_ "SystemSignalLongSymbol" SG_ 1794 FF_BMS_CP_PowerStage_Recuperatio "FF_BMS_CP_PowerStage_Recuperation_Temperature_Offset_From_limit";
+BA_ "SystemSignalLongSymbol" SG_ 1794 FF_BMS_CP_SOC_AccumulatorCapacit "FF_BMS_CP_SOC_AccumulatorCapacity_mAh";
+BA_ "SystemSignalLongSymbol" SG_ 1794 FF_BMS_CP_CurrentMeasurment_0002 "FF_BMS_CP_CurrentMeasurment_Direction_Threshold_2_Time_ms";
+BA_ "SystemSignalLongSymbol" SG_ 1794 FF_BMS_CP_CurrentMeasurment_0001 "FF_BMS_CP_CurrentMeasurment_Direction_Threshold_1_Time_ms";
+BA_ "SystemSignalLongSymbol" SG_ 1794 FF_BMS_CP_CurrentMeasurment_0000 "FF_BMS_CP_CurrentMeasurment_Direction_Threshold_2_A";
+BA_ "SystemSignalLongSymbol" SG_ 1794 FF_BMS_CP_CurrentMeasurment_Dire "FF_BMS_CP_CurrentMeasurment_Direction_Threshold_1_A";
+BA_ "SystemSignalLongSymbol" SG_ 1794 FF_BMS_CP_Fault_Current_Cha_0001 "FF_BMS_CP_Fault_Current_Charging_PeakTime_ms";
+BA_ "SystemSignalLongSymbol" SG_ 1794 FF_BMS_CP_Fault_Current_Cha_0000 "FF_BMS_CP_Fault_Current_Charging_Peak_A";
+BA_ "SystemSignalLongSymbol" SG_ 1794 FF_BMS_CP_Fault_Current_Charging "FF_BMS_CP_Fault_Current_Charging_Continous_A";
+BA_ "SystemSignalLongSymbol" SG_ 1794 FF_BMS_CP_Fault_Current_Dis_0001 "FF_BMS_CP_Fault_Current_Discharging_PeakTime_ms";
+BA_ "SystemSignalLongSymbol" SG_ 1794 FF_BMS_CP_Fault_Current_Dis_0000 "FF_BMS_CP_Fault_Current_Discharging_Peak_A";
+BA_ "SystemSignalLongSymbol" SG_ 1794 FF_BMS_CP_Fault_Current_Discharg "FF_BMS_CP_Fault_Current_Discharging_Continous_A";
+BA_ "SystemSignalLongSymbol" SG_ 1794 FF_BMS_CP_Fault_Cell_Overte_0000 "FF_BMS_CP_Fault_Cell_OvertemperatureDischarging_C";
+BA_ "SystemSignalLongSymbol" SG_ 1794 FF_BMS_CP_Fault_Cell_Overtempera "FF_BMS_CP_Fault_Cell_OvertemperatureCharging_C";
+BA_ "SystemSignalLongSymbol" SG_ 1794 FF_BMS_CP_Fault_Cell_Undervoltag "FF_BMS_CP_Fault_Cell_Undervoltage_mV";
+BA_ "SystemSignalLongSymbol" SG_ 1794 FF_BMS_CP_Fault_Cell_Overvoltage "FF_BMS_CP_Fault_Cell_Overvoltage_mV";
+BA_ "SystemSignalLongSymbol" SG_ 1794 FF_BMS_CP_HVCurrent_NominalRange "FF_BMS_CP_HVCurrent_NominalRange_A";
+BA_ "SystemSignalLongSymbol" SG_ 1794 FF_BMS_CP_PreCharge_check_AIRp_H "FF_BMS_CP_PreCharge_check_AIRp_HVFB";
+BA_ "SystemSignalLongSymbol" SG_ 1794 FF_BMS_CP_PreCharge_check_AIRm_H "FF_BMS_CP_PreCharge_check_AIRm_HVFB";
+BA_ "SystemSignalLongSymbol" SG_ 1794 FF_BMS_CP_PreCharge_check_HV95_H "FF_BMS_CP_PreCharge_check_HV95_HVFB";
+BA_ "SystemSignalLongSymbol" SG_ 1794 FF_BMS_CP_PreCharge_check_HV60_H "FF_BMS_CP_PreCharge_check_HV60_HVFB";
+BA_ "SystemSignalLongSymbol" SG_ 1794 FF_BMS_CP_PreCharge_check_D_0000 "FF_BMS_CP_PreCharge_check_DisCharge_HVFB";
+BA_ "SystemSignalLongSymbol" SG_ 1794 FF_BMS_CP_PreCharge_check_HV400_ "FF_BMS_CP_PreCharge_check_HV400_PEFB";
+BA_ "SystemSignalLongSymbol" SG_ 1794 FF_BMS_CP_PreCharge_check_HV60_P "FF_BMS_CP_PreCharge_check_HV60_PEFB";
+BA_ "SystemSignalLongSymbol" SG_ 1794 FF_BMS_CP_PreCharge_check_DisCha "FF_BMS_CP_PreCharge_check_DisCharge_PEFB";
+BA_ "SystemSignalLongSymbol" SG_ 1794 FF_BMS_CP_PreCharge_delayTime_de "FF_BMS_CP_PreCharge_delayTime_deactivateTS";
+BA_ "SystemSignalLongSymbol" SG_ 1794 FF_BMS_CP_PreCharge_expectTime_c "FF_BMS_CP_PreCharge_expectTime_closeDisCharge";
+BA_ "SystemSignalLongSymbol" SG_ 1794 FF_BMS_CP_PreCharge_expectT_0002 "FF_BMS_CP_PreCharge_expectTime_openPreCharge";
+BA_ "SystemSignalLongSymbol" SG_ 1794 FF_BMS_CP_PreCharge_expectT_0001 "FF_BMS_CP_PreCharge_expectTime_AIRp_FB";
+BA_ "SystemSignalLongSymbol" SG_ 1794 FF_BMS_CP_PreCharge_expectT_0000 "FF_BMS_CP_PreCharge_expectTime_HV95_FB";
+BA_ "SystemSignalLongSymbol" SG_ 1794 FF_BMS_CP_PreCharge_expectTime_H "FF_BMS_CP_PreCharge_expectTime_HV60_FB";
+BA_ "SystemSignalLongSymbol" SG_ 1794 FF_BMS_CP_PreCharge_expectTime_A "FF_BMS_CP_PreCharge_expectTime_AIRm_FB";
+BA_ "SystemSignalLongSymbol" SG_ 1794 FF_BMS_CP_PreCharge_expectTime_o "FF_BMS_CP_PreCharge_expectTime_openDisCharge";
+BA_ "SystemSignalLongSymbol" SG_ 1794 FF_BMS_CP_DCU_disable_status_mes "FF_BMS_CP_DCU_disable_status_message";
+BA_ "SystemSignalLongSymbol" SG_ 526 FF_DB_ST_System_InterventionEnab "FF_DB_ST_System_InterventionEnabled";
+BA_ "SystemSignalLongSymbol" SG_ 526 FF_DB_ST_EEPROM_newCalibrationSa "FF_DB_ST_EEPROM_newCalibrationSaved";
+BA_ "SystemSignalLongSymbol" SG_ 526 FF_DB_ST_EEPROM_newParameterSave "FF_DB_ST_EEPROM_newParameterSaved";
+BA_ "SystemSignalLongSymbol" SG_ 286 FF_DB_EE_LED_InvalidFeedbackLedC "FF_DB_EE_LED_InvalidFeedbackLedCMMS";
+BA_ "SystemSignalLongSymbol" SG_ 286 FF_DB_EE_LED_InvalidFeedbac_0001 "FF_DB_EE_LED_InvalidFeedbackLedUniBlue";
+BA_ "SystemSignalLongSymbol" SG_ 286 FF_DB_EE_LED_InvalidFeedbac_0000 "FF_DB_EE_LED_InvalidFeedbackLedUniGreen";
+BA_ "SystemSignalLongSymbol" SG_ 286 FF_DB_EE_LED_InvalidFeedbackLedU "FF_DB_EE_LED_InvalidFeedbackLedUniRed";
+BA_ "SystemSignalLongSymbol" SG_ 286 FF_DB_EE_LED_InvalidFeedbackLedN "FF_DB_EE_LED_InvalidFeedbackLedNoTS";
+BA_ "SystemSignalLongSymbol" SG_ 286 FF_DB_EE_LED_InvalidFeedbackLedI "FF_DB_EE_LED_InvalidFeedbackLedIMD";
+BA_ "SystemSignalLongSymbol" SG_ 286 FF_DB_EE_LED_InvalidFeedbackLedA "FF_DB_EE_LED_InvalidFeedbackLedASM";
+BA_ "SystemSignalLongSymbol" SG_ 286 FF_DB_EE_LED_InvalidFeedbackLedB "FF_DB_EE_LED_InvalidFeedbackLedBMS";
+BA_ "SystemSignalLongSymbol" SG_ 782 FF_DB_EW_SecureCircuit_NoFeedbac "FF_DB_EW_SecureCircuit_NoFeedbackCMMS";
+BA_ "SystemSignalLongSymbol" SG_ 782 FF_DB_EI_DCU_EcuSoftwareVersionW "FF_DB_EI_DCU_EcuSoftwareVersionWatschn";
+BA_ "SystemSignalLongSymbol" SG_ 782 FF_DB_EI_DCU_EcuSoftwareVersionC "FF_DB_EI_DCU_EcuSoftwareVersionChanged";
+BA_ "SystemSignalLongSymbol" SG_ 782 FF_DB_EW_DCU_resetCausedByWatchd "FF_DB_EW_DCU_resetCausedByWatchdog";
+BA_ "SystemSignalLongSymbol" SG_ 1806 FF_DB_CC_DCU_set_DCU_board_numbe "FF_DB_CC_DCU_set_DCU_board_number";
+BA_ "SystemSignalLongSymbol" SG_ 1806 FF_DB_CC_EEPROM_clean_Calibratio "FF_DB_CC_EEPROM_clean_Calibration";
+BA_ "SystemSignalLongSymbol" SG_ 1806 FF_DB_CP_FAN_Rear_Battery_C_0000 "FF_DB_CP_FAN_Rear_Battery_ControllerI";
+BA_ "SystemSignalLongSymbol" SG_ 1806 FF_DB_CP_FAN_Rear_Battery_Contro "FF_DB_CP_FAN_Rear_Battery_ControllerP";
+BA_ "SystemSignalLongSymbol" SG_ 1806 FF_DB_CP_FAN_Radiators_Hysteresi "FF_DB_CP_FAN_Radiators_Hysteresis";
+BA_ "SystemSignalLongSymbol" SG_ 1806 FF_DB_CP_FAN_Radiators_TempSetpo "FF_DB_CP_FAN_Radiators_TempSetpoint";
+BA_ "SystemSignalLongSymbol" SG_ 1806 FF_DB_CP_FAN_Rear_Inverter__0000 "FF_DB_CP_FAN_Rear_Inverter_ControllerI";
+BA_ "SystemSignalLongSymbol" SG_ 1806 FF_DB_CP_FAN_Rear_Inverter_Contr "FF_DB_CP_FAN_Rear_Inverter_ControllerP";
+BA_ "SystemSignalLongSymbol" SG_ 1806 FF_DB_CP_FAN_Battery_TempSetpoin "FF_DB_CP_FAN_Battery_TempSetpoint";
+BA_ "SystemSignalLongSymbol" SG_ 1806 FF_DB_CP_ASEmergencySound_Freque "FF_DB_CP_ASEmergencySound_Frequency_Hz";
+BA_ "SystemSignalLongSymbol" SG_ 1806 FF_DB_CP_ASEmergencySound_Active "FF_DB_CP_ASEmergencySound_ActiveTime_ms";
+BA_ "SystemSignalLongSymbol" SG_ 1806 FF_DB_CP_BrakePressure_ActivateB "FF_DB_CP_BrakePressure_ActivateBrakeLight";
+BA_ "SystemSignalLongSymbol" SG_ 1806 FF_DB_CP_DCU_disable_status_mess "FF_DB_CP_DCU_disable_status_message";
+BA_ "SystemSignalLongSymbol" SG_ 518 FF_FB_ST_EEPROM_newCalibrationSa "FF_FB_ST_EEPROM_newCalibrationSaved";
+BA_ "SystemSignalLongSymbol" SG_ 518 FF_FB_ST_EEPROM_newParameterSave "FF_FB_ST_EEPROM_newParameterSaved";
+BA_ "SystemSignalLongSymbol" SG_ 774 FF_FB_EI_DCU_EcuSoftwareVersionW "FF_FB_EI_DCU_EcuSoftwareVersionWatschn";
+BA_ "SystemSignalLongSymbol" SG_ 774 FF_FB_EI_DCU_EcuSoftwareVersionC "FF_FB_EI_DCU_EcuSoftwareVersionChanged";
+BA_ "SystemSignalLongSymbol" SG_ 774 FF_FB_EW_DCU_resetCausedByWatchd "FF_FB_EW_DCU_resetCausedByWatchdog";
+BA_ "SystemSignalLongSymbol" SG_ 1798 FF_FB_CC_DCU_set_DCU_board_numbe "FF_FB_CC_DCU_set_DCU_board_number";
+BA_ "SystemSignalLongSymbol" SG_ 1798 FF_FB_CC_EEPROM_clean_Calibratio "FF_FB_CC_EEPROM_clean_Calibration";
+BA_ "SystemSignalLongSymbol" SG_ 1798 FF_FB_CP_EBS_Pressure_NominalRan "FF_FB_CP_EBS_Pressure_NominalRange";
+BA_ "SystemSignalLongSymbol" SG_ 1798 FF_FB_CP_DCU_disable_status_mess "FF_FB_CP_DCU_disable_status_message";
+BA_ "SystemSignalLongSymbol" SG_ 516 FF_FC_VA_Recuperation_PedalFeedb "FF_FC_VA_Recuperation_PedalFeedback";
+BA_ "SystemSignalLongSymbol" SG_ 516 FF_FC_VA_SteeringAngleSensor_Ang "FF_FC_VA_SteeringAngleSensor_Angle";
+BA_ "SystemSignalLongSymbol" SG_ 516 FF_FC_ST_EEPROM_newCalibrationSa "FF_FC_ST_EEPROM_newCalibrationSaved";
+BA_ "SystemSignalLongSymbol" SG_ 516 FF_FC_ST_EEPROM_newParameterSave "FF_FC_ST_EEPROM_newParameterSaved";
+BA_ "SystemSignalLongSymbol" SG_ 772 FF_FC_EI_DCU_EcuSoftwareVersionW "FF_FC_EI_DCU_EcuSoftwareVersionWatschn";
+BA_ "SystemSignalLongSymbol" SG_ 772 FF_FC_EI_DCU_EcuSoftwareVersionC "FF_FC_EI_DCU_EcuSoftwareVersionChanged";
+BA_ "SystemSignalLongSymbol" SG_ 772 FF_FC_EW_DCU_resetCausedByWatchd "FF_FC_EW_DCU_resetCausedByWatchdog";
+BA_ "SystemSignalLongSymbol" SG_ 1796 FF_FC_CC_DCU_set_DCU_board_numbe "FF_FC_CC_DCU_set_DCU_board_number";
+BA_ "SystemSignalLongSymbol" SG_ 1796 FF_FC_CC_EEPROM_clean_Calibratio "FF_FC_CC_EEPROM_clean_Calibration";
+BA_ "SystemSignalLongSymbol" SG_ 1796 FF_FC_CP_TPPS_OverTravelToleranc "FF_FC_CP_TPPS_OverTravelTolerance";
+BA_ "SystemSignalLongSymbol" SG_ 1796 FF_FC_CP_DCU_disable_status_mess "FF_FC_CP_DCU_disable_status_message";
+BA_ "SystemSignalLongSymbol" SG_ 1050 FF_IMU_FB_Status_ExternalClockSy "FF_IMU_FB_Status_ExternalClockSynced";
+BA_ "SystemSignalLongSymbol" SG_ 1050 FF_IMU_FB_Status_RepresentativeM "FF_IMU_FB_Status_RepresentativeMotion";
+BA_ "SystemSignalLongSymbol" SG_ 1050 FF_IMU_FB_Status_OrientationVali "FF_IMU_FB_Status_OrientationValid";
+BA_ "SystemSignalLongSymbol" SG_ 1050 FF_IMU_FB_Status_ClippingDetecte "FF_IMU_FB_Status_ClippingDetected";
+BA_ "SystemSignalLongSymbol" SG_ 1050 FF_IMU_FB_Status_HaveGnssTimePul "FF_IMU_FB_Status_HaveGnssTimePulse";
+BA_ "SystemSignalLongSymbol" SG_ 513 FF_PDU_ST_EEPROM_newCalibrationS "FF_PDU_ST_EEPROM_newCalibrationSaved";
+BA_ "SystemSignalLongSymbol" SG_ 513 FF_PDU_ST_EEPROM_newParameterSav "FF_PDU_ST_EEPROM_newParameterSaved";
+BA_ "SystemSignalLongSymbol" SG_ 769 FF_PDU_EW_CurOutOfRange_FPO_HC_A "FF_PDU_EW_CurOutOfRange_FPO_HC_A1";
+BA_ "SystemSignalLongSymbol" SG_ 769 FF_PDU_EW_CurOutOfRange_FPO_LC_A "FF_PDU_EW_CurOutOfRange_FPO_LC_A1";
+BA_ "SystemSignalLongSymbol" SG_ 769 FF_PDU_EI_DCU_EcuSoftwareVe_0000 "FF_PDU_EI_DCU_EcuSoftwareVersionWatschn";
+BA_ "SystemSignalLongSymbol" SG_ 769 FF_PDU_EI_DCU_EcuSoftwareVersion "FF_PDU_EI_DCU_EcuSoftwareVersionChanged";
+BA_ "SystemSignalLongSymbol" SG_ 769 FF_PDU_EW_DCU_resetCausedByWatch "FF_PDU_EW_DCU_resetCausedByWatchdog";
+BA_ "SystemSignalLongSymbol" SG_ 1793 FF_PDU_CC_set_temperature_offset "FF_PDU_CC_set_temperature_offset_25C";
+BA_ "SystemSignalLongSymbol" SG_ 1793 FF_PDU_CC_set_offset_Calibration "FF_PDU_CC_set_offset_Calibration_HSS";
+BA_ "SystemSignalLongSymbol" SG_ 1793 FF_PDU_CC_set_current_2A_Calibra "FF_PDU_CC_set_current_2A_Calibration_HSS";
+BA_ "SystemSignalLongSymbol" SG_ 1793 FF_PDU_CC_DCU_set_MB_board_numbe "FF_PDU_CC_DCU_set_MB_board_number";
+BA_ "SystemSignalLongSymbol" SG_ 1793 FF_PDU_CC_DCU_set_DCU_board_numb "FF_PDU_CC_DCU_set_DCU_board_number";
+BA_ "SystemSignalLongSymbol" SG_ 1793 FF_PDU_CC_DCU_set_DCU_HW_revisio "FF_PDU_CC_DCU_set_DCU_HW_revision";
+BA_ "SystemSignalLongSymbol" SG_ 1793 FF_PDU_CC_EEPROM_clean_Calibrati "FF_PDU_CC_EEPROM_clean_Calibration";
+BA_ "SystemSignalLongSymbol" SG_ 1793 FF_PDU_CP_curr_LowLimit_FPO_HC_A "FF_PDU_CP_curr_LowLimit_FPO_HC_A1";
+BA_ "SystemSignalLongSymbol" SG_ 1793 FF_PDU_CP_curr_LowLimit_FPO_LC_A "FF_PDU_CP_curr_LowLimit_FPO_LC_A1";
+BA_ "SystemSignalLongSymbol" SG_ 1793 FF_PDU_CP_DCU_disable_status_mes "FF_PDU_CP_DCU_disable_status_message";
+BA_ "SystemSignalLongSymbol" SG_ 275 FF_PE_EE_MotorControllerPower_Re "FF_PE_EE_MotorControllerPower_Rear";
+BA_ "SystemSignalLongSymbol" SG_ 275 FF_PE_EE_MotorControllerPower_Fr "FF_PE_EE_MotorControllerPower_Front";
+BA_ "SystemSignalLongSymbol" SG_ 771 FF_PE_EW_CP_MAINTAINANCEREVOLUTI "FF_PE_EW_CP_MAINTAINANCEREVOLUTION";
+BA_ "SystemSignalLongSymbol" SG_ 771 FF_PE_EI_InverterState_Volt_0000 "FF_PE_EI_InverterState_VoltageFeedbackBack";
+BA_ "SystemSignalLongSymbol" SG_ 771 FF_PE_EI_InverterState_VoltageFe "FF_PE_EI_InverterState_VoltageFeedbackFront";
+BA_ "SystemSignalLongSymbol" SG_ 771 FF_PE_EI_DCU_EcuSoftwareVersionW "FF_PE_EI_DCU_EcuSoftwareVersionWatschn";
+BA_ "SystemSignalLongSymbol" SG_ 771 FF_PE_EI_DCU_EcuSoftwareVersionC "FF_PE_EI_DCU_EcuSoftwareVersionChanged";
+BA_ "SystemSignalLongSymbol" SG_ 771 FF_PE_EW_DCU_resetCausedByWatchd "FF_PE_EW_DCU_resetCausedByWatchdog";
+BA_ "SystemSignalLongSymbol" SG_ 515 FF_PE_FB_InverterState_IsPo_0000 "FF_PE_FB_InverterState_IsPowerVoltageRear";
+BA_ "SystemSignalLongSymbol" SG_ 515 FF_PE_FB_InverterState_IsPowerVo "FF_PE_FB_InverterState_IsPowerVoltageFront";
+BA_ "SystemSignalLongSymbol" SG_ 515 FF_PE_ST_EEPROM_newCalibrationSa "FF_PE_ST_EEPROM_newCalibrationSaved";
+BA_ "SystemSignalLongSymbol" SG_ 515 FF_PE_ST_EEPROM_newParameterSave "FF_PE_ST_EEPROM_newParameterSaved";
+BA_ "SystemSignalLongSymbol" SG_ 1795 FF_PE_CC_InverterVoltage_Calibra "FF_PE_CC_InverterVoltage_Calibrate24V";
+BA_ "SystemSignalLongSymbol" SG_ 1795 FF_PE_CC_DCU_set_DCU_board_numbe "FF_PE_CC_DCU_set_DCU_board_number";
+BA_ "SystemSignalLongSymbol" SG_ 1795 FF_PE_CC_EEPROM_clean_Calibratio "FF_PE_CC_EEPROM_clean_Calibration";
+BA_ "SystemSignalLongSymbol" SG_ 1795 FF_PE_CP_IMUAccelerationSli_0000 "FF_PE_CP_IMUAccelerationSlipControl_MinRevolution";
+BA_ "SystemSignalLongSymbol" SG_ 1795 FF_PE_CP_IMUAccelerationSlipCont "FF_PE_CP_IMUAccelerationSlipControl_SlipCoefficient";
+BA_ "SystemSignalLongSymbol" SG_ 1795 FF_PE_CP_DTCControl_SlipCoeffici "FF_PE_CP_DTCControl_SlipCoefficient";
+BA_ "SystemSignalLongSymbol" SG_ 1795 FF_PE_CP_DControl_DifferentialHy "FF_PE_CP_DControl_DifferentialHysteresisHalf";
+BA_ "SystemSignalLongSymbol" SG_ 1795 FF_PE_CP_DControl_DifferentialDe "FF_PE_CP_DControl_DifferentialDelta";
+BA_ "SystemSignalLongSymbol" SG_ 1795 FF_PE_CP_DControl_DifferentialGa "FF_PE_CP_DControl_DifferentialGain";
+BA_ "SystemSignalLongSymbol" SG_ 1795 FF_PE_CP_INPUT_CONTROLLER_V_0001 "FF_PE_CP_INPUT_CONTROLLER_VELOCITY_KD";
+BA_ "SystemSignalLongSymbol" SG_ 1795 FF_PE_CP_INPUT_CONTROLLER_V_0000 "FF_PE_CP_INPUT_CONTROLLER_VELOCITY_KI";
+BA_ "SystemSignalLongSymbol" SG_ 1795 FF_PE_CP_INPUT_CONTROLLER_VELOCI "FF_PE_CP_INPUT_CONTROLLER_VELOCITY_KP";
+BA_ "SystemSignalLongSymbol" SG_ 1795 FF_PE_CP_Inverter_EnableErrorRes "FF_PE_CP_Inverter_EnableErrorReset";
+BA_ "SystemSignalLongSymbol" SG_ 1795 FF_PE_CP_DCU_disable_status_mess "FF_PE_CP_DCU_disable_status_message";
+BA_ "SystemSignalLongSymbol" SG_ 517 FF_RC_ST_EEPROM_newCalibrationSa "FF_RC_ST_EEPROM_newCalibrationSaved";
+BA_ "SystemSignalLongSymbol" SG_ 517 FF_RC_ST_EEPROM_newParameterSave "FF_RC_ST_EEPROM_newParameterSaved";
+BA_ "SystemSignalLongSymbol" SG_ 773 FF_RC_EI_DCU_EcuSoftwareVersionW "FF_RC_EI_DCU_EcuSoftwareVersionWatschn";
+BA_ "SystemSignalLongSymbol" SG_ 773 FF_RC_EI_DCU_EcuSoftwareVersionC "FF_RC_EI_DCU_EcuSoftwareVersionChanged";
+BA_ "SystemSignalLongSymbol" SG_ 773 FF_RC_EW_DCU_resetCausedByWatchd "FF_RC_EW_DCU_resetCausedByWatchdog";
+BA_ "SystemSignalLongSymbol" SG_ 1797 FF_RC_CC_DCU_set_DCU_board_numbe "FF_RC_CC_DCU_set_DCU_board_number";
+BA_ "SystemSignalLongSymbol" SG_ 1797 FF_RC_CC_EEPROM_clean_Calibratio "FF_RC_CC_EEPROM_clean_Calibration";
+BA_ "SystemSignalLongSymbol" SG_ 1797 FF_RC_CP_BSPD_BrakePressure_Thre "FF_RC_CP_BSPD_BrakePressure_Threshold";
+BA_ "SystemSignalLongSymbol" SG_ 1797 FF_RC_CP_DCU_disable_status_mess "FF_RC_CP_DCU_disable_status_message";
+VAL_ 793 FF_AS_ST_ASCtrl_VS 0 "GroundedLowVoltage" 1 "WishTractiveSystemActive" 2 "TractiveSystemActive" 3 "WishReadyToDrive" 4 "ReadyToDrive" ;
+VAL_ 1297 FSG_DV_EBS_AS_driving_mode 1 "driverless driving" 0 "manual driving" ;
+VAL_ 1282 FSG_DV_Service_brake_state 3 "available" 2 "engaged" 1 "disengaged" 0 "error" ;
+VAL_ 1282 FSG_DV_Steering_state 1 "available" 0 "unavailable" ;
+VAL_ 1282 FSG_DV_AMI_state 7 "manual" 6 "autocross" 5 "inspection" 4 "braketest" 3 "trackdrive" 2 "skidpad" 1 "acceleration" 0 "remotecontrol" ;
+VAL_ 1282 FSG_DV_EBS_state 3 "activated" 2 "armed" 1 "unavailable" 0 "error" ;
+VAL_ 1282 FSG_DV_AS_state 6 "manual driving" 5 "finish" 4 "emergency brake" 3 "driving" 2 "ready" 1 "off" 0 "error" ;
+VAL_ 514 FF_BMS_ST_CurrentMeasurment_Curr 1 "charging" 0 "discharging" ;
+VAL_ 514 FF_BMS_ST_TractiveSystemState 10 "Active - Charging" 9 "Active - Driving" 8 "PreCharge8 - OpenDisCharge" 7 "PreCharge7 - CheckAIRp" 6 "PreCharge6 - OpenPreCharge" 5 " PreCharge5 - CloseAIRp" 4 "PreCharge4 - WaitForHV95FB" 3 "PreCharge3 - ClosePreCharge" 2 "PreCharge2 - CloseAIRm" 1 "PreCharge1 - OpenDisCharge" 0 "Init" ;
+VAL_ 514 FF_BMS_ST_DCU_StatusLed 3 "critical" 2 "error" 1 "warning" 0 "ok" ;
+VAL_ 786 FF_BMS_Control_TS 0 "Stop TS" 1 "Start TS - driving" 2 "Start TS - charging" ;
+VAL_ 786 FF_BMS_Control_Balance 0 "Stop Balancing" 1 "Start Balancing" ;
+VAL_ 1794 FF_BMS_CP_PreCharge_check_AIRp_H 0 "Don't Check" 1 "Check" ;
+VAL_ 1794 FF_BMS_CP_PreCharge_check_AIRm_H 0 "Don't Check" 1 "Check" ;
+VAL_ 1794 FF_BMS_CP_PreCharge_check_HV95_H 0 "Don't Check" 1 "Check" ;
+VAL_ 1794 FF_BMS_CP_PreCharge_check_HV60_H 0 "Don't Check" 1 "Check" ;
+VAL_ 1794 FF_BMS_CP_PreCharge_check_D_0000 0 "Don't Check" 1 "Check" ;
+VAL_ 1794 FF_BMS_CP_PreCharge_check_HV400_ 0 "Don't Check" 1 "Check" ;
+VAL_ 1794 FF_BMS_CP_PreCharge_check_HV60_P 0 "Don't Check" 1 "Check" ;
+VAL_ 1794 FF_BMS_CP_PreCharge_check_DisCha 0 "Don't Check" 1 "Check" ;
+VAL_ 526 FF_DB_ST_System_InterventionEnab 0 "inactive" 1 "active" ;
+VAL_ 526 FF_DB_ST_Discipline_Mode 0 "Default" 1 "Acceleration" 2 "Skidpad" 3 "Autocross" 4 "Endurance" ;
+VAL_ 526 FF_DB_ST_Recuperation 0 "off" 1 "on" ;
+VAL_ 526 FF_DB_ST_Drive_Mode 0 "RearBasicController" 1 "FrontBasicController" 2 "FourWheelBasicController" 3 "ModelBasedController" 4 "DControl" ;
+VAL_ 526 FF_DB_ST_Inverter_Power 0 "off" 1 "on" ;
+VAL_ 526 FF_DB_ST_Button_VehicleState 0 "ready" 1 "press" 2 "hold" 3 "release" ;
+VAL_ 526 FF_DB_ST_Button_PowerDown 0 "ready" 1 "press" 2 "hold" 3 "release" ;
+VAL_ 526 FF_DB_ST_Button_PowerUp 0 "ready" 1 "press" 2 "hold" 3 "release" ;
+VAL_ 526 FF_DB_ST_AS_DVMode 0 "off" 1 "on" 2 "testing" ;
+VAL_ 526 FF_DB_ST_RADIO_Talk 0 "mute" 1 "talk" ;
+VAL_ 526 FF_DB_ST_LED_CMMS 0 "off" 1 "on" ;
+VAL_ 526 FF_DB_ST_LED_UniBlue 0 "off" 1 "on" ;
+VAL_ 526 FF_DB_ST_LED_UniGreen 0 "off" 1 "on" ;
+VAL_ 526 FF_DB_ST_LED_UniRed 0 "off" 1 "on" ;
+VAL_ 526 FF_DB_ST_LED_NoTS 0 "off" 1 "on" ;
+VAL_ 526 FF_DB_ST_LED_IMD 0 "off" 1 "on" ;
+VAL_ 526 FF_DB_ST_LED_ASM 0 "off" 1 "on" ;
+VAL_ 526 FF_DB_ST_LED_BMS 0 "off" 1 "on" ;
+VAL_ 526 FF_DB_ST_VehicleMode_VS 0 "GroundedLowVoltage" 1 "WishTractiveSystemActive" 2 "TractiveSystemActive" 3 "WishReadyToDrive" 4 "ReadyToDrive" ;
+VAL_ 526 FF_DB_ST_EEPROM_newCalibrationSa 0 "no" 1 "yes" ;
+VAL_ 526 FF_DB_ST_EEPROM_newParameterSave 0 "no" 1 "yes" ;
+VAL_ 526 FF_DB_FB_DCU_StatusLedRed 0 "off" 1 "on" ;
+VAL_ 526 FF_DB_ST_DCU_StatusLedRed 0 "off" 1 "on" ;
+VAL_ 526 FF_DB_FB_DCU_StatusLedGreen 0 "off" 1 "on" ;
+VAL_ 526 FF_DB_ST_DCU_StatusLedGreen 0 "off" 1 "on" ;
+VAL_ 526 FF_DB_ST_DCU_StatusLed 2 "error" 1 "warning" 0 "ok" ;
+VAL_ 286 FF_DB_EE_LED_InvalidFeedbackLedC 0 "ok" 1 "error" ;
+VAL_ 286 FF_DB_EE_LED_InvalidFeedbac_0001 0 "ok" 1 "error" ;
+VAL_ 286 FF_DB_EE_LED_InvalidFeedbac_0000 0 "ok" 1 "error" ;
+VAL_ 286 FF_DB_EE_LED_InvalidFeedbackLedU 0 "ok" 1 "error" ;
+VAL_ 286 FF_DB_EE_LED_InvalidFeedbackLedN 0 "ok" 1 "error" ;
+VAL_ 286 FF_DB_EE_LED_InvalidFeedbackLedI 0 "ok" 1 "error" ;
+VAL_ 286 FF_DB_EE_LED_InvalidFeedbackLedA 0 "ok" 1 "error" ;
+VAL_ 286 FF_DB_EE_LED_InvalidFeedbackLedB 0 "ok" 1 "error" ;
+VAL_ 286 FF_DB_EE_DCU_StatusLedGreen 0 "ok" 1 "error" ;
+VAL_ 286 FF_DB_EE_DCU_StatusLedRed 0 "ok" 1 "error" ;
+VAL_ 286 FF_DB_EE_EEPROM_HwIdMissmatch 0 "no" 1 "yes" ;
+VAL_ 286 FF_DB_EC_EEPROM_communication 0 "ok" 1 "error" ;
+VAL_ 286 FF_DB_EC_MB_HwIdMissmatch 0 "no" 1 "yes" ;
+VAL_ 286 FF_DB_EC_MB_SelfTestFailed 0 "no" 1 "yes" ;
+VAL_ 286 FF_DB_EC_MB_InitFailed 0 "no" 1 "yes" ;
+VAL_ 286 FF_DB_EC_DCU_SelfTestFailed 0 "no" 1 "yes" ;
+VAL_ 1806 FF_DB_CP_FAN_Radiators_mode 2 "auto" 1 "on" 0 "off" ;
+VAL_ 1806 FF_DB_CP_FAN_Battery2_mode 2 "auto" 1 "on" 0 "off" ;
+VAL_ 1806 FF_DB_CP_FAN_Battery1_mode 2 "auto" 1 "on" 0 "off" ;
+VAL_ 1806 FF_DB_CP_FAN_Rear_mode 1 "manual" 0 "auto" ;
+VAL_ 1806 FF_DB_CP_AS_DVMode 0 "off" 1 "on" 2 "testing" ;
+VAL_ 1806 FF_DB_CP_SW_Button4 0 "disable" 1 "Set_Marker" 2 "Talk" 3 "Display_nextPage" 4 "Display_previousPage" 5 "PowerUp" 6 "PowerDown" 7 "Toggle_HeadLight" ;
+VAL_ 1806 FF_DB_CP_SW_Button3 0 "disable" 1 "Set_Marker" 2 "Talk" 3 "Display_nextPage" 4 "Display_previousPage" 5 "PowerUp" 6 "PowerDown" 7 "Toggle_HeadLight" ;
+VAL_ 1806 FF_DB_CP_SW_Button2 0 "disable" 1 "Set_Marker" 2 "Talk" 3 "Display_nextPage" 4 "Display_previousPage" 5 "PowerUp" 6 "PowerDown" 7 "Toggle_HeadLight" ;
+VAL_ 1806 FF_DB_CP_SW_Button1 0 "disable" 1 "Set_Marker" 2 "Talk" 3 "Display_nextPage" 4 "Display_previousPage" 5 "PowerUp" 6 "PowerDown" 7 "Toggle_HeadLight" ;
+VAL_ 518 FF_FB_ST_DCU_StatusLed 3 "critical" 2 "error" 1 "warning" 0 "ok" ;
+VAL_ 516 FF_FC_ST_DCU_StatusLed 3 "critical" 2 "error" 1 "warning" 0 "ok" ;
+VAL_ 1796 FF_FC_CP_SUSPENSION_FL_Enable 1 "on" 0 "off" ;
+VAL_ 1796 FF_FC_CP_SUSPENSION_FR_Enable 1 "on" 0 "off" ;
+VAL_ 1796 FF_FC_CP_SAS_Enable 1 "on" 0 "off" ;
+VAL_ 1796 FF_FC_CP_TPPS_Characteristic 3 "recu_exponential" 2 "recu_linear" 1 "exponential" 0 "linear" ;
+VAL_ 1796 FF_FC_CP_BPS_F_Enable 1 "on" 0 "off" ;
+VAL_ 1050 FF_IMU_FB_Status_NoRotation 1 "Aborted" 2 "SamplesRejected" 3 "RunningNormally" ;
+VAL_ 1050 FF_IMU_FB_Status_GpsValid 0 "false" 1 "true" ;
+VAL_ 1050 FF_IMU_FB_Status_SelfTestOk 0 "false" 1 "true" ;
+VAL_ 1050 FF_IMU_FB_Status_ClipMagY 0 "false" 1 "true" ;
+VAL_ 1050 FF_IMU_FB_Status_ClipMagX 0 "false" 1 "true" ;
+VAL_ 1050 FF_IMU_FB_Status_ClipGyrZ 0 "false" 1 "true" ;
+VAL_ 1050 FF_IMU_FB_Status_ClipGyrY 0 "false" 1 "true" ;
+VAL_ 1050 FF_IMU_FB_Status_ClipGyrX 0 "false" 1 "true" ;
+VAL_ 1050 FF_IMU_FB_Status_ClipAccZ 0 "false" 1 "true" ;
+VAL_ 1050 FF_IMU_FB_Status_ClipAccY 0 "false" 1 "true" ;
+VAL_ 1050 FF_IMU_FB_Status_ClipAccX 0 "false" 1 "true" ;
+VAL_ 1050 FF_IMU_FB_Status_SyncOut 0 "false" 1 "true" ;
+VAL_ 1050 FF_IMU_FB_Status_SyncIn 0 "false" 1 "true" ;
+VAL_ 1050 FF_IMU_FB_Status_Interpolated 0 "false" 1 "true" ;
+VAL_ 1050 FF_IMU_FB_Status_Retransmitted 0 "false" 1 "true" ;
+VAL_ 1050 FF_IMU_FB_Status_ClipMagZ 0 "false" 1 "true" ;
+VAL_ 1050 FF_IMU_FB_Status_FilterMode 0 "false" 1 "true" ;
+VAL_ 1050 FF_IMU_FB_Status_RtkStatus 0 "No RTK" 1 "RTK floating" 2 "RTK fixed" ;
+VAL_ 513 FF_PDU_ST_DCU_StatusLed 3 "critical" 2 "error" 1 "warning" 0 "ok" ;
+VAL_ 1793 FF_PDU_CP_OC_Profile_HSS_10B 5 "OC_dc_motor_high (5.3A cont.)" 4 "OC_dc_motor_medium (3.6A cont.)" 3 "OC_dc_motor_low (1.8A cont.)" 2 "OC_light_bulb_high (5.3A cont.)" 1 "OC_light_bulb_medium (3.6A cont.)" 0 "OC_light_bulb_low (1.8A cont.)" ;
+VAL_ 1793 FF_PDU_CP_OC_Profile_HSS_10A 5 "OC_dc_motor_high (5.3A cont.)" 4 "OC_dc_motor_medium (3.6A cont.)" 3 "OC_dc_motor_low (1.8A cont.)" 2 "OC_light_bulb_high (5.3A cont.)" 1 "OC_light_bulb_medium (3.6A cont.)" 0 "OC_light_bulb_low (1.8A cont.)" ;
+VAL_ 1793 FF_PDU_CP_OC_Profile_HSS_09B 5 "OC_dc_motor_high (5.3A cont.)" 4 "OC_dc_motor_medium (3.6A cont.)" 3 "OC_dc_motor_low (1.8A cont.)" 2 "OC_light_bulb_high (5.3A cont.)" 1 "OC_light_bulb_medium (3.6A cont.)" 0 "OC_light_bulb_low (1.8A cont.)" ;
+VAL_ 1793 FF_PDU_CP_OC_Profile_HSS_09A 5 "OC_dc_motor_high (5.3A cont.)" 4 "OC_dc_motor_medium (3.6A cont.)" 3 "OC_dc_motor_low (1.8A cont.)" 2 "OC_light_bulb_high (5.3A cont.)" 1 "OC_light_bulb_medium (3.6A cont.)" 0 "OC_light_bulb_low (1.8A cont.)" ;
+VAL_ 1793 FF_PDU_CP_OC_Profile_HSS_08B 5 "OC_dc_motor_high (5.3A cont.)" 4 "OC_dc_motor_medium (3.6A cont.)" 3 "OC_dc_motor_low (1.8A cont.)" 2 "OC_light_bulb_high (5.3A cont.)" 1 "OC_light_bulb_medium (3.6A cont.)" 0 "OC_light_bulb_low (1.8A cont.)" ;
+VAL_ 1793 FF_PDU_CP_OC_Profile_HSS_08A 5 "OC_dc_motor_high (5.3A cont.)" 4 "OC_dc_motor_medium (3.6A cont.)" 3 "OC_dc_motor_low (1.8A cont.)" 2 "OC_light_bulb_high (5.3A cont.)" 1 "OC_light_bulb_medium (3.6A cont.)" 0 "OC_light_bulb_low (1.8A cont.)" ;
+VAL_ 1793 FF_PDU_CP_OC_Profile_HSS_07B 5 "OC_dc_motor_high (5.3A cont.)" 4 "OC_dc_motor_medium (3.6A cont.)" 3 "OC_dc_motor_low (1.8A cont.)" 2 "OC_light_bulb_high (5.3A cont.)" 1 "OC_light_bulb_medium (3.6A cont.)" 0 "OC_light_bulb_low (1.8A cont.)" ;
+VAL_ 1793 FF_PDU_CP_OC_Profile_HSS_07A 5 "OC_dc_motor_high (5.3A cont.)" 4 "OC_dc_motor_medium (3.6A cont.)" 3 "OC_dc_motor_low (1.8A cont.)" 2 "OC_light_bulb_high (5.3A cont.)" 1 "OC_light_bulb_medium (3.6A cont.)" 0 "OC_light_bulb_low (1.8A cont.)" ;
+VAL_ 1793 FF_PDU_CP_OC_Profile_HSS_06B 5 "OC_dc_motor_high (5.3A cont.)" 4 "OC_dc_motor_medium (3.6A cont.)" 3 "OC_dc_motor_low (1.8A cont.)" 2 "OC_light_bulb_high (5.3A cont.)" 1 "OC_light_bulb_medium (3.6A cont.)" 0 "OC_light_bulb_low (1.8A cont.)" ;
+VAL_ 1793 FF_PDU_CP_OC_Profile_HSS_06A 5 "OC_dc_motor_high (5.3A cont.)" 4 "OC_dc_motor_medium (3.6A cont.)" 3 "OC_dc_motor_low (1.8A cont.)" 2 "OC_light_bulb_high (5.3A cont.)" 1 "OC_light_bulb_medium (3.6A cont.)" 0 "OC_light_bulb_low (1.8A cont.)" ;
+VAL_ 1793 FF_PDU_CP_OC_Profile_HSS_05B 5 "OC_dc_motor_high (5.3A cont.)" 4 "OC_dc_motor_medium (3.6A cont.)" 3 "OC_dc_motor_low (1.8A cont.)" 2 "OC_light_bulb_high (5.3A cont.)" 1 "OC_light_bulb_medium (3.6A cont.)" 0 "OC_light_bulb_low (1.8A cont.)" ;
+VAL_ 1793 FF_PDU_CP_OC_Profile_HSS_05A 5 "OC_dc_motor_high (5.3A cont.)" 4 "OC_dc_motor_medium (3.6A cont.)" 3 "OC_dc_motor_low (1.8A cont.)" 2 "OC_light_bulb_high (5.3A cont.)" 1 "OC_light_bulb_medium (3.6A cont.)" 0 "OC_light_bulb_low (1.8A cont.)" ;
+VAL_ 1793 FF_PDU_CP_OC_Profile_HSS_04B 5 "OC_dc_motor_high (5.3A cont.)" 4 "OC_dc_motor_medium (3.6A cont.)" 3 "OC_dc_motor_low (1.8A cont.)" 2 "OC_light_bulb_high (5.3A cont.)" 1 "OC_light_bulb_medium (3.6A cont.)" 0 "OC_light_bulb_low (1.8A cont.)" ;
+VAL_ 1793 FF_PDU_CP_OC_Profile_HSS_04A 5 "OC_dc_motor_high (5.3A cont.)" 4 "OC_dc_motor_medium (3.6A cont.)" 3 "OC_dc_motor_low (1.8A cont.)" 2 "OC_light_bulb_high (5.3A cont.)" 1 "OC_light_bulb_medium (3.6A cont.)" 0 "OC_light_bulb_low (1.8A cont.)" ;
+VAL_ 1793 FF_PDU_CP_OC_Profile_HSS_03B 5 "OC_dc_motor_high (5.3A cont.)" 4 "OC_dc_motor_medium (3.6A cont.)" 3 "OC_dc_motor_low (1.8A cont.)" 2 "OC_light_bulb_high (5.3A cont.)" 1 "OC_light_bulb_medium (3.6A cont.)" 0 "OC_light_bulb_low (1.8A cont.)" ;
+VAL_ 1793 FF_PDU_CP_OC_Profile_HSS_03A 5 "OC_dc_motor_high (5.3A cont.)" 4 "OC_dc_motor_medium (3.6A cont.)" 3 "OC_dc_motor_low (1.8A cont.)" 2 "OC_light_bulb_high (5.3A cont.)" 1 "OC_light_bulb_medium (3.6A cont.)" 0 "OC_light_bulb_low (1.8A cont.)" ;
+VAL_ 1793 FF_PDU_CP_OC_Profile_HSS_02B 5 "OC_dc_motor_high (5.3A cont.)" 4 "OC_dc_motor_medium (3.6A cont.)" 3 "OC_dc_motor_low (1.8A cont.)" 2 "OC_light_bulb_high (5.3A cont.)" 1 "OC_light_bulb_medium (3.6A cont.)" 0 "OC_light_bulb_low (1.8A cont.)" ;
+VAL_ 1793 FF_PDU_CP_OC_Profile_HSS_02A 5 "OC_dc_motor_high (5.3A cont.)" 4 "OC_dc_motor_medium (3.6A cont.)" 3 "OC_dc_motor_low (1.8A cont.)" 2 "OC_light_bulb_high (5.3A cont.)" 1 "OC_light_bulb_medium (3.6A cont.)" 0 "OC_light_bulb_low (1.8A cont.)" ;
+VAL_ 1793 FF_PDU_CP_OC_Profile_HSS_01B 5 "OC_dc_motor_high (5.3A cont.)" 4 "OC_dc_motor_medium (3.6A cont.)" 3 "OC_dc_motor_low (1.8A cont.)" 2 "OC_light_bulb_high (5.3A cont.)" 1 "OC_light_bulb_medium (3.6A cont.)" 0 "OC_light_bulb_low (1.8A cont.)" ;
+VAL_ 1793 FF_PDU_CP_OC_Profile_HSS_01A 5 "OC_dc_motor_high (5.3A cont.)" 4 "OC_dc_motor_medium (3.6A cont.)" 3 "OC_dc_motor_low (1.8A cont.)" 2 "OC_light_bulb_high (5.3A cont.)" 1 "OC_light_bulb_medium (3.6A cont.)" 0 "OC_light_bulb_low (1.8A cont.)" ;
+VAL_ 515 FF_PE_ST_Discharge_State 0 "closed" 1 "open" ;
+VAL_ 515 FF_PE_FB_HV_DisCharge 0 "open" 1 "closed" ;
+VAL_ 515 FF_PE_ST_MCtrl_stateRR 0 "OFF" 1 "IDLE" 2 "DCON" 3 "POWERUP" 4 "READY" 5 "ERROR" 6 "RESET" ;
+VAL_ 515 FF_PE_ST_MCtrl_stateRL 0 "OFF" 1 "IDLE" 2 "DCON" 3 "POWERUP" 4 "READY" 5 "ERROR" 6 "RESET" ;
+VAL_ 515 FF_PE_ST_MCtrl_stateFR 0 "OFF" 1 "IDLE" 2 "DCON" 3 "POWERUP" 4 "READY" 5 "ERROR" 6 "RESET" ;
+VAL_ 515 FF_PE_ST_MCtrl_stateFL 0 "OFF" 1 "IDLE" 2 "DCON" 3 "POWERUP" 4 "READY" 5 "ERROR" 6 "RESET" ;
+VAL_ 1795 FF_PE_CP_DynCtrl_Controller 0 "RearBasicController" 1 "FrontBasicController" 2 "FourWheelBasicController" 3 "ModelBasedController" 4 "DControl" 5 "DTCControl" 255 "DashboardControlled" ;
+VAL_ 1795 FF_PE_CP_DCU_disable_watchdog 0 "watchdog active" 1 "watchdog disabled" ;
+VAL_ 1795 FF_PE_CP_DCU_Vcc24V 0 "disabled" 1 "enabled" ;
+VAL_ 1795 FF_PE_CP_DCU_StatusLED 0 "disabled" 1 "enabled" ;
+VAL_ 517 FF_RC_ST_DCU_StatusLed 3 "critical" 2 "error" 1 "warning" 0 "ok" ;
+VAL_ 1797 FF_RC_CP_BSPD_EVAL_Enable 1 "on" 0 "off" ;
+VAL_ 1797 FF_RC_CP_SUSPENSION_RL_Enable 1 "on" 0 "off" ;
+VAL_ 1797 FF_RC_CP_SUSPENSION_RR_Enable 1 "on" 0 "off" ;
+VAL_ 1797 FF_RC_CP_LEM_350_Enable 1 "on" 0 "off" ;
+VAL_ 1797 FF_RC_CP_LEM_30_Enable 1 "on" 0 "off" ;
+VAL_ 1797 FF_RC_CP_BPS_R_Enable 1 "on" 0 "off" ;
+
+
+
