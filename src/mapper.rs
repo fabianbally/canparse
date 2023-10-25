@@ -113,6 +113,10 @@ impl EncodeMessage<Vec<u8>> for DbcFrame {
     ///
     /// Returns a byte vector of max 8 bytes (success) or an error string (failure)
     ///
+    /// <section class="warning">
+    /// signal names must be long names
+    /// </section>
+    ///
     /// # Examples
     ///
     /// ```rust
@@ -139,11 +143,8 @@ impl EncodeMessage<Vec<u8>> for DbcFrame {
         let mut result: [u8; 8] = [0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00];
 
         for signal in signals {
-            if !signal_map.contains_key(&signal.get_definition().name) {
-                return Err(format!(
-                    "Missing signal data: {}",
-                    signal.get_definition().name
-                ));
+            if !signal_map.contains_key(signal.long_name()) {
+                return Err(format!("Missing signal data: {}", signal.long_name()));
             }
 
             let byte_data = encode_signal(
@@ -179,6 +180,10 @@ impl EncodeMessage<[u8; 8]> for DbcFrame {
     ///
     /// Returns a slice of 8 bytes (success) or an error string (failure)
     ///
+    /// <section class="warning">
+    /// signal names must be long names
+    /// </section>
+    ///
     /// # Examples
     ///
     /// ```rust
@@ -205,7 +210,7 @@ impl EncodeMessage<[u8; 8]> for DbcFrame {
         let mut result: [u8; 8] = [0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00];
 
         for signal in signals {
-            if !signal_map.contains_key(&signal.get_definition().name) {
+            if !signal_map.contains_key(signal.long_name()) {
                 return Err(format!(
                     "Missing signal data: {}",
                     signal.get_definition().name
@@ -218,7 +223,7 @@ impl EncodeMessage<[u8; 8]> for DbcFrame {
                 signal.get_definition().little_endian,
                 signal.get_definition().scale,
                 signal.get_definition().offset,
-                *signal_map.get(&signal.get_definition().name).unwrap(),
+                *signal_map.get(signal.long_name()).unwrap(),
             );
 
             let byte_data = match byte_data {

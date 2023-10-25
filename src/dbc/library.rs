@@ -69,6 +69,14 @@ impl DbcSignal {
     pub fn get_attribute(&self, identifier: &str) -> Option<&String> {
         self.attributes.get(identifier)
     }
+
+    /// Returns the long name of the signal
+    pub fn long_name(&self) -> &String {
+        match self.attributes.get("SystemSignalLongSymbol") {
+            Some(name) => name,
+            None => &(self.definition.as_ref().unwrap().name),
+        }
+    }
 }
 
 type MessageAttribute = String;
@@ -119,6 +127,11 @@ impl DbcFrame {
     /// Query signal with signal name
     pub fn get_signal(&self, name: &str) -> Option<&DbcSignal> {
         self.signals.get(name)
+    }
+
+    /// Returns name of frame
+    pub fn get_name(&self) -> &String {
+        &self.name
     }
 
     /// Returns arbitration ID of CAN frame
