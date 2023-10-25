@@ -1,5 +1,8 @@
 # fastcan
 
+[![Test](https://github.com/fabianbally/fastcan-rs/actions/workflows/test.yml/badge.svg)](https://github.com/fabianbally/fastcan-rs/actions/workflows/test.yml)
+[![codecov](https://codecov.io/gh/fabianbally/fastcan-rs/graph/badge.svg?token=8OOVO6R88J)](https://codecov.io/gh/fabianbally/fastcan-rs)
+
 A CAN signal encoding and decoding library with dynamic DBC loading
 
 ## Usage
