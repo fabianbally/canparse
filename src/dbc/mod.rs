@@ -296,7 +296,7 @@ impl FromStr for Entry {
                     kind: EntryErrorKind::RegexNoMatch,
                 })
             },
-            |n| Ok(n),
+            Ok,
         )
     }
 }

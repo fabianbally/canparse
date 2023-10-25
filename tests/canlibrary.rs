@@ -15,7 +15,7 @@ fn canlib_build_parse() {
     let msg: [u8; 8] = [0x11, 0x22, 0x33, 0x44, 0x55, 0x66, 0x77, 0x88];
     let engine_speed: f32 = enginespeed_def.decode_message(&msg).unwrap();
 
-    assert!(engine_speed - 2728.5 < f32::EPSILON);
+    assert!((engine_speed - 2728.5).abs() < f32::EPSILON);
 }
 
 #[test]

@@ -419,13 +419,10 @@ impl DbcLibrary {
             if line.is_empty() {
                 continue;
             }
-            match parser::parse_dbc(line) {
-                Some(entry) => {
-                    if let Err(_e) = lib.add_entry(entry) {
-                        // TODO: Handle add_entry error
-                    }
+            if let Some(entry) = parser::parse_dbc(line) {
+                if let Err(_e) = lib.add_entry(entry) {
+                    // TODO: Handle add_entry error
                 }
-                None => (),
             }
         }
 

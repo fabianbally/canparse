@@ -1,5 +1,5 @@
 #[cfg(test)]
-mod tests {
+mod test_mapper {
     use std::collections::HashMap;
 
     use crate::{

@@ -25,10 +25,7 @@ pub fn parse_dbc(line: &str) -> Option<Entry> {
         return Some(Entry::SignalDescription(entry));
     }
 
-    match parse_signal_attribute(line) {
-        Some(entry) => Some(Entry::SignalAttribute(entry)),
-        None => None,
-    }
+    parse_signal_attribute(line).map(Entry::SignalAttribute)
 }
 
 fn parse_message_definition(line: &str) -> Option<DbcFrameDefinition> {
