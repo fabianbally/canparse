@@ -425,7 +425,7 @@ impl DbcLibrary {
                         // TODO: Handle add_entry error
                     }
                 }
-                None => ()
+                None => (),
             }
         }
 

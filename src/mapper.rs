@@ -185,7 +185,7 @@ impl EncodeMessage<[u8; 8]> for DbcFrame {
     /// use fastcan::{dbc::{DbcSignalDefinition, DbcFrame, DbcSignal,
     ///     DbcLibrary, DbcVersion, Entry},
     ///     mapper::{DecodeMessage, EncodeMessage}};
-    /// 
+    ///
     ///
     /// use std::collections::HashMap;
     ///

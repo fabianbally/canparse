@@ -9,7 +9,6 @@ use super::{
 type LazyRegex = once_cell::sync::Lazy<Regex>;
 
 pub fn parse_dbc(line: &str) -> Option<Entry> {
-
     if let Some(entry) = parse_message_definition(line) {
         return Some(Entry::MessageDefinition(entry));
     }
