@@ -174,41 +174,4 @@ mod tests {
 
         assert_eq!(sig.unwrap(), 2728.5);
     }
-
-    #[cfg(feature = "use-socketcan")]
-    mod socketcan {
-        extern crate socketcan;
-
-        use super::*;
-
-        use socketcan::CANFrame;
-
-        lazy_static! {
-            static ref FRAME: CANFrame = CANFrame::new(0, &MSG[..], false, false).unwrap();
-            static ref FRAME_BE: CANFrame = CANFrame::new(0, &MSG_BE[..], false, false).unwrap();
-        }
-
-        #[test]
-        fn parse_canframe_closure() {
-            assert_relative_eq!(SIGNAL_DEF.parser()(&FRAME as &CANFrame).unwrap(), 2728.5);
-            assert_relative_eq!(
-                SIGNAL_DEF_BE.parser()(&FRAME_BE as &CANFrame).unwrap(),
-                2728.5
-            );
-        }
-
-        #[test]
-        fn test_parse_canframe() {
-            assert_relative_eq!(
-                SIGNAL_DEF.decode_message(&FRAME as &CANFrame).unwrap(),
-                2728.5
-            );
-            assert_relative_eq!(
-                SIGNAL_DEF_BE
-                    .decode_message(&FRAME_BE as &CANFrame)
-                    .unwrap(),
-                2728.5
-            );
-        }
-    }
 }

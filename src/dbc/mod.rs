@@ -290,9 +290,14 @@ impl FromStr for Entry {
     type Err = ParseEntryError;
 
     fn from_str(line: &str) -> Result<Self, Self::Err> {
-        parser::parse_dbc(line)
-            .map_err(|_e| EntryErrorKind::RegexNoMatch.into())
-            .map(|entry| entry)
+        parser::parse_dbc(line).map_or_else(
+            || {
+                Err(ParseEntryError {
+                    kind: EntryErrorKind::RegexNoMatch,
+                })
+            },
+            |n| Ok(n),
+        )
     }
 }
 

@@ -18,7 +18,7 @@
 //!
 //! ```rust
 //! use fastcan::{dbc::DbcSignalDefinition,
-//!     dbc::{library::{DbcFrame, DbcSignal},
+//!     dbc::{DbcFrame, DbcSignal,
 //!     DbcLibrary, DbcVersion, Entry},
 //!     mapper::{DecodeMessage, EncodeMessage},
 //! };
@@ -32,9 +32,9 @@
 //!
 //! let frame = dbc.get_frame(2364539904).unwrap();
 //!
-//! let ret: [u8; 8] = frame.encode_message(&signal_map).unwrap();
+//! let ret: Vec<u8> = frame.encode_message(&signal_map).unwrap();
 //!
-//! let signal = frame.get_signal("Engine_Speed");
+//! let signal = frame.get_signal("Engine_Speed").unwrap();
 //!
 //! let data = signal.decode_message(ret);
 //! ```

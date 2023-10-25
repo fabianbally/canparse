@@ -4,69 +4,56 @@ use regex::Regex;
 
 use super::{
     DbcFrameDefinition, DbcMessageAttribute, DbcMessageDescription, DbcSignalAttribute,
-    DbcSignalDefinition, DbcSignalDescription, Entry, ParseEntryError,
+    DbcSignalDefinition, DbcSignalDescription, Entry,
 };
 type LazyRegex = once_cell::sync::Lazy<Regex>;
 
-pub fn parse_dbc(line: &str) -> Result<Entry, ParseEntryError> {
-    match parse_message_definition(line) {
-        Some(entry) => return Ok(Entry::MessageDefinition(entry)),
-        None => (),
-    };
+pub fn parse_dbc(line: &str) -> Option<Entry> {
 
-    match parse_message_description(line) {
-        Some(entry) => return Ok(Entry::MessageDescription(entry)),
-        None => (),
+    if let Some(entry) = parse_message_definition(line) {
+        return Some(Entry::MessageDefinition(entry));
     }
-
-    match parse_message_attribute(line) {
-        Some(entry) => return Ok(Entry::MessageAttribute(entry)),
-        None => (),
+    if let Some(entry) = parse_message_description(line) {
+        return Some(Entry::MessageDescription(entry));
     }
-
-    match parse_signal_definition(line) {
-        Some(entry) => return Ok(Entry::SignalDefinition(entry)),
-        None => (),
+    if let Some(entry) = parse_message_attribute(line) {
+        return Some(Entry::MessageAttribute(entry));
     }
-
-    match parse_signal_description(line) {
-        Some(entry) => return Ok(Entry::SignalDescription(entry)),
-        None => (),
+    if let Some(entry) = parse_signal_definition(line) {
+        return Some(Entry::SignalDefinition(entry));
+    }
+    if let Some(entry) = parse_signal_description(line) {
+        return Some(Entry::SignalDescription(entry));
     }
 
     match parse_signal_attribute(line) {
-        Some(entry) => return Ok(Entry::SignalAttribute(entry)),
-        None => Err(ParseEntryError {
-            kind: super::EntryErrorKind::RegexNoMatch,
-        }),
+        Some(entry) => Some(Entry::SignalAttribute(entry)),
+        None => None,
     }
 }
 
 fn parse_message_definition(line: &str) -> Option<DbcFrameDefinition> {
     static RE: LazyRegex = LazyRegex::new(|| {
-        Regex::new(r#"BO_ (?P<id>\d+) (?P<name>\S+) ?: (?P<len>\d+) (?P<sending_node>.*) ?"#)
-            .unwrap()
+        Regex::new(r"BO_ (?P<id>\d+) (?P<name>\S+) ?: (?P<len>\d+) (?P<sending_node>.*) ?").unwrap()
     });
 
-    RE.captures(line).and_then(|cap| {
-        Some(DbcFrameDefinition {
-            id: cap
-                .name("id")
-                .map(|id| id.as_str().to_string().parse::<u32>().unwrap())
-                .unwrap(),
-            name: cap
-                .name("name")
-                .map(|name| name.as_str().to_string())
-                .unwrap(),
-            message_len: cap
-                .name("len")
-                .map(|len| len.as_str().to_string().parse::<u32>().unwrap())
-                .unwrap(),
-            sending_node: cap
-                .name("sending_node")
-                .map(|sending_node| sending_node.as_str().to_string())
-                .unwrap(),
-        })
+    RE.captures(line).map(|cap| DbcFrameDefinition {
+        id: cap
+            .name("id")
+            .map(|id| id.as_str().to_string().parse::<u32>().unwrap())
+            .unwrap(),
+        name: cap
+            .name("name")
+            .map(|name| name.as_str().to_string())
+            .unwrap(),
+        message_len: cap
+            .name("len")
+            .map(|len| len.as_str().to_string().parse::<u32>().unwrap())
+            .unwrap(),
+        sending_node: cap
+            .name("sending_node")
+            .map(|sending_node| sending_node.as_str().to_string())
+            .unwrap(),
     })
 }
 
@@ -74,17 +61,15 @@ fn parse_message_description(line: &str) -> Option<DbcMessageDescription> {
     static RE: LazyRegex =
         LazyRegex::new(|| Regex::new(r#"CM_ BO_ (?P<id>\d+) "(?P<description>.*)";"#).unwrap());
 
-    RE.captures(line).and_then(|cap| {
-        Some(DbcMessageDescription {
-            id: cap
-                .name("id")
-                .map(|id| id.as_str().to_string().parse::<u32>().unwrap())
-                .unwrap(),
-            description: cap
-                .name("description")
-                .map(|description| description.as_str().to_string())
-                .unwrap(),
-        })
+    RE.captures(line).map(|cap| DbcMessageDescription {
+        id: cap
+            .name("id")
+            .map(|id| id.as_str().to_string().parse::<u32>().unwrap())
+            .unwrap(),
+        description: cap
+            .name("description")
+            .map(|description| description.as_str().to_string())
+            .unwrap(),
     })
 }
 
@@ -93,21 +78,19 @@ fn parse_message_attribute(line: &str) -> Option<DbcMessageAttribute> {
         Regex::new(r#"BA_ "(?P<name>\w+)" BO_ (?P<id>\d+) (?P<value>\S*);"#).unwrap()
     });
 
-    RE.captures(line).and_then(|cap| {
-        Some(DbcMessageAttribute {
-            name: cap
-                .name("name")
-                .map(|key| key.as_str().to_string())
-                .unwrap(),
-            id: cap
-                .name("id")
-                .map(|id| id.as_str().to_string().parse::<u32>().unwrap())
-                .unwrap(),
-            value: cap
-                .name("value")
-                .map(|value| value.as_str().to_string())
-                .unwrap(),
-        })
+    RE.captures(line).map(|cap| DbcMessageAttribute {
+        name: cap
+            .name("name")
+            .map(|key| key.as_str().to_string())
+            .unwrap(),
+        id: cap
+            .name("id")
+            .map(|id| id.as_str().to_string().parse::<u32>().unwrap())
+            .unwrap(),
+        value: cap
+            .name("value")
+            .map(|value| value.as_str().to_string())
+            .unwrap(),
     })
 }
 
@@ -119,53 +102,51 @@ fn parse_signal_definition(line: &str) -> Option<DbcSignalDefinition> {
         .unwrap()
     });
 
-    RE.captures(line).and_then(|cap| {
-        Some(DbcSignalDefinition {
-            name: cap
-                .name("name")
-                .map(|name| name.as_str().to_string())
-                .unwrap(),
-            start_bit: cap
-                .name("start_bit")
-                .map(|start_bit| start_bit.as_str().to_string().parse::<usize>().unwrap())
-                .unwrap(),
-            bit_len: cap
-                .name("bit_len")
-                .map(|bit_len| bit_len.as_str().to_string().parse::<usize>().unwrap())
-                .unwrap(),
-            little_endian: cap
-                .name("little_endian")
-                .map(|little_endian| little_endian.as_str() == "1")
-                .unwrap(),
-            signed: cap
-                .name("is_signed")
-                .map(|is_signed| is_signed.as_str() == "-")
-                .unwrap(),
-            scale: cap
-                .name("scale")
-                .map(|scale| scale.as_str().to_string().parse::<f32>().unwrap())
-                .unwrap(),
-            offset: cap
-                .name("offset")
-                .map(|offset| offset.as_str().to_string().parse::<f32>().unwrap())
-                .unwrap(),
-            min_value: cap
-                .name("min_value")
-                .map(|min_value| min_value.as_str().to_string().parse::<f32>().unwrap())
-                .unwrap(),
-            max_value: cap
-                .name("max_value")
-                .map(|min_value| min_value.as_str().to_string().parse::<f32>().unwrap())
-                .unwrap(),
-            units: cap
-                .name("units")
-                .map(|units| units.as_str().to_string())
-                .unwrap(),
-            receiving_node: cap
-                .name("receiving_node")
-                .map(|receving_node| receving_node.as_str().to_string())
-                .unwrap(),
-        })
+    RE.captures(line).map(|cap| DbcSignalDefinition {
+        name: cap
+            .name("name")
+            .map(|name| name.as_str().to_string())
+            .unwrap(),
+        start_bit: cap
+            .name("start_bit")
+            .map(|start_bit| start_bit.as_str().to_string().parse::<usize>().unwrap())
+            .unwrap(),
+        bit_len: cap
+            .name("bit_len")
+            .map(|bit_len| bit_len.as_str().to_string().parse::<usize>().unwrap())
+            .unwrap(),
+        little_endian: cap
+            .name("little_endian")
+            .map(|little_endian| little_endian.as_str() == "1")
+            .unwrap(),
+        signed: cap
+            .name("is_signed")
+            .map(|is_signed| is_signed.as_str() == "-")
+            .unwrap(),
+        scale: cap
+            .name("scale")
+            .map(|scale| scale.as_str().to_string().parse::<f32>().unwrap())
+            .unwrap(),
+        offset: cap
+            .name("offset")
+            .map(|offset| offset.as_str().to_string().parse::<f32>().unwrap())
+            .unwrap(),
+        min_value: cap
+            .name("min_value")
+            .map(|min_value| min_value.as_str().to_string().parse::<f32>().unwrap())
+            .unwrap(),
+        max_value: cap
+            .name("max_value")
+            .map(|min_value| min_value.as_str().to_string().parse::<f32>().unwrap())
+            .unwrap(),
+        units: cap
+            .name("units")
+            .map(|units| units.as_str().to_string())
+            .unwrap(),
+        receiving_node: cap
+            .name("receiving_node")
+            .map(|receving_node| receving_node.as_str().to_string())
+            .unwrap(),
     })
 }
 
@@ -174,21 +155,19 @@ fn parse_signal_description(line: &str) -> Option<DbcSignalDescription> {
         Regex::new(r#"CM_ SG_ (?P<id>\d+) (?P<name>\w+)[ \t]"(?P<description>.*)";"#).unwrap()
     });
 
-    RE.captures(line).and_then(|cap| {
-        Some(DbcSignalDescription {
-            id: cap
-                .name("id")
-                .map(|id| id.as_str().to_string().parse::<u32>().unwrap())
-                .unwrap(),
-            signal_name: cap
-                .name("name")
-                .map(|name| name.as_str().to_string())
-                .unwrap(),
-            description: cap
-                .name("description")
-                .map(|description| description.as_str().to_string())
-                .unwrap(),
-        })
+    RE.captures(line).map(|cap| DbcSignalDescription {
+        id: cap
+            .name("id")
+            .map(|id| id.as_str().to_string().parse::<u32>().unwrap())
+            .unwrap(),
+        signal_name: cap
+            .name("name")
+            .map(|name| name.as_str().to_string())
+            .unwrap(),
+        description: cap
+            .name("description")
+            .map(|description| description.as_str().to_string())
+            .unwrap(),
     })
 }
 
@@ -198,22 +177,20 @@ fn parse_signal_attribute(line: &str) -> Option<DbcSignalAttribute> {
             .unwrap()
     });
 
-    RE.captures(line).and_then(|cap| {
-        Some(DbcSignalAttribute {
-            name: cap.name("key").map(|key| key.as_str().to_string()).unwrap(),
-            id: cap
-                .name("id")
-                .map(|id| id.as_str().to_string().parse::<u32>().unwrap())
-                .unwrap(),
-            signal_name: cap
-                .name("name")
-                .map(|name| name.as_str().to_string())
-                .unwrap(),
-            value: cap
-                .name("value")
-                .map(|value| value.as_str().to_string())
-                .unwrap(),
-        })
+    RE.captures(line).map(|cap| DbcSignalAttribute {
+        name: cap.name("key").map(|key| key.as_str().to_string()).unwrap(),
+        id: cap
+            .name("id")
+            .map(|id| id.as_str().to_string().parse::<u32>().unwrap())
+            .unwrap(),
+        signal_name: cap
+            .name("name")
+            .map(|name| name.as_str().to_string())
+            .unwrap(),
+        value: cap
+            .name("value")
+            .map(|value| value.as_str().to_string())
+            .unwrap(),
     })
 }
 

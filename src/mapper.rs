@@ -32,10 +32,8 @@ impl<'a> DecodeMessage<&'a [u8; 8]> for DbcSignal {
     /// # Examples
     ///
     /// ```rust
-    /// use fastcan::{dbc::{library::{DbcFrame, DbcSignal},
-    ///     DbcLibrary},
-    ///     mapper::DecodeMessage,
-    /// };
+    /// use fastcan::{dbc::{DbcFrame, DbcSignal, DbcLibrary},
+    ///     mapper::DecodeMessage};
     ///
     /// use std::collections::HashMap;
     ///
@@ -75,7 +73,7 @@ impl DecodeMessage<Vec<u8>> for DbcSignal {
     /// # Examples
     ///
     /// ```rust
-    /// use fastcan::{dbc::{library::{DbcFrame, DbcSignal},
+    /// use fastcan::{dbc::{DbcFrame, DbcSignal,
     ///     DbcLibrary},
     ///     mapper::DecodeMessage,
     /// };
@@ -118,7 +116,7 @@ impl EncodeMessage<Vec<u8>> for DbcFrame {
     /// # Examples
     ///
     /// ```rust
-    /// use fastcan::{dbc::{library::{DbcFrame, DbcSignal},
+    /// use fastcan::{dbc::{DbcFrame, DbcSignal,
     ///     DbcLibrary},
     ///     mapper::EncodeMessage,
     /// };
@@ -184,11 +182,10 @@ impl EncodeMessage<[u8; 8]> for DbcFrame {
     /// # Examples
     ///
     /// ```rust
-    /// use fastcan::{dbc::DbcSignalDefinition,
-    ///     dbc::{library::{DbcFrame, DbcSignal},
+    /// use fastcan::{dbc::{DbcSignalDefinition, DbcFrame, DbcSignal,
     ///     DbcLibrary, DbcVersion, Entry},
-    ///     mapper::{DecodeMessage, EncodeMessage},
-    /// };
+    ///     mapper::{DecodeMessage, EncodeMessage}};
+    /// 
     ///
     /// use std::collections::HashMap;
     ///
