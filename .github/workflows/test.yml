@@ -26,10 +26,10 @@ jobs:
         run: cargo build
 
       - name: Run cargo test (socketcan)
-        run: cargo build --features "use-socketcan"
+        run: cargo build
 
       - name: Run cargo test
         run: cargo test
 
       - name: Run cargo test (socketcan)
-        run: cargo test --features "use-socketcan"
+        run: cargo test
