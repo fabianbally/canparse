@@ -129,6 +129,11 @@ impl DbcFrame {
         self.signals.get(name)
     }
 
+    /// Returns name of frame
+    pub fn get_name(&self) -> &String {
+        &self.name
+    }
+
     /// Returns arbitration ID of CAN frame
     pub fn get_id(&self) -> u32 {
         self.id
