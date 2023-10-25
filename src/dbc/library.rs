@@ -69,6 +69,14 @@ impl DbcSignal {
     pub fn get_attribute(&self, identifier: &str) -> Option<&String> {
         self.attributes.get(identifier)
     }
+
+    /// Returns the long name of the signal
+    pub fn long_name(&self) -> &String {
+        match self.attributes.get("SystemSignalLongSymbol") {
+            Some(name) => name,
+            None => &(self.definition.as_ref().unwrap().name),
+        }
+    }
 }
 
 type MessageAttribute = String;
